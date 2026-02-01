@@ -1,0 +1,153 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Location Page Template
+-->
+{% extends "./layouts/base.html" %}
+
+{% set location_name = "LOCATION_NAME" %}
+{% set location_slug = "location-slug" %}
+{% set county = "COUNTY_NAME" %}
+
+{% block page_title %}Mobile Mechanic in {{ location_name }}, TN | Mobile Mechanic Muscle{% endblock %}
+
+{% block body_class %}location-page location-{{ location_slug }}{% endblock %}
+
+{% block body %}
+
+{# Hero Section #}
+<section class="hero-section hero-local">
+  <div class="container">
+    <div class="hero-text">
+      <h1>Mobile Mechanic in {{ location_name }}, TN | Service at Your Home or Office</h1>
+      <p class="hero-subhead">Skip the drive to a shop. ASE-Certified mechanics serve {{ location_name }} residents with professional auto repair at your location.</p>
+      <a href="#quote-form" class="cta-button">Get Your Free Quote</a>
+    </div>
+  </div>
+</section>
+
+{# Local Context Section #}
+<section class="content-section">
+  <div class="container">
+    <h2>{{ location_name }}'s Trusted Mobile Mechanic Service</h2>
+    <p>LOCATION_SPECIFIC_INTRO with local landmarks and context.</p>
+    <p>Whether you're near [LOCAL_LANDMARK] dealing with a check engine light or parked at home in [NEIGHBORHOOD] with a brake problem, we come to you.</p>
+    <a href="#quote-form" class="cta-button cta-secondary">Schedule Your Service</a>
+  </div>
+</section>
+
+{# Services Grid #}
+<section class="content-section content-section-alt">
+  <div class="container">
+    <h2>Complete Auto Services in {{ location_name }}</h2>
+    <p>We handle everything from routine maintenance to complex diagnostics.</p>
+    
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Brake Repair</h3>
+        <p>Pads, rotors, calipers, and complete brake system service.</p>
+        <a href="/services/brake-repair" class="card-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <h3>Diagnostics</h3>
+        <p>Check engine light troubleshooting and computer diagnostics.</p>
+        <a href="/services/diagnostics" class="card-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <h3>Battery & Starter</h3>
+        <p>Battery testing, replacement, and starter repair.</p>
+        <a href="/services/battery-starter" class="card-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <h3>Cooling System</h3>
+        <p>Radiator, thermostat, water pump repair, and coolant flushes.</p>
+        <a href="/services/cooling-system" class="card-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <h3>Suspension & Steering</h3>
+        <p>Shocks, struts, ball joints, tie rods, and steering components.</p>
+        <a href="/services/suspension" class="card-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <h3>Pre-Purchase Inspections</h3>
+        <p>Comprehensive vehicle inspection before you buy.</p>
+        <a href="/services/pre-purchase-inspection" class="card-link">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Why Choose Us for Location #}
+<section class="content-section">
+  <div class="container">
+    <h2>Why {{ location_name }} Residents Choose Mobile Mechanic Muscle</h2>
+    
+    <h3>Skip the Traffic Headache</h3>
+    <p>LOCATION_SPECIFIC_TRAFFIC_CONTEXT (mention local highways, commute patterns)</p>
+    
+    <h3>Stay Productive While We Work</h3>
+    <p>Why waste half a day at a repair shop when you could be working or spending time with family?</p>
+    
+    <h3>Professional Service, Local Convenience</h3>
+    <p>We're familiar with {{ location_name }}'s streets, neighborhoods, and traffic patterns.</p>
+  </div>
+</section>
+
+{# Service Area Coverage #}
+<section class="content-section content-section-alt">
+  <div class="container">
+    <h2>Serving All of {{ location_name }} & {{ county }}</h2>
+    <p>We provide mobile mechanic service throughout {{ location_name }} including:</p>
+    <ul class="checklist">
+      <li><strong>Area 1:</strong> Description</li>
+      <li><strong>Area 2:</strong> Description</li>
+      <li><strong>Area 3:</strong> Description</li>
+    </ul>
+  </div>
+</section>
+
+{# Final CTA #}
+<section class="cta-section">
+  <div class="container text-center">
+    <h2>Ready for Hassle-Free Auto Repair in {{ location_name }}?</h2>
+    <p>Schedule your mobile mechanic service and we'll come to you.</p>
+    <a href="#quote-form" class="cta-button">Get Your Free Quote</a>
+    <p class="mt-20"><a href="tel:615-XXX-XXXX" class="cta-button cta-secondary">Or Call: (615) XXX-XXXX</a></p>
+  </div>
+</section>
+
+{# Quote Form #}
+<section class="content-section" id="quote-form">
+  <div class="container">
+    <h2>Request Your Free Quote</h2>
+    {% form "form_id_here" %}
+  </div>
+</section>
+
+{% endblock %}
+
+{% block footer_extra %}
+{# JSON-LD Schema for LocalBusiness #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Mobile Mechanic Muscle - {{ location_name }}",
+  "url": "https://mobilemechanicmusclenearme.com/locations/{{ location_slug }}",
+  "telephone": "615-XXX-XXXX",
+  "@type": "AutomotiveBusiness",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ location_name }}",
+    "addressRegion": "TN",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "{{ location_name }}"
+    }
+  ]
+}
+</script>
+{% endblock %}

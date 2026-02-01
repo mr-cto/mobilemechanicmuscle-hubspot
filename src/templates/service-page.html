@@ -1,0 +1,139 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Service Page Template
+-->
+{% extends "./layouts/base.html" %}
+
+{% set service_name = "SERVICE_NAME" %}
+{% set service_slug = "service-slug" %}
+{% set primary_keyword = "PRIMARY_KEYWORD" %}
+
+{% block page_title %}{{ service_name }} in Nashville | Mobile Mechanic Muscle{% endblock %}
+
+{% block body_class %}service-page service-{{ service_slug }}{% endblock %}
+
+{% block body %}
+
+{# Hero Section #}
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-text">
+      <h1>{{ service_name }} in Nashville | Expert Service at Your Location</h1>
+      <p class="hero-subhead">ASE-Certified mechanics bring professional {{ service_name|lower }} service directly to your home or office. No towing, no waiting rooms—just fast, reliable repair.</p>
+      <a href="#quote-form" class="cta-button">Get Your Free Quote</a>
+    </div>
+  </div>
+</section>
+
+{# Problem/Solution Section #}
+<section class="content-section">
+  <div class="container">
+    <h2>SECTION_HEADING</h2>
+    <p>SECTION_CONTENT</p>
+    
+    <a href="#quote-form" class="cta-button cta-secondary">Schedule Your Service</a>
+    
+    <h3>Common Problems We Fix</h3>
+    <ul class="checklist">
+      <li>Problem 1</li>
+      <li>Problem 2</li>
+      <li>Problem 3</li>
+    </ul>
+  </div>
+</section>
+
+{# How It Works Section #}
+<section class="content-section content-section-alt">
+  <div class="container">
+    <h2>How Our Mobile {{ service_name }} Service Works</h2>
+    <ol class="process-list">
+      <li><strong>Request Your Quote:</strong> Call or fill out our online form.</li>
+      <li><strong>We Come to You:</strong> Our technician arrives at your location.</li>
+      <li><strong>Thorough Inspection:</strong> We diagnose the issue.</li>
+      <li><strong>Clear Pricing:</strong> You get a written estimate upfront.</li>
+      <li><strong>Expert Repair:</strong> We complete the work on-site.</li>
+      <li><strong>Test & Warranty:</strong> Includes road test and warranty.</li>
+    </ol>
+  </div>
+</section>
+
+{# Why Choose Us Section #}
+<section class="content-section">
+  <div class="container">
+    <h2>Why Choose Mobile Mechanic Muscle?</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>ASE-Certified Expertise</h3>
+        <p>Current ASE certifications and dealership-quality work at your location.</p>
+      </div>
+      <div class="service-card">
+        <h3>True Mobile Convenience</h3>
+        <p>We work around your schedule. Stay productive while we handle repairs.</p>
+      </div>
+      <div class="service-card">
+        <h3>Transparent Pricing</h3>
+        <p>Written estimates before we start. No hidden fees or upselling.</p>
+      </div>
+      <div class="service-card">
+        <h3>Quality Parts & Warranty</h3>
+        <p>Premium components that meet or exceed OEM specifications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Service Area Mention #}
+<section class="content-section content-section-alt">
+  <div class="container">
+    <h2>Serving Nashville & Surrounding Areas</h2>
+    <p>Mobile Mechanic Muscle provides mobile {{ service_name|lower }} service throughout Davidson County and the surrounding Nashville metro area. Whether you're in Franklin, Brentwood, Murfreesboro, or Hendersonville, we bring professional service to your location.</p>
+    <a href="#quote-form" class="cta-button">Request Service in Your Area</a>
+  </div>
+</section>
+
+{# Final CTA Section #}
+<section class="cta-section">
+  <div class="container text-center">
+    <h2>Ready to Get Back on the Road?</h2>
+    <p>Expert mobile {{ service_name|lower }} service at your location.</p>
+    <a href="#quote-form" class="cta-button">Get Your Free Quote</a>
+    <p class="mt-20"><a href="tel:615-XXX-XXXX" class="cta-button cta-secondary">Or Call: (615) XXX-XXXX</a></p>
+  </div>
+</section>
+
+{# Quote Form Section #}
+<section class="content-section" id="quote-form">
+  <div class="container">
+    <h2>Request Your Free Quote</h2>
+    {% form "form_id_here" %}
+  </div>
+</section>
+
+{% endblock %}
+
+{% block footer_extra %}
+{# JSON-LD Schema for Service #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "{{ service_name }}",
+  "provider": {
+    "@type": "AutomotiveBusiness",
+    "name": "Mobile Mechanic Muscle",
+    "url": "https://mobilemechanicmusclenearme.com",
+    "telephone": "615-XXX-XXXX"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "36.1627",
+      "longitude": "-86.7816"
+    },
+    "geoRadius": "25 miles"
+  }
+}
+</script>
+{% endblock %}
