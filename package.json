@@ -1,0 +1,17 @@
+{
+  "name": "mmm-hubspot-content-engine",
+  "version": "1.0.0",
+  "description": "Nashville SEO Content Engine - HubSpot page generation",
+  "type": "module",
+  "scripts": {
+    "create-pages": "node scripts/create-pages.js",
+    "generate-content": "node scripts/generate-content.js"
+  },
+  "keywords": ["hubspot", "seo", "content-generation"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hubspot/api-client": "^11.2.0",
+    "dotenv": "^16.4.5"
+  }
+}
