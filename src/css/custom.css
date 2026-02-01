@@ -230,7 +230,7 @@ h6 { font-size: 16px; }
   margin-bottom: 20px;
 }
 
-/* Service Grid */
+/* Service Grid / Offer Cards */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -238,37 +238,58 @@ h6 { font-size: 16px; }
   margin-top: 40px;
 }
 
-.service-card {
+.offer-card {
   background: white;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
-.service-card:hover {
+.offer-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
-.service-card h3 {
+.card {
+  border: 1px solid var(--border-color);
+}
+
+.card--light {
+  background: white;
+}
+
+.offer-card__image-wrapper {
+  margin-bottom: 20px;
+}
+
+.offer-card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.offer-card__content {
+  flex: 1 1 auto;
+  margin-bottom: 20px;
+}
+
+.offer-card__content h3 {
   color: var(--text-dark);
   margin-bottom: 15px;
-  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.card-link {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-  margin-top: 15px;
+.offer-card__content p {
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
-.card-link:hover {
-  text-decoration: underline;
+.offer-card__button-wrapper {
+  flex: 0 0 auto;
 }
 
 /* Lists */
