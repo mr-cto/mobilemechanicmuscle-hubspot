@@ -1,0 +1,47 @@
+{
+  "business_info": {
+    "name": "Mobile Mechanic Muscle",
+    "phone": "[INSERT_PHONE_NUMBER]",
+    "email": "[INSERT_EMAIL]",
+    "website": "https://mobilemechanicmusclenearme.com",
+    "logo_url": "[INSERT_LOGO_URL]",
+    "established_year": "[INSERT_YEAR]",
+    "rating": "4.9",
+    "review_count": "127",
+    "social_media": {
+      "facebook": "[INSERT_FACEBOOK_URL]",
+      "google_business": "[INSERT_GOOGLE_BUSINESS_URL]"
+    }
+  },
+  "generation_settings": {
+    "tone": "professional-friendly",
+    "formality": "medium",
+    "cta_frequency": 300,
+    "min_word_count": 600,
+    "max_word_count": 1200,
+    "include_faq": true,
+    "include_schema": true
+  },
+  "seo_settings": {
+    "keyword_density": "1-2%",
+    "h2_count": "3-5",
+    "h3_count": "2-4",
+    "internal_links": "2-3",
+    "external_links": "0-1"
+  },
+  "cta_variations": [
+    "Get Your Free Quote",
+    "Schedule Your Service",
+    "Call Now for Fast Service",
+    "Request Your Free Estimate",
+    "Book Your Mobile Repair"
+  ],
+  "trust_signals": [
+    "ASE-Certified Technicians",
+    "Lifetime Warranty on Brake Pads",
+    "Same-Day Service Available",
+    "Free Diagnostic with Repair",
+    "Over [X] Years in Business",
+    "Family-Owned & Operated"
+  ]
+}

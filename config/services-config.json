@@ -1,0 +1,200 @@
+{
+  "services": [
+    {
+      "id": "brake-repair",
+      "name": "Brake Repair",
+      "slug": "brake-repair",
+      "primary_keyword": "mobile brake repair Nashville",
+      "secondary_keywords": [
+        "brake service Nashville",
+        "brake pads replacement",
+        "mobile brake mechanic",
+        "brake repair near me"
+      ],
+      "description": "Complete brake system repair including pads, rotors, calipers, and brake fluid service",
+      "schema_type": "Service",
+      "estimated_word_count": 1000,
+      "key_benefits": [
+        "We come to your location",
+        "Same-day service available",
+        "Free brake inspection",
+        "Lifetime warranty on brake pads"
+      ],
+      "common_problems": [
+        "Squeaking or grinding brakes",
+        "Soft brake pedal",
+        "Brake warning light",
+        "Pulsating when braking"
+      ],
+      "price_range": "$150-$500"
+    },
+    {
+      "id": "diagnostics",
+      "name": "Diagnostics & Check Engine Light",
+      "slug": "diagnostics",
+      "primary_keyword": "check engine light diagnostic Nashville",
+      "secondary_keywords": [
+        "car diagnostic service",
+        "OBD2 scan Nashville",
+        "engine light repair",
+        "mobile diagnostic"
+      ],
+      "description": "Professional computer diagnostics and check engine light troubleshooting",
+      "schema_type": "Service",
+      "estimated_word_count": 900,
+      "key_benefits": [
+        "Advanced diagnostic equipment",
+        "Clear explanation of codes",
+        "No diagnostic fee with repair",
+        "Bring tools to your location"
+      ],
+      "common_problems": [
+        "Check engine light on",
+        "ABS warning light",
+        "Traction control light",
+        "Poor fuel economy"
+      ],
+      "price_range": "$89-$149"
+    },
+    {
+      "id": "battery-starter",
+      "name": "Battery & Starter Service",
+      "slug": "battery-starter",
+      "primary_keyword": "mobile battery replacement Nashville",
+      "secondary_keywords": [
+        "car battery service",
+        "starter repair Nashville",
+        "dead battery help",
+        "alternator testing"
+      ],
+      "description": "Battery testing, replacement, and starter/alternator diagnostics and repair",
+      "schema_type": "Service",
+      "estimated_word_count": 850,
+      "key_benefits": [
+        "Battery testing included",
+        "New battery installed on-site",
+        "We dispose of old battery",
+        "3-year warranty on batteries"
+      ],
+      "common_problems": [
+        "Car won't start",
+        "Slow engine crank",
+        "Clicking sound when starting",
+        "Battery warning light"
+      ],
+      "price_range": "$120-$300"
+    },
+    {
+      "id": "cooling-system",
+      "name": "Cooling System Repair",
+      "slug": "cooling-system",
+      "primary_keyword": "radiator repair Nashville",
+      "secondary_keywords": [
+        "cooling system service",
+        "overheating repair",
+        "thermostat replacement",
+        "coolant flush Nashville"
+      ],
+      "description": "Radiator, thermostat, water pump, and coolant system diagnosis and repair",
+      "schema_type": "Service",
+      "estimated_word_count": 900,
+      "key_benefits": [
+        "Prevent engine damage",
+        "Mobile coolant flush",
+        "Quality OEM parts",
+        "Temperature testing"
+      ],
+      "common_problems": [
+        "Engine overheating",
+        "Coolant leak",
+        "Temperature gauge high",
+        "Steam from hood"
+      ],
+      "price_range": "$180-$600"
+    },
+    {
+      "id": "suspension",
+      "name": "Suspension & Steering",
+      "slug": "suspension",
+      "primary_keyword": "suspension repair Nashville",
+      "secondary_keywords": [
+        "shock replacement",
+        "strut repair Nashville",
+        "steering service",
+        "mobile suspension work"
+      ],
+      "description": "Shocks, struts, ball joints, tie rods, and steering component repair",
+      "schema_type": "Service",
+      "estimated_word_count": 950,
+      "key_benefits": [
+        "Restore smooth ride",
+        "Improve handling",
+        "Stop unusual noises",
+        "Mobile alignment check"
+      ],
+      "common_problems": [
+        "Bumpy ride",
+        "Clunking over bumps",
+        "Loose steering",
+        "Uneven tire wear"
+      ],
+      "price_range": "$200-$800"
+    },
+    {
+      "id": "pre-purchase-inspection",
+      "name": "Pre-Purchase Inspections",
+      "slug": "pre-purchase-inspection",
+      "primary_keyword": "pre-purchase car inspection Nashville",
+      "secondary_keywords": [
+        "used car inspection",
+        "vehicle inspection service",
+        "buy car inspection",
+        "mobile car inspection"
+      ],
+      "description": "Comprehensive used vehicle inspection before you buy",
+      "schema_type": "Service",
+      "estimated_word_count": 800,
+      "key_benefits": [
+        "150+ point inspection",
+        "Written report provided",
+        "Meet seller anywhere",
+        "Save thousands on repairs"
+      ],
+      "common_problems": [
+        "Buying used car",
+        "Private party sale",
+        "Uncertain about vehicle",
+        "Need expert opinion"
+      ],
+      "price_range": "$150-$200"
+    },
+    {
+      "id": "emergency-roadside",
+      "name": "Emergency Roadside Assistance",
+      "slug": "emergency-roadside",
+      "primary_keyword": "emergency mobile mechanic Nashville",
+      "secondary_keywords": [
+        "roadside assistance Nashville",
+        "car broke down help",
+        "emergency car repair",
+        "stranded vehicle service"
+      ],
+      "description": "Fast response emergency mobile mechanic service when you're stranded",
+      "schema_type": "Service",
+      "estimated_word_count": 750,
+      "key_benefits": [
+        "Quick response time",
+        "Available 7 days/week",
+        "Fix on-site if possible",
+        "No towing fees needed"
+      ],
+      "common_problems": [
+        "Stranded on roadside",
+        "Car won't start",
+        "Flat tire",
+        "Emergency repair needed"
+      ],
+      "price_range": "$100-$400"
+    }
+  ]
+}

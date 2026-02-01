@@ -1,0 +1,104 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://mobilemechanicmusclenearme.com",
+  "name": "Mobile Mechanic Muscle",
+  "alternateName": "Mobile Mechanic Muscle Near Me",
+  "url": "https://mobilemechanicmusclenearme.com",
+  "telephone": "[PHONE_NUMBER]",
+  "email": "[EMAIL]",
+  "description": "ASE-Certified mobile mechanic serving [NEIGHBORHOOD] and surrounding areas. We come to you for brake repair, diagnostics, and all automotive services.",
+  "image": "[LOGO_URL]",
+  "priceRange": "$$",
+  "paymentAccepted": "Cash, Credit Card, Debit Card",
+  "@type": "AutomotiveBusiness",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "[NEIGHBORHOOD]",
+    "addressRegion": "TN",
+    "postalCode": "[PRIMARY_ZIP]",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "[LATITUDE]",
+    "longitude": "[LONGITUDE]"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "[NEIGHBORHOOD]"
+    },
+    {
+      "@type": "City",
+      "name": "Nashville"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Mobile Auto Repair Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Brake Repair",
+          "description": "Mobile brake service including pads, rotors, and fluid"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Diagnostic Services",
+          "description": "Check engine light diagnostics and computer scanning"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Battery Service",
+          "description": "Battery testing, replacement, and starter service"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cooling System",
+          "description": "Radiator, thermostat, and coolant system repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Suspension Repair",
+          "description": "Shocks, struts, and steering component service"
+        }
+      }
+    ]
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "15:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "[RATING]",
+    "reviewCount": "[REVIEW_COUNT]",
+    "bestRating": "5"
+  },
+  "sameAs": ["[FACEBOOK_URL]", "[GOOGLE_BUSINESS_URL]"]
+}

@@ -1,0 +1,155 @@
+{
+  "neighborhoods": [
+    {
+      "id": "franklin",
+      "name": "Franklin",
+      "slug": "franklin",
+      "county": "Williamson County",
+      "state": "Tennessee",
+      "zip_codes": ["37064", "37065", "37067", "37068"],
+      "primary_keyword": "mobile mechanic Franklin TN",
+      "secondary_keywords": [
+        "auto repair Franklin",
+        "mechanic in Franklin",
+        "car repair Franklin TN",
+        "mobile mechanic Williamson County"
+      ],
+      "coordinates": {
+        "latitude": "35.9251",
+        "longitude": "-86.8689"
+      },
+      "population": 83454,
+      "landmarks": [
+        "Cool Springs Galleria",
+        "Downtown Franklin",
+        "Aspen Grove",
+        "McEwen Drive",
+        "Mack Hatcher Parkway",
+        "Carothers Parkway"
+      ],
+      "major_roads": [
+        "I-65",
+        "Highway 96",
+        "Mack Hatcher Parkway",
+        "Carothers Parkway"
+      ],
+      "nearby_areas": [
+        "Brentwood",
+        "Spring Hill",
+        "Thompson's Station",
+        "Nolensville"
+      ],
+      "local_context": "Fast-growing Williamson County suburb known for Cool Springs business district and historic downtown. Residents often commute to Nashville via I-65.",
+      "estimated_word_count": 700
+    },
+    {
+      "id": "brentwood",
+      "name": "Brentwood",
+      "slug": "brentwood",
+      "county": "Williamson County",
+      "state": "Tennessee",
+      "zip_codes": ["37027"],
+      "primary_keyword": "mobile mechanic Brentwood TN",
+      "secondary_keywords": [
+        "auto repair Brentwood",
+        "mechanic in Brentwood",
+        "car repair Brentwood TN",
+        "Brentwood mobile mechanic"
+      ],
+      "coordinates": {
+        "latitude": "36.0331",
+        "longitude": "-86.7828"
+      },
+      "population": 45373,
+      "landmarks": [
+        "Maryland Farms",
+        "Hill Center Brentwood",
+        "Brentwood Library",
+        "Concord Road",
+        "Old Hickory Boulevard"
+      ],
+      "major_roads": [
+        "I-65",
+        "Old Hickory Boulevard",
+        "Concord Road",
+        "Franklin Road"
+      ],
+      "nearby_areas": ["Franklin", "Nashville", "Nolensville", "Oak Hill"],
+      "local_context": "Affluent Nashville suburb with Maryland Farms business district. Close proximity to both Nashville and Franklin.",
+      "estimated_word_count": 650
+    },
+    {
+      "id": "murfreesboro",
+      "name": "Murfreesboro",
+      "slug": "murfreesboro",
+      "county": "Rutherford County",
+      "state": "Tennessee",
+      "zip_codes": ["37127", "37128", "37129", "37130", "37132"],
+      "primary_keyword": "mobile mechanic Murfreesboro TN",
+      "secondary_keywords": [
+        "auto repair Murfreesboro",
+        "mechanic in Murfreesboro",
+        "car repair Murfreesboro TN",
+        "Rutherford County mechanic"
+      ],
+      "coordinates": {
+        "latitude": "35.8456",
+        "longitude": "-86.3903"
+      },
+      "population": 152769,
+      "landmarks": [
+        "MTSU (Middle Tennessee State University)",
+        "The Avenue Murfreesboro",
+        "Medical Center Parkway",
+        "Old Fort Parkway",
+        "Stones River Mall"
+      ],
+      "major_roads": [
+        "I-24",
+        "Old Fort Parkway",
+        "Medical Center Parkway",
+        "Broad Street",
+        "Memorial Boulevard"
+      ],
+      "nearby_areas": ["Smyrna", "La Vergne", "Rockvale", "Christiana"],
+      "local_context": "Tennessee's fastest-growing major city. Home to MTSU and a large commuter population traveling to Nashville via I-24.",
+      "estimated_word_count": 750
+    },
+    {
+      "id": "hendersonville",
+      "name": "Hendersonville",
+      "slug": "hendersonville",
+      "county": "Sumner County",
+      "state": "Tennessee",
+      "zip_codes": ["37075", "37076", "37077"],
+      "primary_keyword": "mobile mechanic Hendersonville TN",
+      "secondary_keywords": [
+        "auto repair Hendersonville",
+        "mechanic in Hendersonville",
+        "car repair Hendersonville TN",
+        "Sumner County mechanic"
+      ],
+      "coordinates": {
+        "latitude": "36.3048",
+        "longitude": "-86.6200"
+      },
+      "population": 61753,
+      "landmarks": [
+        "Rockland Recreation Center",
+        "Drakes Creek Park",
+        "Indian Lake",
+        "Vietnam Veterans Boulevard",
+        "New Shackle Island Road"
+      ],
+      "major_roads": [
+        "Vietnam Veterans Boulevard",
+        "New Shackle Island Road",
+        "Indian Lake Boulevard",
+        "Gallatin Pike"
+      ],
+      "nearby_areas": ["Gallatin", "Goodlettsville", "Portland", "White House"],
+      "local_context": "Lakeside community north of Nashville along Old Hickory Lake. Known for country music heritage and family-friendly neighborhoods.",
+      "estimated_word_count": 650
+    }
+  ]
+}
