@@ -1,6 +1,7 @@
 # Safe Parallel Development Strategy
 
 ## Goal
+
 Work on new pages without affecting the 3 existing published pages until ready for launch.
 
 ---
@@ -10,17 +11,20 @@ Work on new pages without affecting the 3 existing published pages until ready f
 ### How It Works
 
 **Current Site:**
+
 - `/` - Home page (published)
 - `/contact` - Contact page (published)
 - `/gallery` - Gallery page (published)
 
 **Development Pages (Hidden from Public):**
+
 - `/draft/services/brake-repair` - NOT indexed, NOT linked
 - `/draft/services/diagnostics` - NOT indexed, NOT linked
 - `/draft/locations/franklin` - NOT indexed, NOT linked
 - etc.
 
 ### Benefits
+
 ✅ Pages are live on HubSpot but **not discoverable**  
 ✅ You can preview and show client  
 ✅ No risk of overwriting existing pages  
@@ -47,6 +51,7 @@ hs upload src/css/ draft-css/ --account=MMM
 ### Phase 2: Configure Pages for Development
 
 For each page in HubSpot:
+
 1. **Settings → SEO → Meta robots:** Set to `noindex, nofollow`
 2. **Page URL:** Use `/draft/` prefix (e.g., `/draft/services/brake-repair`)
 3. **Don't link from existing site** - Keep orphaned during development
@@ -55,6 +60,7 @@ For each page in HubSpot:
 ### Phase 3: Client Review
 
 Share draft links directly:
+
 - https://mobilemechanicmusclenearme.com/draft/services/brake-repair
 - https://mobilemechanicmusclenearme.com/draft/locations/franklin
 
@@ -90,12 +96,14 @@ When approved:
 If client has **Enterprise** HubSpot:
 
 ### Use Sandbox Environment
+
 - Complete isolated copy of production
 - Test everything without risk
 - Push changes when ready
 - **Requires HubSpot Enterprise plan**
 
 Check if available:
+
 ```bash
 # List available environments
 hs accounts list
@@ -108,9 +116,11 @@ If you see multiple accounts/environments, you can use sandbox workflow.
 ## Recommended Approach for Your Project
 
 ### Option 1: `/draft/` Path Method (Free, Easy)
+
 **Best for:** Starter/Professional HubSpot plans
 
 **Workflow:**
+
 1. Upload templates to HubSpot
 2. Create pages with `/draft/` URL prefix
 3. Set `noindex, nofollow` on all draft pages
@@ -119,21 +129,25 @@ If you see multiple accounts/environments, you can use sandbox workflow.
 6. Clean up draft pages
 
 **Pros:**
+
 - Works on any HubSpot plan
 - Simple to implement
 - Easy client review process
 - Zero risk to existing site
 
 **Cons:**
+
 - Manual cloning process
 - Need to remember to update SEO settings
 
 ---
 
 ### Option 2: Local Development + Manual Publishing
+
 **Best for:** Maximum control
 
 **Workflow:**
+
 1. Build everything locally in `src/`
 2. Generate all content files
 3. Keep files local until approved
@@ -141,11 +155,13 @@ If you see multiple accounts/environments, you can use sandbox workflow.
 5. Publish to final URLs directly
 
 **Pros:**
+
 - Nothing touches HubSpot until approved
 - Complete local control
 - Can use Git for versioning
 
 **Cons:**
+
 - Client can't preview on real domain
 - Harder to show progress
 
@@ -176,6 +192,7 @@ If you see multiple accounts/environments, you can use sandbox workflow.
 ## Protecting Existing Pages
 
 ### Backup Current Site
+
 ```bash
 # Download current published pages (already done)
 hs fetch --account=MMM / existing-site/
@@ -186,7 +203,9 @@ git commit -m "Backup existing published pages"
 ```
 
 ### Lock Existing Pages (Optional)
+
 In HubSpot UI:
+
 1. Go to each existing page (Home, Contact, Gallery)
 2. Click **Actions → Permissions**
 3. Restrict editing to only you
@@ -226,4 +245,3 @@ Before uploading anything:
 2. **Do you want password protection** on draft pages?
 3. **When is target launch date?** (So we can plan migration window)
 4. **Who needs review access?** (Get their HubSpot user info)
-

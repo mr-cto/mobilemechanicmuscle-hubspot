@@ -4,10 +4,17 @@
   "description": "Nashville SEO Content Engine - HubSpot page generation",
   "type": "module",
   "scripts": {
-    "create-pages": "node scripts/create-pages.js",
-    "generate-content": "node scripts/generate-content.js"
+    "sync": "node scripts/sync-page-ids.js",
+    "deploy": "node scripts/deploy-pages.js",
+    "clean": "node scripts/clean-duplicates.js",
+    "status": "node scripts/status.js",
+    "full-deploy": "npm run sync && npm run deploy"
   },
-  "keywords": ["hubspot", "seo", "content-generation"],
+  "keywords": [
+    "hubspot",
+    "seo",
+    "content-generation"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

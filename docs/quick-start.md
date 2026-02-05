@@ -1,6 +1,7 @@
 # Quick Start: First Day Setup
 
 ## Overview
+
 This guide gets you operational on Day 1 of the Mobile Mechanic Muscle project.
 
 ---
@@ -154,12 +155,14 @@ hs fetch / .
 ### Google Analytics
 
 Ask client for:
+
 - [ ] Read access to Google Analytics property
 - [ ] Note property ID
 
 ### Google Search Console
 
 Ask client for:
+
 - [ ] Owner or Full access to Search Console property
 - [ ] Note property URL
 
@@ -173,15 +176,15 @@ Edit [config/generation-settings.json](../config/generation-settings.json):
 {
   "business_info": {
     "name": "Mobile Mechanic Muscle",
-    "phone": "615-XXX-XXXX",           // ← Get from client
-    "email": "info@example.com",       // ← Get from client
+    "phone": "615-XXX-XXXX", // ← Get from client
+    "email": "info@example.com", // ← Get from client
     "website": "https://mobilemechanicmusclenearme.com",
-    "logo_url": "https://...",         // ← Get from HubSpot or client
-    "established_year": "2015",        // ← Get from client
-    "rating": "4.9",                   // ← Get from Google Business
-    "review_count": "127",             // ← Get from Google Business
+    "logo_url": "https://...", // ← Get from HubSpot or client
+    "established_year": "2015", // ← Get from client
+    "rating": "4.9", // ← Get from Google Business
+    "review_count": "127", // ← Get from Google Business
     "social_media": {
-      "facebook": "https://...",       // ← Get from client
+      "facebook": "https://...", // ← Get from client
       "google_business": "https://..." // ← Get from client
     }
   }
@@ -253,10 +256,12 @@ Once verification checklist is complete:
 ## 🆘 Need Help?
 
 **HubSpot CLI Issues:**
+
 - [HubSpot CLI Documentation](https://developers.hubspot.com/docs/cms/guides/getting-started-with-local-development)
 - [HubSpot Developer Forums](https://community.hubspot.com/t5/CMS-Development/bd-p/cos-developers)
 
 **Project Questions:**
+
 - Review [Project Roadmap](project-roadmap.md)
 - Check [Migration Plan](migration-plan.md)
 

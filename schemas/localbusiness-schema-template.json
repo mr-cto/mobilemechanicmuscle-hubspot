@@ -7,7 +7,7 @@
   "url": "https://mobilemechanicmusclenearme.com",
   "telephone": "[PHONE_NUMBER]",
   "email": "[EMAIL]",
-  "description": "ASE-Certified mobile mechanic serving [NEIGHBORHOOD] and surrounding areas. We come to you for brake repair, diagnostics, and all automotive services.",
+  "description": "Professional mobile mechanic serving [NEIGHBORHOOD] and surrounding areas. We come to you for brake repair, diagnostics, and all automotive services.",
   "image": "[LOGO_URL]",
   "priceRange": "$$",
   "paymentAccepted": "Cash, Credit Card, Debit Card",
@@ -83,15 +83,16 @@
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "09:00",
-      "closes": "15:00"
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "06:00",
+      "closes": "16:00"
     }
   ],
   "aggregateRating": {

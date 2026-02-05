@@ -3,17 +3,18 @@
 ## Key CSS Classes from Live Site
 
 ### Service Cards (Offer Cards)
+
 ```html
 <section class="offer-card card card--light">
   <div class="offer-card__image-wrapper">
-    <img class="offer-card__image" src="..." alt="..." loading="lazy">
+    <img class="offer-card__image" src="..." alt="..." loading="lazy" />
   </div>
-  
+
   <div class="offer-card__content">
     <h3 style="font-size:24px">Service Name</h3>
     <p style="font-size:16px">Service description...</p>
   </div>
-  
+
   <div class="offer-card__button-wrapper">
     <a href="..." class="button">Book an Appointment</a>
   </div>
@@ -21,13 +22,19 @@
 ```
 
 ### DND Area Structure
+
 ```html
-<div class="row-fluid-wrapper row-depth-1 row-number-X dnd-section 
+<div
+  class="row-fluid-wrapper row-depth-1 row-number-X dnd-section 
      dnd_area-row-X-padding 
      dnd_area-row-X-background-color 
-     dnd_area-row-X-background-layers">
+     dnd_area-row-X-background-layers"
+>
   <div class="row-fluid">
-    <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell">
+    <div
+      class="span12 widget-span widget-type-cell dnd-column"
+      data-widget-type="cell"
+    >
       <!-- Content here -->
     </div>
   </div>
@@ -35,15 +42,19 @@
 ```
 
 ### Typography (Inline Styles Used)
+
 - H3 headings: `font-size:24px`
 - Paragraphs: `font-size:16px`
 - All headings: **UPPERCASE** via CSS
 
 ### Buttons
+
 ```html
 <a href="..." class="button">Text</a>
 ```
+
 Styling:
+
 - Background: `#30beb4` (teal)
 - Color: `#ffffff`
 - Border: `1px solid #30beb4`
@@ -84,6 +95,7 @@ Styling:
 **Font:** Poppins, sans-serif
 
 **Headings:**
+
 - H1: 40px, bold (700), uppercase
 - H2: 32px, bold (700), uppercase
 - H3: 28px, bold (700), uppercase (cards use 24px inline)
@@ -96,17 +108,20 @@ Styling:
 ## Layout Structure
 
 ### Grid System
+
 - Uses Bootstrap-style `.row-fluid-wrapper` and `.row-fluid`
 - Column spans: `.span4` (3 columns), `.span12` (full width)
 - Widget spans: `.widget-span` with data attributes
 
 ### Section Classes
+
 - `.dnd-section` - Drag and drop section wrapper
 - `.dnd-row` - Row within section
 - `.dnd-column` - Column within row
 - `.dnd-module` - Individual module/widget
 
 ### Padding Classes
+
 - `dnd_area-row-0-padding`
 - `dnd_area-row-1-padding`
 - etc.
@@ -123,6 +138,7 @@ Styling:
 ## Recommendations for Templates
 
 ### Use These Class Names
+
 ```css
 .offer-card
 .offer-card__image-wrapper
@@ -135,6 +151,7 @@ Styling:
 ```
 
 ### Match These Specs
+
 - Square buttons (no border-radius)
 - Teal color scheme (#30beb4)
 - Poppins font throughout

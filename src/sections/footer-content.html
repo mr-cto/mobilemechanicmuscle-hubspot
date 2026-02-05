@@ -1,0 +1,146 @@
+<!-- Footer Section Module -->
+<div class="footer-content">
+  <div class="footer-grid">
+    <div class="footer-column">
+      <h3>Mobile Mechanic Muscle</h3>
+      <p>Professional mobile mechanic services throughout Middle Tennessee. Experienced technicians bringing quality auto repair to your location.</p>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul class="footer-menu">
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#about">About Us</a></li>
+        <li><a href="/#gallery">Gallery</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Service Areas</h4>
+      <ul class="footer-menu">
+        <li><a href="/locations/nashville">Nashville</a></li>
+        <li><a href="/locations/franklin">Franklin</a></li>
+        <li><a href="/locations/brentwood">Brentwood</a></li>
+        <li><a href="/locations/murfreesboro">Murfreesboro</a></li>
+        <li><a href="/locations/hendersonville">Hendersonville</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <ul class="footer-menu footer-contact">
+        <li><strong>Phone:</strong> <a href="tel:+16154963900">(615) 496-3900</a></li>
+        <li><strong>Email:</strong> <a href="mailto:mms.alwayshonest@gmail.com">mms.alwayshonest@gmail.com</a></li>
+        <li><strong>Hours:</strong> Mon-Sat 6AM-4PM</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <hr class="footer-divider">
+    <p>&copy; {{ current_year }} Mobile Mechanic Muscle. All rights reserved. | Serving Nashville & Middle Tennessee</p>
+  </div>
+</div>
+
+<style>
+.footer {
+  background: #2B394B;
+  color: #ffffff;
+  padding: 60px 0 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-column h3 {
+  color: #30beb4;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.footer-column h4 {
+  color: #30beb4;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.footer-column p {
+  color: #e1e5e9;
+  line-height: 1.6;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-menu li {
+  margin-bottom: 10px;
+}
+
+.footer-menu a {
+  color: #e1e5e9;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-menu a:hover {
+  color: #30beb4;
+}
+
+.footer-contact li {
+  color: #e1e5e9;
+  margin-bottom: 12px;
+}
+
+.footer-contact strong {
+  color: #30beb4;
+  display: inline-block;
+  min-width: 60px;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.footer-bottom p {
+  color: #e1e5e9;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer {
+    padding: 40px 0 20px;
+  }
+}
+</style>

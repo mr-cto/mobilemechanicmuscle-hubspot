@@ -21,7 +21,7 @@ Generate a hyper-local landing page for: **[NEIGHBORHOOD_NAME]**
   <div class="hero-text">
     <h1>Mobile Mechanic in [NEIGHBORHOOD] | [TAGLINE]</h1>
     <p class="hero-subhead">
-      ASE-Certified Mechanics Serving [Neighborhood] Residents Since [YEAR]
+      Professional Mechanics Serving [Neighborhood] Residents Since [YEAR]
     </p>
     <a href="#quote-form" class="cta-button">Get Your Free Quote</a>
   </div>
@@ -56,7 +56,7 @@ Generate a hyper-local landing page for: **[NEIGHBORHOOD_NAME]**
 ### 6. Trust Signals
 
 - Years in business
-- ASE-Certified
+- Experienced Technicians
 - Warranty details
 - Same-day availability mention
 

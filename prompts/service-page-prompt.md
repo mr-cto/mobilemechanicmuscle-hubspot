@@ -37,7 +37,7 @@ Generate a complete service page for: **[SERVICE_NAME]**
 
 - H2: "How Our [SERVICE] Works"
 - 4-6 bullet points or numbered steps
-- Emphasize: We come to you, transparent pricing, ASE-certified techs
+- Emphasize: We come to you, transparent pricing, experienced technicians
 
 ### 4. Why Choose Mobile Section
 

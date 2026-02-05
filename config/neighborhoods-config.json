@@ -1,6 +1,79 @@
 {
   "neighborhoods": [
     {
+      "id": "nashville",
+      "name": "Nashville",
+      "slug": "nashville",
+      "county": "Davidson County",
+      "state": "Tennessee",
+      "zip_codes": [
+        "37201",
+        "37203",
+        "37204",
+        "37205",
+        "37206",
+        "37207",
+        "37208",
+        "37209",
+        "37210",
+        "37211",
+        "37212",
+        "37213",
+        "37214",
+        "37215",
+        "37216",
+        "37217",
+        "37218",
+        "37219",
+        "37220"
+      ],
+      "primary_keyword": "mobile mechanic Nashville TN",
+      "secondary_keywords": [
+        "auto repair Nashville",
+        "mechanic in Nashville",
+        "car repair Nashville TN",
+        "mobile mechanic Davidson County",
+        "Nashville mobile auto repair"
+      ],
+      "coordinates": {
+        "latitude": "36.1627",
+        "longitude": "-86.7816"
+      },
+      "population": 689447,
+      "landmarks": [
+        "Downtown Nashville",
+        "Music Row",
+        "Vanderbilt University",
+        "The Gulch",
+        "12 South",
+        "East Nashville",
+        "Green Hills",
+        "Belle Meade",
+        "Sylvan Park",
+        "Germantown"
+      ],
+      "major_roads": [
+        "I-65",
+        "I-40",
+        "I-24",
+        "Briley Parkway",
+        "West End Avenue",
+        "Charlotte Pike",
+        "Nolensville Pike"
+      ],
+      "nearby_areas": [
+        "Brentwood",
+        "Franklin",
+        "Hendersonville",
+        "Murfreesboro",
+        "Goodlettsville",
+        "Berry Hill",
+        "Oak Hill"
+      ],
+      "local_context": "Music City USA and Tennessee's capital. Fast-growing metropolitan area with diverse neighborhoods from downtown high-rises to suburban communities. Major employment center and cultural hub of Middle Tennessee.",
+      "estimated_word_count": 800
+    },
+    {
       "id": "franklin",
       "name": "Franklin",
       "slug": "franklin",

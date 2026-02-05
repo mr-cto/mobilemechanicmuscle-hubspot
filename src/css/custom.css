@@ -1,17 +1,40 @@
 /* Mobile Mechanic Muscle - Custom Styles (Growth Theme Compatible) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
   --primary-color: #30beb4;
   --primary-hover: #30beb4;
   --primary-active: #80ffff;
-  --secondary-color: #F5F5F5;
-  --accent-bg: #FFFFFB;
-  --body-bg: #FFFFFF;
-  --text-dark: #2B394B;
+  --secondary-color: #f5f5f5;
+  --accent-bg: #fffffb;
+  --body-bg: #ffffff;
+  --text-dark: #2b394b;
   --text-light: #666666;
-  --border-color: #EEEEEE;
-  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --border-color: #eeeeee;
+  --font-primary:
+    "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Utility Classes */
+.show-for-sr {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Scroll anchor offset for fixed header */
+:target {
+  scroll-margin-top: 250px;
+}
+
+[id] {
+  scroll-margin-top: 250px;
 }
 
 body {
@@ -21,19 +44,36 @@ body {
   font-size: 17px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-primary);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-dark);
 }
 
-h1 { font-size: 40px; }
-h2 { font-size: 32px; }
-h3 { font-size: 28px; }
-h4 { font-size: 24px; }
-h5 { font-size: 20px; }
-h6 { font-size: 16px; }
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 32px;
+}
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
+}
 
 /* Container */
 .container {
@@ -49,7 +89,7 @@ h6 { font-size: 16px; }
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .header__skip {
@@ -80,6 +120,59 @@ h6 { font-size: 16px; }
 .header__logo-image {
   display: block;
   max-width: 120px;
+  height: auto;
+}
+
+/* Mobile Menu Styles */
+.header__menu--mobile {
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 400px;
+  height: 100vh;
+  padding: 60px 20px 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.header__menu--mobile.is-open {
+  right: 0;
+}
+
+.header__menu--mobile .header__menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.header__menu--mobile .header__menu-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header__menu--mobile .header__menu-link {
+  display: block;
+  padding: 15px 0;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.header__menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .header__menu-container--mobile,
+  .header__menu--mobile {
+    display: none;
+  }
+}
   height: auto;
 }
 
@@ -242,7 +335,7 @@ h6 { font-size: 16px; }
   background: white;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
@@ -250,7 +343,7 @@ h6 { font-size: 16px; }
 
 .offer-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .card {
@@ -395,7 +488,7 @@ h6 { font-size: 16px; }
 }
 
 .footer-col a {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -407,8 +500,8 @@ h6 { font-size: 16px; }
 .footer-bottom {
   text-align: center;
   padding-top: 30px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Utility Classes */
@@ -425,20 +518,20 @@ h6 { font-size: 16px; }
   .hero-text h1 {
     font-size: 32px;
   }
-  
+
   .hero-subhead {
     font-size: 18px;
   }
-  
+
   .main-nav {
     flex-direction: column;
     gap: 15px;
   }
-  
+
   .service-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .content-section {
     padding: 40px 0;
   }

@@ -67,6 +67,7 @@ EOL
 ```
 
 **Replace with your actual values:**
+
 - `HUBSPOT_PORTAL_ID=` [paste Portal ID]
 - `HUBSPOT_ACCESS_TOKEN=` [paste the token you copied]
 
@@ -135,13 +136,13 @@ Edit `config/generation-settings.json` with the info you found:
 {
   "business_info": {
     "name": "Mobile Mechanic Muscle",
-    "phone": "615-XXX-XXXX",     // ← From HubSpot
-    "email": "info@example.com",  // ← From HubSpot
+    "phone": "615-XXX-XXXX", // ← From HubSpot
+    "email": "info@example.com", // ← From HubSpot
     "website": "https://mobilemechanicmusclenearme.com",
-    "logo_url": "https://...",    // ← From HubSpot Files
-    "established_year": "2015",   // ← From Company Info
-    "rating": "4.9",              // ← Google Business (or estimate)
-    "review_count": "127"         // ← Google Business (or estimate)
+    "logo_url": "https://...", // ← From HubSpot Files
+    "established_year": "2015", // ← From Company Info
+    "rating": "4.9", // ← Google Business (or estimate)
+    "review_count": "127" // ← Google Business (or estimate)
   }
 }
 ```
@@ -213,12 +214,14 @@ cat config/generation-settings.json | grep phone
 ## 🚀 Your Next Actions
 
 ### Today (30 min):
+
 1. ✅ API access configured
 2. ✅ Site downloaded
 3. ✅ Business info collected
 4. 📋 Start [audit-checklist.md](audit-checklist.md) - complete what you can today
 
 ### Tomorrow (2-3 hours):
+
 1. Finish audit checklist
 2. Run analytics review (GA + GSC)
 3. Document findings
@@ -231,25 +234,30 @@ cat config/generation-settings.json | grep phone
 Since you're already logged in, capture these now:
 
 ### Page Count:
+
 - Marketing → Website → Website Pages → Count total pages
 
 ### Current Traffic:
+
 - Reports → Analytics Tools → Traffic Analytics
-- Note organic sessions last 30 days: _______
+- Note organic sessions last 30 days: **\_\_\_**
 
 ### Forms:
+
 - Marketing → Lead Capture → Forms
-- Count active forms: _______
+- Count active forms: **\_\_\_**
 
 ### Blog Status:
+
 - Marketing → Website → Blog
-- Active? Yes/No: _______
-- Total posts: _______
+- Active? Yes/No: **\_\_\_**
+- Total posts: **\_\_\_**
 
 ### Domain Settings:
+
 - Settings → Website → Domains & URLs
-- Primary domain: _______
-- SSL Active? Yes/No: _______
+- Primary domain: **\_\_\_**
+- SSL Active? Yes/No: **\_\_\_**
 
 **Save these numbers** - you'll need them for the audit!
 
@@ -258,18 +266,21 @@ Since you're already logged in, capture these now:
 ## 🆘 Quick Troubleshooting
 
 ### "Invalid token" error:
+
 - Token might have been revoked
 - Go back to HubSpot → Settings → Private Apps
 - Delete old app, create new one
 - Get new token
 
 ### Can't fetch pages:
+
 ```bash
 # Try with specific portal ID
 hs fetch --portal=12345678 / .
 ```
 
 ### CLI asking for account:
+
 ```bash
 # Use the configured account
 hs accounts use mobilemechanicmuscle

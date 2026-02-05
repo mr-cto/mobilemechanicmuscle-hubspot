@@ -1,13 +1,19 @@
 # Nashville SEO Content Engine
 
-> Automated content generation system for Mobile Mechanic Muscle using local LLM
+> Complete HubSpot website enhancement project for Mobile Mechanic Muscle
 
 ## Overview
 
-This workspace provides everything needed to generate 11 high-intent, SEO-optimized pages for mobilemechanicmusclenearme.com. The system includes:
+This is a professional web development project to migrate and enhance an existing HubSpot website with SEO-optimized content. The project includes:
 
-- **7 Service Pages**: Brake Repair, Diagnostics, Battery/Starter, Cooling Systems, Suspension, Pre-Purchase Inspections, Emergency Roadside
-- **4 Neighborhood Pages**: Franklin, Brentwood, Murfreesboro, Hendersonville
+- **HubSpot Integration**: Connect to client's existing HubSpot account
+- **Site Audit**: Comprehensive review of current website
+- **Content Generation**: 11 new SEO-optimized pages using local LLM
+  - 7 Service Pages: Brake Repair, Diagnostics, Battery/Starter, Cooling Systems, Suspension, Pre-Purchase Inspections, Emergency Roadside
+  - 4 Neighborhood Pages: Franklin, Brentwood, Murfreesboro, Hendersonville
+- **Staging Environment**: Development portal for client review
+- **Migration Plan**: Zero-downtime deployment strategy
+- **Client Reporting**: Value comparison and performance tracking
 
 All content is designed for HubSpot CMS integration with consistent CSS classes and proper JSON-LD schema markup.
 
@@ -15,18 +21,24 @@ All content is designed for HubSpot CMS integration with consistent CSS classes 
 
 ## 📁 Project Structure
 
-```
+````
 .
 ├── .github/
-│   └── copilot-instructions.md    # Project guidelines for AI assistants
+│   └── copilot-instructions.md           # Project guidelines for AI assistants
 ├── config/
-│   ├── services-config.json       # Configuration for 7 service pages
-│   ├── neighborhoods-config.json  # Configuration for 4 neighborhood pages
-│   └── generation-settings.json   # Global generation settings
+│   ├── services-config.json              # Configuration for 7 service pages
+│   ├── neighborhoods-config.json         # Configuration for 4 neighborhood pages
+│   └── generation-settings.json          # Global generation settings
+├── docs/
+│   ├── hubspot-connection.md             # ⭐ HubSpot setup & authentication
+│   ├── audit-checklist.md                # ⭐ Existing site audit template
+│   ├── migration-plan.md                 # ⭐ Deployment & migration strategy
+│   ├── value-comparison.md               # ⭐ Client-facing ROI documentation
+│   └── project-roadmap.md                # ⭐ 4-week sprint timeline
 ├── prompts/
-│   ├── system-prompt-base.md      # Base system prompt for LLM
-│   ├── service-page-prompt.md     # Service page generation instructions
-│   └── neighborhood-page-prompt.md # Neighborhood page generation instructions
+│   ├── system-prompt-base.md             # Base system prompt for LLM
+│   ├── service-page-prompt.md            # Service page generation instructions
+│   └── neighborhood-page-prompt.md       # Neighborhood page generation instructions
 ├── schemas/
 │   ├── service-schema-template.json      # Service JSON-LD template
 │   ├── localbusiness-schema-template.json # LocalBusiness JSON-LD template
@@ -35,19 +47,68 @@ All content is designed for HubSpot CMS integration with consistent CSS classes 
 │   ├── example-service-page.html         # Reference: Brake Repair page
 │   └── example-neighborhood-page.html    # Reference: Franklin, TN page
 ├── reference/
-│   └── hubspot-css-guide.md       # HubSpot CSS class documentation
-└── README.md                       # This file
+## 🚀 Quick Start Guide
+
+### For Agency Team
+
+Follow these steps in order:
+
+### Step 1: Connect to HubSpot (Week 1, Day 1-2)
+
+📖 **Guide:** [HubSpot Connection Setup](docs/hubspot-connection.md)
+
+```bash
+# Install HubSpot CLI
+npm install -g @hubspot/cli
+
+# Initialize connection
+hs init
+
+# Verify access
+hs auth
+````
+
+**Get from client:**
+
+- HubSpot account access (Super Admin or Marketing Hub)
+- PoStep 4: Generate Content (Week 2)
+
+📖 **Guide:** Content generation instructions below
+
+####al ID
+
+- Permission to create Private App
+
+### Step 2: Audit Existing Site (Week 1, Day 3-4)
+
+📖 **Guide:** [Audit Checklist](docs/audit-checklist.md)
+
+```bash
+# Download current site
+mkdir existing-site
+hs fetch --portal=PORTAL_ID /
+
+# Document findings in audit-checklist.md
 ```
 
----
+**Key tasks:**
 
-## 🚀 Quick Start
+- Page inventory
+- SEO analysis
+- Performance audit
+- Content gaps identification
 
-### 1. Configure Business Information
+### Step 3: Configure Business Information (Week 1, Day 5)
 
-Edit [config/generation-settings.json](config/generation-settings.json) and replace placeholders:
+Edit [config/generation-settings.json](config/generation-settings.json) with client's real data:
 
 ```json
+{
+  "business_info": {
+    "phone": "615-XXX-XXXX",        // ← Get from client
+    "email": "info@example.com",    // ← Get from client
+    "logo_url": "https://...",      // ← Get from HubSpot
+    "established_year": "2015"      // ← Get from client
 {
   "business_info": {
     "phone": "615-XXX-XXXX", // ← Add real phone number
@@ -281,28 +342,71 @@ After launch, monitor:
 
 ### Issue: Schema validation errors
 
-**Solution:** Ensure all required fields filled. Use [schema.org validator](https://validator.schema.org/).
+\*\*So� Key Documentation
+
+### For Project Team
+
+| Document                                               | Purpose               | When to Use               |
+| ------------------------------------------------------ | --------------------- | ------------------------- |
+| [HubSpot Connection Guide](docs/hubspot-connection.md) | Set up access & API   | Week 1, Days 1-2          |
+| [Audit Checklist](docs/audit-checklist.md)             | Review existing site  | Week 1, Days 3-4          |
+| [Project Roadmap](docs/project-roadmap.md)             | Full timeline & tasks | Daily reference           |
+| [Migration Plan](docs/migration-plan.md)               | Deployment strategy   | Week 3-4                  |
+| [HubSpot CSS Guide](reference/hubspot-css-guide.md)    | HTML/CSS standards    | During content generation |
+
+### For Client
+
+| Document                                           | Purpose                        |
+| -------------------------------------------------- | ------------------------------ |
+| [Value Comparison Chart](docs/value-comparison.md) | ROI and improvements explained |
+| [Project Roadmap](docs/project-roadmap.md)         | What to expect & when          |
+
+---
+
+## 🎯 Success Metrics
+
+### Project Completion Criteria
+
+- [ ] All 11 pages live in production
+- [ ] Zero 404 errors from redirects
+- [ ] All schema validated
+- [ ] Forms capturing leads
+- [ ] Mobile usability score 90+
+- [ ] Client trained on HubSpot
+- [ ] Week 1 performance report delivered
+
+### Expected Results (90 days post-launch)
+
+- **+50% organic traffic** (conservative estimate)
+- **+20% conversion rate**
+- **15+ new keywords** ranking #1-10
+- **+40 leads/month** (at current conversion rates)
 
 ---
 
 ## 📚 Additional Resources
 
 - [HubSpot CMS Documentation](https://developers.hubspot.com/docs/cms)
+- [HubSpot CLI Guide](https://developers.hubspot.com/docs/cms/guides/getting-started-with-local-development)
 - [JSON-LD Schema Reference](https://schema.org/)
-- [Google's SEO Starter Guide](https://developers.google.com/search/docs/beginner/seo-starter-guide)
-- [Nashville Market Research](https://www.nashvillechamber.com/)
+- [Google Search Console](https://search.google.com/search-console)
+- [PageSpeed Insights](https://pagespeed.web.dev/)
 
 ---
 
-## 🏁 Next Steps
+## 🏁 Getting Started
 
-1. **Fill in business information** in `generation-settings.json`
-2. **Test generate** the Brake Repair page
-3. **Review quality** against example template
-4. **Adjust prompts** if needed
-5. **Generate remaining 10 pages** over 2-3 weeks
-6. **Upload to HubSpot** and publish
-7. **Monitor performance** and iterate
+### For Your First Time Here:
+
+1. **Read:** [Project Roadmap](docs/project-roadmap.md) for complete overview
+2. **Start:** [HubSpot Connection Guide](docs/hubspot-connection.md) to connect to client
+3. **Next:** [Audit Checklist](docs/audit-checklist.md) to review existing site
+4. **Then:** Generate content using prompts in `prompts/` directory
+5. **Finally:** Follow [Migration Plan](docs/migration-plan.md) to launchtemplate
+6. **Adjust prompts** if needed
+7. **Generate remaining 10 pages** over 2-3 weeks
+8. **Upload to HubSpot** and publish
+9. **Monitor performance** and iterate
 
 ---
 

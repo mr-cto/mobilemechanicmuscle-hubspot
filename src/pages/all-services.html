@@ -1,0 +1,464 @@
+<style>
+/* Page-specific styles for all-services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.service-category h3 {
+  text-align: center;
+}
+
+.featured-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.featured-service {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.featured-service h4 {
+  color: #30beb4;
+  margin-bottom: 10px;
+}
+
+.featured-service a {
+  color: #2B394B;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.featured-service a:hover {
+  color: #30beb4;
+}
+
+/* White button for dark backgrounds */
+.button-light {
+  display: inline-block;
+  background: #ffffff;
+  color: #30beb4;
+  padding: 15px 35px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  margin: 10px;
+  border: 2px solid #ffffff;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.button-light:hover {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .trust-items {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .cta-button,
+  .button-light {
+    display: block;
+    margin: 15px auto;
+    max-width: 300px;
+  }
+}
+</style>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <h1>Complete Mobile Mechanic Services</h1>
+    <p>Mobile Mechanic Muscle brings professional auto repair directly to your location in Nashville & Middle Tennessee. From routine maintenance to major repairs—if it's under the hood, we can fix it at your home, office, or anywhere your vehicle is parked.</p>
+    <a href="tel:+16154963900" class="cta-button">Call (615) 496-3900</a>
+    <a href="#contact-form" class="button-light">Request a Quote</a>
+  </div>
+</section>
+
+<!-- Featured Services -->
+<section class="content-section">
+  <div class="container">
+    <h2>Our Most Popular Mobile Services</h2>
+    <p style="text-align: center; margin-bottom: 40px;">Click any service below to learn more and see detailed pricing:</p>
+    
+    <div class="featured-services">
+      <div class="featured-service">
+        <h4>🛠️ Brake Repair</h4>
+        <p><a href="/services/brake-repair">Pads, Rotors & Complete Systems</a></p>
+      </div>
+      
+      <div class="featured-service">
+        <h4>🔍 Diagnostics</h4>
+        <p><a href="/services/diagnostics">Check Engine Light & OBD2 Scans</a></p>
+      </div>
+      
+      <div class="featured-service">
+        <h4>🔋 Battery & Starter</h4>
+        <p><a href="/services/battery-starter">Testing, Replacement & Alternator Work</a></p>
+      </div>
+      
+      <div class="featured-service">
+        <h4>🌡️ Cooling System</h4>
+        <p><a href="/services/cooling-system">Radiators, Thermostats & Coolant</a></p>
+      </div>
+      
+      <div class="featured-service">
+        <h4>⚙️ Suspension & Steering</h4>
+        <p><a href="/services/suspension">Shocks, Struts & Alignment Checks</a></p>
+      </div>
+      
+      <div class="featured-service">
+        <h4>✅ Pre-Purchase Inspection</h4>
+        <p><a href="/services/pre-purchase-inspection">150+ Point Vehicle Assessment</a></p>
+      </div>
+      
+      <div class="featured-service">
+        <h4>🚨 Emergency Roadside</h4>
+        <p><a href="/services/emergency-roadside">Fast Response When You're Stranded</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Complete Service List -->
+<section class="content-section content-section-alt">
+  <div class="container">
+    <h2 style="text-align: center;">Complete A-Z Service List</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">We're experienced professionals equipped to handle virtually any automotive repair or maintenance at your location. Here's a comprehensive list of what we do:</p>
+    
+    <div class="services-grid">
+      <div class="service-category">
+        <h3>🔧 Engine & Performance</h3>
+        <ul>
+          <li>Oil Changes & Filter Service</li>
+          <li>Tune-Ups & Spark Plugs</li>
+          <li>Timing Belt Replacement</li>
+          <li>Engine Diagnostics</li>
+          <li>Fuel System Service</li>
+          <li>Air Filter Replacement</li>
+          <li>Intake Manifold Repair</li>
+          <li>Engine Mount Replacement</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>🛑 Brakes & Safety</h3>
+        <ul>
+          <li>Brake Pad Replacement</li>
+          <li>Rotor Resurfacing/Replacement</li>
+          <li>Caliper Repair & Replacement</li>
+          <li>Brake Fluid Flush</li>
+          <li>ABS System Diagnostics</li>
+          <li>Emergency Brake Repair</li>
+          <li>Brake Line Repair</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>⚡ Electrical Systems</h3>
+        <ul>
+          <li>Battery Testing & Replacement</li>
+          <li>Alternator Diagnostics & Repair</li>
+          <li>Starter Motor Service</li>
+          <li>Electrical Diagnostics</li>
+          <li>Wiring Repair</li>
+          <li>Fuse & Relay Replacement</li>
+          <li>Lighting Issues</li>
+          <li>Power Window/Lock Repair</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>🌡️ Cooling & Heating</h3>
+        <ul>
+          <li>Radiator Repair/Replacement</li>
+          <li>Thermostat Replacement</li>
+          <li>Water Pump Service</li>
+          <li>Coolant Flush & Fill</li>
+          <li>Hose & Belt Replacement</li>
+          <li>AC Diagnostics & Recharge</li>
+          <li>Heater Core Repair</li>
+          <li>Fan Motor Replacement</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>⚙️ Transmission & Drivetrain</h3>
+        <ul>
+          <li>Transmission Fluid Service</li>
+          <li>Transmission Diagnostics</li>
+          <li>Clutch Repair (Manual)</li>
+          <li>CV Joint/Axle Replacement</li>
+          <li>Differential Service</li>
+          <li>Transfer Case Service</li>
+          <li>Driveshaft Repair</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>🚗 Suspension & Steering</h3>
+        <ul>
+          <li>Shock & Strut Replacement</li>
+          <li>Ball Joint Replacement</li>
+          <li>Tie Rod Replacement</li>
+          <li>Control Arm Service</li>
+          <li>Sway Bar Links</li>
+          <li>Wheel Bearing Replacement</li>
+          <li>Steering Rack Repair</li>
+          <li>Power Steering Service</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>💨 Exhaust & Emissions</h3>
+        <ul>
+          <li>Muffler Replacement</li>
+          <li>Catalytic Converter Service</li>
+          <li>Exhaust Leak Repair</li>
+          <li>O2 Sensor Replacement</li>
+          <li>Emissions Testing Prep</li>
+          <li>Exhaust Manifold Repair</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>🔍 Inspection & Maintenance</h3>
+        <ul>
+          <li>Pre-Purchase Inspections</li>
+          <li>Multi-Point Inspections</li>
+          <li>Scheduled Maintenance</li>
+          <li>Fleet Vehicle Service</li>
+          <li>Preventive Maintenance</li>
+          <li>Safety Inspections</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>🚨 Emergency Services</h3>
+        <ul>
+          <li>Roadside Repair</li>
+          <li>Jump Starts</li>
+          <li>Flat Tire Repair</li>
+          <li>Emergency Diagnostics</li>
+          <li>Mobile Troubleshooting</li>
+          <li>Same-Day Service (when available)</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>🎨 Body Work & Collision</h3>
+        <ul>
+          <li>Dent Repair & Removal</li>
+          <li>Scratch & Paint Touch-Up</li>
+          <li>Bumper Repair & Replacement</li>
+          <li>Minor Collision Repair</li>
+          <li>Panel Replacement</li>
+          <li>Rust Repair & Prevention</li>
+          <li>Trim & Molding Repair</li>
+          <li>Mirror Replacement</li>
+        </ul>
+      </div>
+      
+      <div class="service-category">
+        <h3>✨ Detailing & Appearance</h3>
+        <ul>
+          <li>Full Interior Detailing</li>
+          <li>Exterior Wash & Wax</li>
+          <li>Paint Correction & Buffing</li>
+          <li>Headlight Restoration</li>
+          <li>Upholstery Cleaning</li>
+          <li>Engine Bay Cleaning</li>
+          <li>Ceramic Coating Application</li>
+          <li>Odor Removal & Sanitization</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+      <strong>Don't see what you need?</strong> We handle many other automotive repairs not listed here. Give us a call at <a href="tel:+16154963900" style="color: #30beb4; text-decoration: none; font-weight: 600;">(615) 496-3900</a> and we'll let you know if we can help. Chances are, we can fix it!
+    </p>
+  </div>
+</section>
+
+<!-- Trust Banner -->
+<div class="trust-banner">
+  <div class="container">
+    <h3>Why Choose Mobile Mechanic Muscle?</h3>
+    <div class="trust-items">
+      <div class="trust-item">Experienced Technicians</div>
+      <div class="trust-item">1-Year Parts & Labor Warranty</div>
+      <div class="trust-item">We Come to You</div>
+      <div class="trust-item">Mon-Sat 6AM-4PM</div>
+    </div>
+  </div>
+</div>
+
+<!-- Service Area -->
+<section class="content-section">
+  <div class="container">
+    <h2 style="text-align: center;">Serving Nashville & All of Middle Tennessee</h2>
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">We provide mobile mechanic services throughout the greater Nashville area including:</p>
+    
+    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 30px 0;">
+      <div>
+        <h4 style="color: #30beb4;">📍 Major Cities</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="/locations/nashville" style="color: #2B394B; text-decoration: none;">Nashville</a></li>
+          <li><a href="/locations/franklin" style="color: #2B394B; text-decoration: none;">Franklin</a></li>
+          <li><a href="/locations/brentwood" style="color: #2B394B; text-decoration: none;">Brentwood</a></li>
+          <li><a href="/locations/murfreesboro" style="color: #2B394B; text-decoration: none;">Murfreesboro</a></li>
+          <li><a href="/locations/hendersonville" style="color: #2B394B; text-decoration: none;">Hendersonville</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 style="color: #30beb4;">🏘️ Coverage Area</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li>Davidson County</li>
+          <li>Williamson County</li>
+          <li>Rutherford County</li>
+          <li>Sumner County</li>
+          <li>& Surrounding Areas</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="tel:+16154963900" class="cta-button">Call Now: (615) 496-3900</a>
+      <a href="#contact-form" class="button-light">Get a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="content-section" id="contact-form">
+  <div class="container">
+    <h2 style="text-align: center;">Request Your Free Quote</h2>
+    <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">Fill out the form below and we'll get back to you within 24 hours with a detailed quote for your service needs.</p>
+    
+    <div id="hs_form_target_all_services" style="max-width: 700px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.1);"></div>
+  </div>
+</section>
+
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  if (window.hbspt) {
+    hbspt.forms.create({
+      region: "na1",
+      portalId: "46603985",
+      formId: "4dfc54af-6a62-4fdc-a2bf-2836626d42eb",
+      target: '#hs_form_target_all_services',
+      cssClass: 'hs-form stacked hs-custom-form',
+      inlineMessage: 'Thank you for contacting us! We will be in touch soon.'
+    });
+  }
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Mobile Mechanic Muscle",
+  "description": "Professional mobile mechanic services throughout Nashville and Middle Tennessee. Experienced technicians bringing complete auto repair to your location.",
+  "url": "https://mobilemechanicmusclenearme.com/all-services",
+  "telephone": "+16154963900",
+  "email": "mms.alwayshonest@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Nashville",
+    "addressRegion": "TN",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Nashville"
+    },
+    {
+      "@type": "City",
+      "name": "Franklin"
+    },
+    {
+      "@type": "City",
+      "name": "Brentwood"
+    },
+    {
+      "@type": "City",
+      "name": "Murfreesboro"
+    },
+    {
+      "@type": "City",
+      "name": "Hendersonville"
+    }
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "06:00",
+    "closes": "16:00"
+  },
+  "priceRange": "$$",
+  "paymentAccepted": "Cash, Credit Card, Check",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Mobile Mechanic Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Brake Repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Engine Diagnostics"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Oil Change"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Battery Replacement"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Transmission Service"
+        }
+      }
+    ]
+  }
+}
+</script>

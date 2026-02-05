@@ -1,6 +1,7 @@
 # Existing Website Audit Checklist
 
 ## Overview
+
 Complete this audit before beginning development work. This ensures you understand the current site structure and can plan an effective migration.
 
 ---
@@ -9,14 +10,15 @@ Complete this audit before beginning development work. This ensures you understa
 
 ### Page Inventory
 
-| Page Name | URL | Template | Word Count | Meta Description | Keywords | Priority |
-|-----------|-----|----------|------------|------------------|----------|----------|
-| Home | / | | | | | High |
-| Services | /services | | | | | High |
-| About | /about | | | | | Medium |
-| Contact | /contact | | | | | High |
+| Page Name | URL       | Template | Word Count | Meta Description | Keywords | Priority |
+| --------- | --------- | -------- | ---------- | ---------------- | -------- | -------- |
+| Home      | /         |          |            |                  |          | High     |
+| Services  | /services |          |            |                  |          | High     |
+| About     | /about    |          |            |                  |          | Medium   |
+| Contact   | /contact  |          |            |                  |          | High     |
 
 **Action Items:**
+
 - [ ] Export complete page list from HubSpot
 - [ ] Document URL structure and patterns
 - [ ] Identify orphan pages (no inbound links)
@@ -44,17 +46,18 @@ Footer Navigation:
 
 For each existing service page, document:
 
-| Service Page | Exists? | Word Count | Has CTA? | Schema Present? | Grade (A-F) |
-|--------------|---------|------------|----------|-----------------|-------------|
-| Brake Repair | | | | | |
-| Diagnostics | | | | | |
-| Battery Service | | | | | |
-| Cooling System | | | | | |
-| Suspension | | | | | |
-| Pre-Purchase | | | | | |
-| Roadside | | | | | |
+| Service Page    | Exists? | Word Count | Has CTA? | Schema Present? | Grade (A-F) |
+| --------------- | ------- | ---------- | -------- | --------------- | ----------- |
+| Brake Repair    |         |            |          |                 |             |
+| Diagnostics     |         |            |          |                 |             |
+| Battery Service |         |            |          |                 |             |
+| Cooling System  |         |            |          |                 |             |
+| Suspension      |         |            |          |                 |             |
+| Pre-Purchase    |         |            |          |                 |             |
+| Roadside        |         |            |          |                 |             |
 
 **Content Quality Checklist:**
+
 - [ ] Professional tone maintained?
 - [ ] Clear call-to-action present?
 - [ ] Mobile-friendly content structure?
@@ -63,12 +66,12 @@ For each existing service page, document:
 
 ### Location Pages
 
-| Location Page | Exists? | Geo-Optimized? | Local Landmarks? | Grade (A-F) |
-|---------------|---------|----------------|------------------|-------------|
-| Franklin | | | | |
-| Brentwood | | | | |
-| Murfreesboro | | | | |
-| Hendersonville | | | | |
+| Location Page  | Exists? | Geo-Optimized? | Local Landmarks? | Grade (A-F) |
+| -------------- | ------- | -------------- | ---------------- | ----------- |
+| Franklin       |         |                |                  |             |
+| Brentwood      |         |                |                  |             |
+| Murfreesboro   |         |                |                  |             |
+| Hendersonville |         |                |                  |             |
 
 ---
 
@@ -79,23 +82,27 @@ For each existing service page, document:
 Run each page through this checklist:
 
 **Title Tags:**
+
 - [ ] Unique titles on all pages?
 - [ ] Include target keywords?
 - [ ] Under 60 characters?
 - [ ] Brand name included?
 
 **Meta Descriptions:**
+
 - [ ] Present on all pages?
 - [ ] Compelling and actionable?
 - [ ] 150-160 characters?
 - [ ] Include keywords naturally?
 
 **Heading Structure:**
+
 - [ ] Single H1 per page?
 - [ ] Logical H2/H3 hierarchy?
 - [ ] Keywords in headings?
 
 **URLs:**
+
 - [ ] Clean, readable URLs?
 - [ ] Keywords in URL slug?
 - [ ] No unnecessary parameters?
@@ -111,7 +118,7 @@ Check for existing structured data:
 - [ ] Organization schema?
 - [ ] Validate at [schema.org validator](https://validator.schema.org/)
 
-**Current Schema Grade:** _______
+**Current Schema Grade:** **\_\_\_**
 
 ---
 
@@ -121,12 +128,13 @@ Check for existing structured data:
 
 Use [Google PageSpeed Insights](https://pagespeed.web.dev/):
 
-| Page | Mobile Score | Desktop Score | LCP | FID | CLS | Issues |
-|------|--------------|---------------|-----|-----|-----|--------|
-| Home | | | | | | |
-| Services | | | | | | |
+| Page     | Mobile Score | Desktop Score | LCP | FID | CLS | Issues |
+| -------- | ------------ | ------------- | --- | --- | --- | ------ |
+| Home     |              |               |     |     |     |        |
+| Services |              |               |     |     |     |        |
 
 **Common Performance Issues:**
+
 - [ ] Large unoptimized images
 - [ ] Excessive JavaScript
 - [ ] No lazy loading
@@ -149,40 +157,41 @@ Use [Google PageSpeed Insights](https://pagespeed.web.dev/):
 
 Document baseline metrics (last 90 days):
 
-- **Total Organic Sessions:** _______
+- **Total Organic Sessions:** **\_\_\_**
 - **Top Landing Pages:**
-  1. _____________ (sessions: ___)
-  2. _____________ (sessions: ___)
-  3. _____________ (sessions: ___)
+  1. ******\_****** (sessions: \_\_\_)
+  2. ******\_****** (sessions: \_\_\_)
+  3. ******\_****** (sessions: \_\_\_)
 
-- **Conversion Rate:** _______
-- **Bounce Rate:** _______
-- **Avg. Session Duration:** _______
+- **Conversion Rate:** **\_\_\_**
+- **Bounce Rate:** **\_\_\_**
+- **Avg. Session Duration:** **\_\_\_**
 
 ### Keyword Rankings (Google Search Console)
 
 Export top 20 keywords:
 
 | Keyword | Impressions | Clicks | CTR | Avg. Position |
-|---------|-------------|--------|-----|---------------|
-| | | | | |
+| ------- | ----------- | ------ | --- | ------------- |
+|         |             |        |     |               |
 
 **Ranking Analysis:**
-- [ ] #1-3 positions: ___ keywords
-- [ ] #4-10 positions: ___ keywords
-- [ ] #11-20 positions: ___ keywords
+
+- [ ] #1-3 positions: \_\_\_ keywords
+- [ ] #4-10 positions: \_\_\_ keywords
+- [ ] #11-20 positions: \_\_\_ keywords
 
 ### Backlink Profile (Optional)
 
 Use Ahrefs/SEMrush/Moz if available:
 
-- **Total Backlinks:** _______
-- **Referring Domains:** _______
-- **Domain Authority:** _______
+- **Total Backlinks:** **\_\_\_**
+- **Referring Domains:** **\_\_\_**
+- **Domain Authority:** **\_\_\_**
 - **Top Linking Sites:**
-  1. _____________
-  2. _____________
-  3. _____________
+  1. ***
+  2. ***
+  3. ***
 
 ---
 
@@ -208,11 +217,12 @@ Use Ahrefs/SEMrush/Moz if available:
 
 Document all CTAs:
 
-| Page | CTA Text | CTA Type | Placement | Effective? |
-|------|----------|----------|-----------|------------|
-| | | Button/Link/Form | | Yes/No |
+| Page | CTA Text | CTA Type         | Placement | Effective? |
+| ---- | -------- | ---------------- | --------- | ---------- |
+|      |          | Button/Link/Form |           | Yes/No     |
 
 **CTA Analysis:**
+
 - [ ] CTAs above the fold?
 - [ ] Action-oriented language?
 - [ ] Sufficient contrast/visibility?
@@ -248,30 +258,31 @@ Compare existing pages to PRD requirements:
 
 Research local competitors ranking for target keywords:
 
-#### Competitor 1: _________________
+#### Competitor 1: ********\_********
 
-- **URL:** _____________
-- **Strengths:** _____________
-- **Weaknesses:** _____________
-- **Content Volume:** _____________
-- **Schema Implementation:** _____________
+- **URL:** ******\_******
+- **Strengths:** ******\_******
+- **Weaknesses:** ******\_******
+- **Content Volume:** ******\_******
+- **Schema Implementation:** ******\_******
 
-#### Competitor 2: _________________
+#### Competitor 2: ********\_********
 
-- **URL:** _____________
-- **Strengths:** _____________
-- **Weaknesses:** _____________
+- **URL:** ******\_******
+- **Strengths:** ******\_******
+- **Weaknesses:** ******\_******
 
-#### Competitor 3: _________________
+#### Competitor 3: ********\_********
 
-- **URL:** _____________
-- **Strengths:** _____________
-- **Weaknesses:** _____________
+- **URL:** ******\_******
+- **Strengths:** ******\_******
+- **Weaknesses:** ******\_******
 
 **Competitive Advantages to Leverage:**
-1. _____________
-2. _____________
-3. _____________
+
+1. ***
+2. ***
+3. ***
 
 ---
 
@@ -285,15 +296,16 @@ Research local competitors ranking for target keywords:
 - [ ] Review template structure (drag-drop vs. coded)
 
 **Current Templates:**
-1. _____________
-2. _____________
-3. _____________
+
+1. ***
+2. ***
+3. ***
 
 ### HubSpot Tools Usage
 
-- [ ] Forms: ___ active forms documented
-- [ ] CTAs: ___ CTAs documented
-- [ ] Blog: Active? ___ posts total
+- [ ] Forms: \_\_\_ active forms documented
+- [ ] CTAs: \_\_\_ CTAs documented
+- [ ] Blog: Active? \_\_\_ posts total
 - [ ] Workflows: Any automated actions?
 - [ ] Smart content: In use?
 
@@ -312,25 +324,25 @@ Research local competitors ranking for target keywords:
 
 ### Critical Issues (Fix Immediately)
 
-1. _____________________________________________
-2. _____________________________________________
-3. _____________________________________________
+1. ***
+2. ***
+3. ***
 
 ### High Priority Improvements
 
-1. _____________________________________________
-2. _____________________________________________
-3. _____________________________________________
+1. ***
+2. ***
+3. ***
 
 ### Medium Priority Enhancements
 
-1. _____________________________________________
-2. _____________________________________________
+1. ***
+2. ***
 
 ### Low Priority (Nice to Have)
 
-1. _____________________________________________
-2. _____________________________________________
+1. ***
+2. ***
 
 ---
 
@@ -338,15 +350,15 @@ Research local competitors ranking for target keywords:
 
 Record these for before/after comparison:
 
-| Metric | Current Value | Target After Migration |
-|--------|---------------|------------------------|
-| Organic Sessions/mo | | +30% |
-| Conversion Rate | | +20% |
-| Avg. Page Load Time | | <3s |
-| Pages Indexed | | +11 (new pages) |
-| Keywords Ranking #1-10 | | +15 |
-| Mobile Usability Score | | 95+ |
-| Schema Implementation | | 100% |
+| Metric                 | Current Value | Target After Migration |
+| ---------------------- | ------------- | ---------------------- |
+| Organic Sessions/mo    |               | +30%                   |
+| Conversion Rate        |               | +20%                   |
+| Avg. Page Load Time    |               | <3s                    |
+| Pages Indexed          |               | +11 (new pages)        |
+| Keywords Ranking #1-10 |               | +15                    |
+| Mobile Usability Score |               | 95+                    |
+| Schema Implementation  |               | 100%                   |
 
 ---
 
@@ -383,6 +395,6 @@ Record these for before/after comparison:
 - [ ] Ahrefs/SEMrush (optional)
 - [ ] Schema.org validator
 
-**Audit Completed By:** _____________  
-**Date:** _____________  
-**Review Date:** _____________
+**Audit Completed By:** ******\_******  
+**Date:** ******\_******  
+**Review Date:** ******\_******

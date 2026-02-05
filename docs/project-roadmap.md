@@ -1,6 +1,7 @@
 # Project Roadmap: Mobile Mechanic Muscle SEO Enhancement
 
 ## Project Overview
+
 Complete HubSpot website enhancement for Mobile Mechanic Muscle, including content generation, SEO optimization, and migration from existing site to new SEO-optimized structure.
 
 ---
@@ -20,6 +21,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 ### Week 1: Discovery & Setup
 
 #### Days 1-2: Connection & Access
+
 - [ ] Get HubSpot account access from client
 - [ ] Set up HubSpot CLI and authentication
 - [ ] Create private app for API access
@@ -28,6 +30,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - **Deliverable:** [HubSpot Connection Guide](docs/hubspot-connection.md)
 
 #### Days 3-4: Audit Existing Site
+
 - [ ] Complete [Audit Checklist](docs/audit-checklist.md)
 - [ ] Download existing site assets
 - [ ] Document current page structure
@@ -37,6 +40,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - **Deliverable:** Audit Report for client review
 
 #### Day 5: Content Generation Setup
+
 - [ ] Finalize business information in `config/generation-settings.json`
 - [ ] Review and adjust prompts if needed
 - [ ] Set up local LLM or choose generation method
@@ -49,6 +53,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 ### Week 2: Content Creation & Staging
 
 #### Days 6-8: Generate Service Pages
+
 - [ ] Generate all 7 service pages using LLM:
   - [ ] Brake Repair
   - [ ] Diagnostics & Check Engine Light
@@ -63,6 +68,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - **Deliverable:** 7 service page HTML files
 
 #### Days 9-10: Generate Neighborhood Pages
+
 - [ ] Generate all 4 neighborhood pages:
   - [ ] Franklin, TN
   - [ ] Brentwood, TN
@@ -74,6 +80,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - **Deliverable:** 4 neighborhood page HTML files
 
 #### Day 11: Build Staging Environment
+
 - [ ] Set up HubSpot staging/sandbox portal
 - [ ] Upload all new pages to staging
 - [ ] Configure templates and modules
@@ -86,6 +93,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 ### Week 3: Client Review & Pre-Launch
 
 #### Days 12-14: Client Review Period
+
 - [ ] Send staging links to client
 - [ ] Request feedback on:
   - Content accuracy
@@ -97,6 +105,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - **Deliverable:** Client sign-off document
 
 #### Days 15-16: Pre-Launch Preparation
+
 - [ ] Create redirect map (old URLs → new URLs)
 - [ ] Validate all schema markup
 - [ ] Run page speed tests
@@ -107,6 +116,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - **Deliverable:** [Migration Plan](docs/migration-plan.md) finalized
 
 #### Day 17: Final QA
+
 - [ ] Complete pre-launch checklist
 - [ ] Test all redirects in staging
 - [ ] Mobile device testing (iOS + Android)
@@ -120,6 +130,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 ### Week 4: Launch & Monitoring
 
 #### Day 18: Launch Day 🚀
+
 - [ ] Final backup of production site
 - [ ] Deploy new pages to production HubSpot
 - [ ] Implement all redirects
@@ -130,6 +141,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - **Deliverable:** Live website with new pages
 
 #### Days 19-21: Post-Launch Monitoring
+
 - [ ] Daily check of Google Search Console for errors
 - [ ] Monitor Analytics for traffic patterns
 - [ ] Verify form submissions working
@@ -139,6 +151,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - **Deliverable:** Daily monitoring reports
 
 #### Days 22-28: Week 1 Performance Review
+
 - [ ] Compile Week 1 metrics:
   - Traffic comparison (before vs. after)
   - New pages indexed
@@ -154,6 +167,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 ## 📦 Project Deliverables
 
 ### Documentation
+
 - [x] [HubSpot Connection Guide](docs/hubspot-connection.md)
 - [x] [Existing Site Audit Checklist](docs/audit-checklist.md)
 - [x] [Migration Plan](docs/migration-plan.md)
@@ -163,6 +177,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - [ ] Week 1 Performance Report (Week 4)
 
 ### Content
+
 - [ ] 7 SEO-optimized service pages
 - [ ] 4 geo-targeted neighborhood pages
 - [ ] JSON-LD schema for all pages
@@ -170,6 +185,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - [ ] Internal linking structure
 
 ### Technical
+
 - [ ] HubSpot staging environment
 - [ ] Production deployment
 - [ ] Redirect map implemented
@@ -177,6 +193,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - [ ] Page speed optimizations
 
 ### Client Assets
+
 - [ ] HubSpot editing training materials
 - [ ] Analytics dashboard setup
 - [ ] Monthly reporting template
@@ -187,6 +204,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 ## 🎯 Success Metrics
 
 ### Immediate (Week 1-2)
+
 - [ ] All 11 pages published and indexed
 - [ ] Zero 404 errors from redirects
 - [ ] Forms capturing leads
@@ -194,6 +212,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - [ ] All schema validated
 
 ### Short-Term (Month 1-3)
+
 - [ ] +30% organic traffic
 - [ ] 15+ keywords ranking #1-10
 - [ ] +20% conversion rate
@@ -201,6 +220,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - [ ] Client satisfaction score 9/10+
 
 ### Long-Term (Month 4-6)
+
 - [ ] +50% organic traffic
 - [ ] 25+ keywords ranking #1-10
 - [ ] +30% lead volume
@@ -213,26 +233,28 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 
 ### Identified Risks
 
-| Risk | Likelihood | Impact | Mitigation |
-|------|------------|--------|------------|
-| Client delays feedback | Medium | Medium | Set clear deadlines, send reminders |
-| Redirect issues drop traffic | Low | High | Thorough testing, rollback plan ready |
-| Schema validation errors | Low | Medium | Validate before launch |
-| Content doesn't resonate | Low | Medium | Client review in Week 2 |
-| Forms break in production | Low | High | Test in staging extensively |
-| HubSpot API access issues | Low | Medium | Have backup manual process |
+| Risk                         | Likelihood | Impact | Mitigation                            |
+| ---------------------------- | ---------- | ------ | ------------------------------------- |
+| Client delays feedback       | Medium     | Medium | Set clear deadlines, send reminders   |
+| Redirect issues drop traffic | Low        | High   | Thorough testing, rollback plan ready |
+| Schema validation errors     | Low        | Medium | Validate before launch                |
+| Content doesn't resonate     | Low        | Medium | Client review in Week 2               |
+| Forms break in production    | Low        | High   | Test in staging extensively           |
+| HubSpot API access issues    | Low        | Medium | Have backup manual process            |
 
 ---
 
 ## 👥 Roles & Responsibilities
 
 ### Your Team
+
 - **Project Lead:** Overall project management, client communication
 - **Content Specialist:** LLM prompt engineering, content QA
 - **Technical SEO:** Schema implementation, page speed, redirects
 - **HubSpot Developer:** Staging setup, deployment, template work
 
 ### Client Responsibilities
+
 - Provide HubSpot access
 - Review staging content within 3 business days
 - Approve final content before launch
@@ -244,16 +266,19 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 ## 📞 Communication Plan
 
 ### Weekly Check-ins
+
 - **Day:** Every Monday (or client's preference)
 - **Format:** 30-min video call or detailed email update
 - **Topics:** Progress update, blockers, next steps
 
 ### Status Updates
+
 - **Frequency:** Every 2-3 days during active development
 - **Format:** Email with bullet points
 - **Include:** Completed tasks, upcoming tasks, any questions
 
 ### Emergency Contact
+
 - For urgent issues (site down, forms broken, etc.)
 - Response time: Within 4 hours during business hours
 
@@ -262,18 +287,21 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 ## 🔄 Post-Launch Support (Weeks 5-8)
 
 ### Weekly Performance Reviews
+
 - Review Analytics and Search Console data
 - Identify optimization opportunities
 - Adjust content based on performance
 - Monitor keyword rankings
 
 ### Monthly Reporting
+
 - Comprehensive performance report
 - Before/after comparisons
 - Keyword ranking updates
 - Recommendations for continued growth
 
 ### Ongoing Optimization
+
 - Add FAQ sections based on form questions
 - Optimize underperforming pages
 - Build internal links to boost key pages
@@ -284,6 +312,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 ## 📚 Reference Materials
 
 ### For Your Team
+
 - [System Prompts](prompts/) - LLM generation instructions
 - [Config Files](config/) - Service and neighborhood data
 - [Schema Templates](schemas/) - JSON-LD templates
@@ -291,6 +320,7 @@ Complete HubSpot website enhancement for Mobile Mechanic Muscle, including conte
 - [Example Templates](templates/) - Reference HTML
 
 ### For Client
+
 - [Value Comparison Chart](docs/value-comparison.md) - ROI explanation
 - HubSpot Training Videos (to be created)
 - How to Edit Pages Guide (to be created)
@@ -337,7 +367,7 @@ After successful launch, consider:
 
 ---
 
-**Project Start Date:** __________  
+**Project Start Date:** ****\_\_****  
 **Expected Completion:** 4 weeks from start  
-**Project Lead:** __________  
+**Project Lead:** ****\_\_****  
 **Last Updated:** January 31, 2026

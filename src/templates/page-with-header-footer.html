@@ -1,0 +1,35 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Location Page with Header/Footer
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ content.html_title }}</title>
+  {{ standard_header_includes }}
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  {# Include custom CSS with utility classes #}
+  {{ require_css(get_asset_url("/draft-css/custom.css")) }}
+</head>
+<body>
+
+{% include "../growth-customized/templates/partials/header.html" %}
+
+{% widget_block rich_text "main_content" 
+   overrideable=True,
+   label="Main Content"
+%}
+{% end_widget_block %}
+
+{% include "../growth-customized/templates/partials/footer.html" %}
+
+{{ standard_footer_includes }}
+</body>
+</html>

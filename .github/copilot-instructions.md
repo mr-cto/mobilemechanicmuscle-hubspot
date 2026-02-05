@@ -7,7 +7,7 @@ This workspace generates SEO-optimized content for mobilemechanicmusclenearme.co
 ## Content Generation Rules
 
 - Use Nashville-specific terminology (Middle Tennessee, The 615, I-65)
-- Include ASE-Certified professional tone
+- Include professional and experienced tone
 - Minimize fluff, focus on mobile convenience
 - Every 300 words needs a CTA anchor
 - All HTML must match existing HubSpot CSS classes

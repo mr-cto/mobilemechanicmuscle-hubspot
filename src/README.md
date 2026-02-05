@@ -63,12 +63,14 @@ Or if watch is running, just save the file!
 ## Templates Ready
 
 ✅ **base.html** - Main layout
+
 - Header with navigation
 - Footer with links
 - Standard HubSpot includes
 - Mobile responsive structure
 
 ✅ **service-page.html** - For 7 service pages
+
 - Hero section
 - Problem/solution content
 - How it works
@@ -79,6 +81,7 @@ Or if watch is running, just save the file!
 - JSON-LD schema
 
 ✅ **location-page.html** - For 4 neighborhood pages
+
 - Local hero
 - Location-specific context
 - Services grid
@@ -89,6 +92,7 @@ Or if watch is running, just save the file!
 - LocalBusiness schema
 
 ✅ **custom.css** - Professional styling
+
 - Mobile responsive
 - Brand colors
 - Button styles
@@ -107,6 +111,7 @@ Or if watch is running, just save the file!
 When creating pages from templates:
 
 **Service Pages:**
+
 - `SERVICE_NAME` → "Brake Repair", "Diagnostics", etc.
 - `service-slug` → "brake-repair", "diagnostics", etc.
 - `PRIMARY_KEYWORD` → Your target keyword
@@ -115,6 +120,7 @@ When creating pages from templates:
 - `form_id_here` → Actual HubSpot form ID
 
 **Location Pages:**
+
 - `LOCATION_NAME` → "Franklin", "Brentwood", etc.
 - `location-slug` → "franklin", "brentwood", etc.
 - `COUNTY_NAME` → "Williamson County", etc.

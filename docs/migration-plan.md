@@ -1,6 +1,7 @@
 # Migration Plan: Existing Site → SEO-Optimized Site
 
 ## Overview
+
 This migration plan ensures a smooth transition from the current Mobile Mechanic Muscle website to the new SEO-optimized version with minimal downtime and preserved search rankings.
 
 ---
@@ -8,30 +9,35 @@ This migration plan ensures a smooth transition from the current Mobile Mechanic
 ## Migration Timeline
 
 ### Phase 1: Preparation (Week 1)
+
 - Complete existing site audit
 - Set up staging environment
 - Generate new content
 - Client review and approval
 
 ### Phase 2: Staging Build (Week 2-3)
+
 - Build new pages in staging
 - Implement schema markup
 - Configure redirects
 - QA testing
 
 ### Phase 3: Pre-Launch (Week 3-4)
+
 - Final client approval
 - Search Console setup
 - Backup production site
 - Pre-launch checklist
 
 ### Phase 4: Launch (Week 4)
+
 - Deploy to production
 - Monitor analytics
 - Verify redirects
 - Submit sitemap
 
 ### Phase 5: Post-Launch (Week 5-8)
+
 - Monitor rankings
 - Track conversions
 - Iterate based on data
@@ -79,6 +85,7 @@ Document current performance (save screenshots):
 ### New Pages to Create
 
 **Service Pages (7 total):**
+
 1. `/services/brake-repair` ← New
 2. `/services/diagnostics` ← New
 3. `/services/battery-starter` ← New
@@ -88,6 +95,7 @@ Document current performance (save screenshots):
 7. `/services/emergency-roadside` ← New
 
 **Neighborhood Pages (4 total):**
+
 1. `/locations/franklin` ← New
 2. `/locations/brentwood` ← New
 3. `/locations/murfreesboro` ← New
@@ -95,12 +103,12 @@ Document current performance (save screenshots):
 
 ### Existing Pages to Update
 
-| Current Page | Action | Priority |
-|--------------|--------|----------|
-| Homepage (/) | Enhance with new CTAs | High |
-| About | Update with trust signals | Medium |
-| Contact | Optimize form | High |
-| Old service pages | Redirect to new structure | High |
+| Current Page      | Action                    | Priority |
+| ----------------- | ------------------------- | -------- |
+| Homepage (/)      | Enhance with new CTAs     | High     |
+| About             | Update with trust signals | Medium   |
+| Contact           | Optimize form             | High     |
+| Old service pages | Redirect to new structure | High     |
 
 ### Pages to Keep As-Is
 
@@ -130,8 +138,8 @@ OLD_URL → NEW_URL [301 Permanent]
 **Create full redirect map:** `docs/redirect-map.csv`
 
 | Old URL | New URL | Redirect Type | Priority | Notes |
-|---------|---------|---------------|----------|-------|
-| | | 301 | | |
+| ------- | ------- | ------------- | -------- | ----- |
+|         |         | 301           |          |       |
 
 ### Implement Redirects in HubSpot
 
@@ -149,10 +157,12 @@ OLD_URL → NEW_URL [301 Permanent]
 ### Staging URL Structure
 
 **Option A:** HubSpot Sandbox (if available)
+
 - Production: `mobilemechanicmusclenearme.com`
 - Staging: Sandbox portal (preview URLs)
 
 **Option B:** HubSpot Preview URLs
+
 - Use HubSpot's built-in staging/preview
 
 ### Staging Deployment Process
@@ -192,22 +202,26 @@ hs upload modules/ modules/
 Each page needs appropriate schema:
 
 **Service Pages:**
+
 - Service schema (use `service-schema-template.json`)
 - Include pricing, availability, service area
 - Embed in page `<head>` or via HubSpot module
 
 **Neighborhood Pages:**
+
 - LocalBusiness schema (use `localbusiness-schema-template.json`)
 - Include geo-coordinates
 - Area served specifications
 
 **FAQ Sections:**
+
 - FAQPage schema (use `faq-schema-template.json`)
 - Add to relevant service pages
 
 ### Schema Validation
 
 Before launch:
+
 - [ ] Validate all schema at [validator.schema.org](https://validator.schema.org/)
 - [ ] Test in [Google Rich Results Test](https://search.google.com/test/rich-results)
 - [ ] Verify no errors in schema markup
@@ -267,27 +281,29 @@ Before launch:
 **Timing:** Ideally launch on Tuesday or Wednesday mid-morning (avoid Fridays/weekends)
 
 1. **Pre-Launch (1 hour before):**
+
    ```bash
    # Final backup
    hs fetch / backups/pre-launch-$(date +%Y%m%d)/
-   
+
    # Verify staging one last time
    hs accounts use mmm-staging
    # Test all critical paths
    ```
 
 2. **Deploy to Production:**
+
    ```bash
    # Switch to production account
    hs accounts use mmm-production
-   
+
    # Upload new pages
    hs upload services/ services/
    hs upload locations/ locations/
-   
+
    # Upload updated templates
    hs upload templates/ templates/
-   
+
    # Publish pages in HubSpot UI
    # (Set each page to "Published")
    ```
@@ -327,13 +343,13 @@ Before launch:
 
 Track these metrics:
 
-| Metric | Pre-Launch | Week 1 | Week 2 | Week 3 | Week 4 |
-|--------|------------|--------|--------|--------|--------|
-| Organic Sessions | | | | | |
-| Conversion Rate | | | | | |
-| Avg. Position (GSC) | | | | | |
-| Impressions | | | | | |
-| CTR | | | | | |
+| Metric              | Pre-Launch | Week 1 | Week 2 | Week 3 | Week 4 |
+| ------------------- | ---------- | ------ | ------ | ------ | ------ |
+| Organic Sessions    |            |        |        |        |        |
+| Conversion Rate     |            |        |        |        |        |
+| Avg. Position (GSC) |            |        |        |        |        |
+| Impressions         |            |        |        |        |        |
+| CTR                 |            |        |        |        |        |
 
 ### Months 2-3: Performance Optimization
 
@@ -360,12 +376,12 @@ If critical issues arise post-launch:
 
 ### Rollback Scenarios
 
-| Issue | Response | Action |
-|-------|----------|--------|
-| Traffic drops >50% | Immediate rollback | Investigate redirect issues |
-| Forms not working | Leave pages, fix forms | Update form embed code |
-| Schema errors | Leave pages, fix schema | Re-validate and update |
-| Major design issues | Rollback if client requests | Fix in staging, redeploy |
+| Issue               | Response                    | Action                      |
+| ------------------- | --------------------------- | --------------------------- |
+| Traffic drops >50%  | Immediate rollback          | Investigate redirect issues |
+| Forms not working   | Leave pages, fix forms      | Update form embed code      |
+| Schema errors       | Leave pages, fix schema     | Re-validate and update      |
+| Major design issues | Rollback if client requests | Fix in staging, redeploy    |
 
 ---
 
@@ -375,7 +391,6 @@ If critical issues arise post-launch:
 
 - **Redirects:** Misconfigured redirects can tank traffic
   - **Mitigation:** Test all redirects before launch
-  
 - **Schema Errors:** Invalid schema can hurt rich results
   - **Mitigation:** Validate all schema pre-launch
 
@@ -383,7 +398,6 @@ If critical issues arise post-launch:
 
 - **Content Quality:** New content may underperform initially
   - **Mitigation:** Use existing high-performing pages as models
-  
 - **Forms:** Form breaks = lost leads
   - **Mitigation:** Test forms thoroughly in staging
 
@@ -443,11 +457,12 @@ Week 5-8: Performance tracking + optimization
 
 ## Key Contacts & Resources
 
-**Project Lead:** _____________  
+**Project Lead:** ******\_******  
 **HubSpot Support:** support@hubspot.com  
-**Emergency Contact:** _____________
+**Emergency Contact:** ******\_******
 
 **Documentation:**
+
 - [HubSpot Connection Guide](hubspot-connection.md)
 - [Audit Checklist](audit-checklist.md)
 - [Value Comparison Chart](value-comparison.md)
@@ -459,5 +474,5 @@ Week 5-8: Performance tracking + optimization
 Use this section to track actual migration events:
 
 | Date | Action | Performed By | Status | Notes |
-|------|--------|--------------|--------|-------|
-| | | | | |
+| ---- | ------ | ------------ | ------ | ----- |
+|      |        |              |        |       |
