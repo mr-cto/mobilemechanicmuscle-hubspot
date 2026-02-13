@@ -34,7 +34,7 @@ All service and location pages now include comprehensive JSON-LD structured data
     "name": "Mobile Mechanic Muscle",
     "url": "https://mobilemechanicmusclenearme.com",
     "telephone": "(615) 496-3900",
-    "email": "mms.alwayshonest@gmail.com",
+    "email": "service@mobilemechanicmusclenearme.com",
     "address": { ... }
   },
   "areaServed": {
@@ -78,7 +78,7 @@ All service and location pages now include comprehensive JSON-LD structured data
   "name": "Mobile Mechanic Muscle",
   "url": "https://mobilemechanicmusclenearme.com/locations/nashville",
   "telephone": "(615) 496-3900",
-  "email": "mms.alwayshonest@gmail.com",
+  "email": "service@mobilemechanicmusclenearme.com",
   "description": "Professional mobile mechanic serving Nashville...",
   "address": {
     "@type": "PostalAddress",

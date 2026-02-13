@@ -273,7 +273,7 @@ ${areaItems}
       alternateName: "Mobile Mechanic Muscle Near Me",
       url: `https://mobilemechanicmusclenearme.com/locations/${this.location.slug}`,
       telephone: "(615) 496-3900",
-      email: "mms.alwayshonest@gmail.com",
+      email: "service@mobilemechanicmusclenearme.com",
       description: `Professional mobile mechanic serving ${this.location.name} and surrounding areas. We come to you for brake repair, diagnostics, and all automotive services.`,
       image:
         "https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20260203_144742.png",

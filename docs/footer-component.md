@@ -27,7 +27,7 @@ All pages now use a comprehensive footer component instead of just an `<hr>` tag
 
 4. **Contact Information**
    - Phone: (615) 496-3900
-   - Email: mms.alwayshonest@gmail.com
+   - Email: service@mobilemechanicmusclenearme.com
    - Hours: Mon-Sat 6AM-4PM
 
 ### Footer Bottom

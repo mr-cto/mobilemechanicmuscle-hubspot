@@ -244,7 +244,7 @@ ${locationLinks}
         name: "Mobile Mechanic Muscle",
         url: "https://mobilemechanicmusclenearme.com",
         telephone: "(615) 496-3900",
-        email: "mms.alwayshonest@gmail.com",
+        email: "service@mobilemechanicmusclenearme.com",
         image:
           "https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20260203_144742.png",
         priceRange: "$$",
