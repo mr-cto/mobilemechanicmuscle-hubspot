@@ -1,160 +1,26 @@
 <style>
-.footer {
-  background: #2B394B !important;
-  color: #ffffff !important;
-  padding: 60px 0 20px !important;
-}
-
-.footer .container-fluid {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 20px !important;
-}
-
-.footer-content {
-  max-width: 100% !important;
-}
-
-.footer .footer-grid {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 60px !important;
-  margin-bottom: 50px !important;
-}
-
-.footer .footer-grid .footer-column:nth-child(1) {
-  flex: 2 1 400px !important;
-}
-
+html, body { overflow-x: hidden !important; }
+.footer { background: #2B394B !important; color: #fff !important; padding: 60px 0 20px !important; }
+.footer .container-fluid { max-width: 1200px !important; margin: 0 auto !important; padding: 0 20px !important; }
+.footer .footer-content { display: block !important; }
+.footer .footer-grid { display: flex !important; flex-wrap: wrap !important; gap: 60px !important; margin-bottom: 40px !important; }
+.footer .footer-grid .footer-column:nth-child(1) { flex: 2 1 300px !important; }
 .footer .footer-grid .footer-column:nth-child(2),
-.footer .footer-grid .footer-column:nth-child(3) {
-  flex: 1 1 250px !important;
-}
-
+.footer .footer-grid .footer-column:nth-child(3) { flex: 1 1 200px !important; }
+.footer .footer-bottom { clear: both !important; width: 100% !important; margin-top: 40px !important; padding-top: 20px !important; border-top: 1px solid rgba(255,255,255,0.1) !important; }
+.footer-column h3, .footer-column h4 { color: #30beb4 !important; }
+.footer-column p, .footer-menu li, .footer-contact li, .footer a, .footer span, .footer div, .footer-bottom p { color: #e1e5e9 !important; }
+.footer-menu { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+.footer-menu li { margin-bottom: 10px !important; }
+.footer-menu a { color: #e1e5e9 !important; text-decoration: none !important; }
+.footer-menu a:hover { color: #30beb4 !important; }
+.footer-contact strong { color: #30beb4 !important; }
 @media (max-width: 768px) {
-  .footer .footer-grid {
-    gap: 30px !important;
-  }
-
-  .footer .footer-grid .footer-column {
-    flex: 1 1 100% !important;
-  }
-  
-  .footer {
-    padding: 40px 0 20px !important;
-  }
-}
-
-.footer-column h3 {
-  color: #30beb4 !important;
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  margin-bottom: 15px !important;
-}
-
-.footer-column h4 {
-  color: #30beb4 !important;
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  margin-bottom: 15px !important;
-}
-
-.footer-column p {
-  color: #e1e5e9 !important;
-  line-height: 1.6 !important;
-}
-
-.footer-menu {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.footer-menu li {
-  margin-bottom: 10px !important;
-}
-
-.footer-menu a {
-  color: #e1e5e9 !important;
-  text-decoration: none !important;
-}
-
-.footer-menu a:visited {
-  color: #e1e5e9 !important;
-}
-
-.footer-menu a:hover {
-  color: #30beb4 !important;
-}
-
-.footer-menu a:active {
-  color: #30beb4 !important;
-}
-
-.footer-contact a {
-  color: #e1e5e9 !important;
-  text-decoration: none !important;
-}
-
-.footer-contact a:visited {
-  color: #e1e5e9 !important;
-}
-
-.footer-contact a:hover {
-  color: #30beb4 !important;
-}
-
-.footer-contact li {
-  color: #ffffff !important;
-}
-
-.footer-contact strong {
-  color: #30beb4 !important;
-}
-
-.footer a {
-  color: #e1e5e9 !important;
-}
-
-.footer a:visited {
-  color: #e1e5e9 !important;
-}
-
-.footer a:hover {
-  color: #30beb4 !important;
-}
-
-.footer-bottom {
-  margin-top: 40px !important;
-  padding-top: 20px !important;
-  text-align: center !important;
-}
-
-.footer-divider {
-  border: none !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  margin-bottom: 20px !important;
-}
-
-.footer-bottom p {
-  color: #e1e5e9 !important;
-  font-size: 0.9rem !important;
-}
-
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 30px !important;
-  }
-  
-  .footer {
-    padding: 40px 0 20px !important;
-  }
+  .footer .footer-grid { gap: 30px !important; }
+  .footer .footer-grid .footer-column { flex: 1 1 100% !important; }
+  .footer { padding: 40px 0 20px !important; }
 }
 </style>
-
 <footer class="footer">
   <div class="container-fluid">
     <div class="footer-content">
@@ -182,8 +48,9 @@
       <h4>Get In Touch</h4>
       <ul class="footer-menu footer-contact">
         <li><strong>Phone:</strong> <a href="tel:+16154963900">(615) 496-3900</a></li>
-        <li><strong>Email:</strong> <a href="mailto:service@mobilemechanicmusclenearme.com">service@mobilemechanicmusclenearme.com</a></li>
         <li><strong>Hours:</strong> Mon-Sat 6AM-4PM</li>
+        <li style="margin-top:12px;"><a href="/request-service" style="display:block; border:2px solid #30beb4; color:#30beb4 !important; padding:10px 20px; border-radius:4px; font-size:14px; font-weight:600; text-decoration:none; text-align:center; max-width:250px;">Book Appointment</a></li>
+        <li><strong>Financing:</strong> <a href="https://americanfirstfinance.com/app/?dealer=32791&loc=1&src=UA" target="_blank" rel="noopener">Apply with American First Finance</a></li>
       </ul>
       <div style="margin-top: 25px;">
         <h4 style="margin-bottom: 10px !important;">Service Areas</h4>
@@ -206,7 +73,6 @@
         <a href="/">Home</a>
         <a href="/#about">About</a>
         <a href="/gallery">Gallery</a>
-        <a href="/contact">Book Appointment</a>
       </div>
     </div>
   </div>

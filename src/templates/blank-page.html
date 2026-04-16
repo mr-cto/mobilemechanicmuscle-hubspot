@@ -1,0 +1,27 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Blank Page (No Header/Footer)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ content.html_title }}</title>
+  <link rel="shortcut icon" href="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20260203_144742.png">
+  {{ standard_header_includes }}
+</head>
+<body>
+
+<main>
+  {% widget_block rich_text "main_content"
+     overrideable=True,
+     label="Main Content"
+  %}
+  {% end_widget_block %}
+</main>
+
+{{ standard_footer_includes }}
+</body>
+</html>

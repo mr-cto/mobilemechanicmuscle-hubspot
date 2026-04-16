@@ -1,3 +1,35 @@
+<!-- theme base CSS removed — header styles are inline, footer uses its own -->
+<style>
+/* Growth theme header settings */
+.header { background-color: rgba(255,255,255,1.0); }
+.header__top { background-color: rgba(245,245,245,1.0); }
+.header__bottom { background-color: rgba(255,255,255,1.0); }
+.header__wrapper { max-width: 1000px; }
+.header__logo-company-name { font-family: Poppins, sans-serif; font-weight: 700; color: #2B394B; font-size: 40px; text-transform: uppercase; }
+.header__menu-link { font-family: Poppins, sans-serif; font-weight: normal; font-size: 17px; text-transform: none; text-decoration: none; }
+.header__menu-item--depth-1 > .header__menu-link:not(.button) { color: #2B394B; }
+.header__menu-item--depth-1 > .header__menu-link:hover { color: #000000; }
+.header p, .header h1, .header h2, .header h3, .header h4, .header a:not(.button), .header span, .header div, .header li { color: #2B394B; }
+@media (max-width: 767px) {
+  .header__menu--mobile { background-color: rgba(255,255,255,1.0); }
+  .header__menu-item--depth-1 { border-top: 1px solid #EEEEEE; }
+}
+.header__menu-toggle svg { fill: #2B394B; }
+/* Header layout fix — logo left, nav right */
+.header__container--centered .header__wrapper--bottom { flex-wrap: nowrap !important; text-align: left !important; }
+.header__container--centered .header__logo-col { width: auto !important; margin-bottom: 0 !important; flex-shrink: 0 !important; }
+.header__container--centered .header__menu-col { width: auto !important; margin-left: auto !important; text-align: right !important; }
+.header__logo-image { max-height: 85px !important; width: auto !important; height: auto !important; object-fit: contain !important; }
+.header__bottom { padding: 0.8rem 20px !important; }
+.header__top { display: none !important; }
+@media (max-width: 767px) {
+  .header__container--centered .header__wrapper--bottom { justify-content: space-between !important; flex-wrap: wrap !important; }
+  .header__logo-image { max-height: 50px !important; }
+  .header__menu--desktop .header__menu-wrapper { flex-wrap: wrap !important; justify-content: center !important; gap: 4px !important; }
+  .header__menu-item--depth-1 { padding: 0 0.4rem !important; }
+  .header__menu-link { font-size: 12px !important; white-space: nowrap !important; }
+}
+</style>
 <style>
 /* Page-specific styles for all-services */
 .services-grid {
@@ -91,7 +123,7 @@
     <h1>Complete Mobile Mechanic Services</h1>
     <p>Mobile Mechanic Muscle brings professional auto repair directly to your location in Nashville & Middle Tennessee. From routine maintenance to major repairs—if it's under the hood, we can fix it at your home, office, or anywhere your vehicle is parked.</p>
     <a href="tel:+16154963900" class="cta-button">Call (615) 496-3900</a>
-    <a href="#contact-form" class="button-light">Request a Quote</a>
+    <a href="/request-service" class="button-light">Request Service</a>
   </div>
 </section>
 
@@ -338,6 +370,13 @@
           <li>Williamson County</li>
           <li>Rutherford County</li>
           <li>Sumner County</li>
+          <li>Wilson County</li>
+          <li>Cheatham County</li>
+          <li>Robertson County</li>
+          <li>Gallatin</li>
+          <li>Smyrna</li>
+          <li>Spring Hill</li>
+          <li>La Vergne</li>
           <li>& Surrounding Areas</li>
         </ul>
       </div>
@@ -345,7 +384,8 @@
     
     <div style="text-align: center; margin-top: 40px;">
       <a href="tel:+16154963900" class="cta-button">Call Now: (615) 496-3900</a>
-      <a href="#contact-form" class="button-light">Get a Quote</a>
+      <a href="/request-service" class="button-light">Request Service</a>
+      <p style="margin-top: 20px;"><a href="https://americanfirstfinance.com/app/?dealer=32791&loc=1&src=UA" target="_blank" rel="noopener" style="color: #30beb4; font-weight: 600; text-decoration: underline;">Financing Available — Apply with American First Finance</a></p>
     </div>
   </div>
 </section>
@@ -382,7 +422,6 @@
   "description": "Professional mobile mechanic services throughout Nashville and Middle Tennessee. Experienced technicians bringing complete auto repair to your location.",
   "url": "https://mobilemechanicmusclenearme.com/all-services",
   "telephone": "+16154963900",
-  "email": "service@mobilemechanicmusclenearme.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Nashville",

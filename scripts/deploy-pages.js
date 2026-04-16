@@ -191,6 +191,98 @@ async function createAllServicesPage() {
 }
 
 /**
+ * Generate and create high-end vehicles page
+ */
+async function createHighEndVehiclesPage() {
+  const htmlContent = readFileSync(
+    join(__dirname, "../src/pages/high-end-vehicles.html"),
+    "utf-8",
+  );
+
+  const pageData = {
+    name: "Luxury, Exotic & Supercar Service - Mobile Mechanic Muscle",
+    slug: "high-end-vehicles",
+    templatePath: "draft-templates/simple-content-page.html",
+    state: process.env.CREATE_AS_DRAFT === "true" ? "DRAFT" : "PUBLISHED",
+    htmlTitle:
+      "Supercar & Exotic Vehicle Mobile Mechanic | Ferrari, Lamborghini, McLaren | Nashville",
+    metaDescription:
+      "Specialized mobile mechanic for supercars, exotics, and luxury vehicles in Nashville. Ferrari, Lamborghini, McLaren, Porsche, and more. Factory-grade diagnostics, OEM parts, and make-specific expertise at your location.",
+  };
+
+  return await upsertPageWithContent(pageData, htmlContent);
+}
+
+/**
+ * Generate and create request-service page
+ */
+async function createRequestServicePage() {
+  const htmlContent = readFileSync(
+    join(__dirname, "../src/pages/request-service.html"),
+    "utf-8",
+  );
+
+  const pageData = {
+    name: "Request Service - Mobile Mechanic Muscle",
+    slug: "request-service",
+    templatePath: "draft-templates/simple-content-page.html",
+    state: process.env.CREATE_AS_DRAFT === "true" ? "DRAFT" : "PUBLISHED",
+    htmlTitle:
+      "Request Mobile Mechanic Service | Nashville & Middle Tennessee",
+    metaDescription:
+      "Request a quote for mobile mechanic service in Nashville and Middle Tennessee. Quick intake form for engine repair, brakes, diagnostics, commercial equipment, muscle cars, luxury vehicles, and more.",
+  };
+
+  return await upsertPageWithContent(pageData, htmlContent);
+}
+
+/**
+ * Generate and create commercial equipment page
+ */
+async function createCommercialEquipmentPage() {
+  const htmlContent = readFileSync(
+    join(__dirname, "../src/pages/commercial-equipment.html"),
+    "utf-8",
+  );
+
+  const pageData = {
+    name: "Commercial & Heavy Equipment Service - Mobile Mechanic Muscle",
+    slug: "commercial-equipment",
+    templatePath: "draft-templates/simple-content-page.html",
+    state: process.env.CREATE_AS_DRAFT === "true" ? "DRAFT" : "PUBLISHED",
+    htmlTitle:
+      "Commercial & Heavy Equipment Mobile Mechanic | Nashville & Middle Tennessee",
+    metaDescription:
+      "On-site mobile mechanic for commercial equipment and heavy machinery in Nashville. Skid steers, excavators, forklifts, generators, box trucks, diesel engines. We come to your job site.",
+  };
+
+  return await upsertPageWithContent(pageData, htmlContent);
+}
+
+/**
+ * Generate and create muscle cars page
+ */
+async function createMuscleCarsPage() {
+  const htmlContent = readFileSync(
+    join(__dirname, "../src/pages/muscle-cars.html"),
+    "utf-8",
+  );
+
+  const pageData = {
+    name: "Muscle Car Service - Mobile Mechanic Muscle",
+    slug: "muscle-cars",
+    templatePath: "draft-templates/simple-content-page.html",
+    state: process.env.CREATE_AS_DRAFT === "true" ? "DRAFT" : "PUBLISHED",
+    htmlTitle:
+      "Muscle Car Mobile Mechanic | Classic & Modern American Muscle | Nashville",
+    metaDescription:
+      "Specialized mobile mechanic for classic and modern muscle cars in Nashville. Camaro, Mustang, Challenger, Corvette, Hellcat, and more. V8 diagnostics, brake service, and bolt-on installs at your location.",
+  };
+
+  return await upsertPageWithContent(pageData, htmlContent);
+}
+
+/**
  * Main execution
  */
 async function main() {
@@ -210,6 +302,58 @@ async function main() {
 
   try {
     await createAllServicesPage();
+    successCount++;
+  } catch (error) {
+    failCount++;
+  }
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  // Create high-end vehicles page
+  console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+  console.log("🏎️  HIGH-END VEHICLES PAGE");
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+
+  try {
+    await createHighEndVehiclesPage();
+    successCount++;
+  } catch (error) {
+    failCount++;
+  }
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  // Create request-service page
+  console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+  console.log("📝 REQUEST SERVICE PAGE");
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+
+  try {
+    await createRequestServicePage();
+    successCount++;
+  } catch (error) {
+    failCount++;
+  }
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  // Create commercial equipment page
+  console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+  console.log("🏗️  COMMERCIAL EQUIPMENT PAGE");
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+
+  try {
+    await createCommercialEquipmentPage();
+    successCount++;
+  } catch (error) {
+    failCount++;
+  }
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  // Create muscle cars page
+  console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+  console.log("🏎️  MUSCLE CARS PAGE");
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+
+  try {
+    await createMuscleCarsPage();
     successCount++;
   } catch (error) {
     failCount++;

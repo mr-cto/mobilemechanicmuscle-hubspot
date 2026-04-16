@@ -1,0 +1,1243 @@
+<style>
+/* ================================================================
+   HIGH-END VEHICLES — BOLD EDITORIAL + CINEMATIC MOTION
+   Standalone: custom header, footer, typography, animations
+   ================================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* --- Kill any host page margin/padding & hide site header/footer/HubSpot badge --- */
+html, body { margin: 0 !important; padding: 0 !important; }
+/* Hide ALL possible site header/footer wrappers */
+.header-container-wrapper,
+.footer-container-wrapper,
+header.site-header,
+footer.site-footer,
+.hs-menu-wrapper,
+nav.site-nav,
+.site-header,
+.site-footer,
+.body-container-wrapper > header,
+.body-container-wrapper > footer,
+.body-wrapper > header,
+.body-wrapper > footer,
+body > header,
+body > footer,
+body > div > header,
+body > div > footer,
+#hs_cos_wrapper_header,
+#hs_cos_wrapper_footer,
+[id*="header"],
+[id*="footer"] { display: none !important; }
+/* Nuclear: hide everything in body EXCEPT main content area */
+body > *:not(main):not(.site-main):not(.body-container-wrapper):not(.body-wrapper):not(script):not(style):not(link) { display: none !important; }
+/* Make sure main content area is clean */
+.site-main, main, .body-container-wrapper, .body-wrapper { padding: 0 !important; margin: 0 !important; }
+/* Hide HubSpot "Built on HubSpot" badge */
+#hs-link-module_global_badge,
+.hs-cta-wrapper,
+[data-hs-cos-type="badge"],
+a[href*="hubspot.com"][class*="badge"],
+div[class*="sprocket"],
+#hs_cos_wrapper_module_global_badge,
+.widget-type-badge,
+iframe[title*="HubSpot"],
+div[id*="hubspot-messages"],
+div[id*="badge"] { display: none !important; visibility: hidden !important; }
+/* Extra: hide the floating badge bottom-left */
+body > div:last-of-type[style*="position: fixed"],
+body > div[style*="z-index"][style*="bottom"] { display: none !important; }
+
+/* --- Tokens --- */
+.lux {
+  --black: #0a0a0a;
+  --charcoal: #1a1a1a;
+  --heading: #000000;
+  --dark: #2a2a2a;
+  --mid: #b0b0b0;
+  --light: #ececec;
+  --cream: #f5f4f0;
+  --white: #fff;
+  --gold: #c9a962;
+  --gold-h: #dfc07a;
+  --teal: #30beb4;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin: 0; padding: 0;
+  font-family: var(--sans);
+  color: var(--charcoal);
+  line-height: 1.6;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background: var(--black);
+}
+
+.lux *, .lux *::before, .lux *::after { box-sizing: border-box; }
+.lux h1, .lux h2, .lux h3, .lux h4 { font-family: var(--serif); text-transform: none; letter-spacing: 0; margin: 0; }
+.lux p { margin: 0; }
+.lux a { text-decoration: none; }
+.lux img { max-width: 100%; display: block; }
+
+/* --- Layout --- */
+.lux-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.lux-narrow { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+/* ================================================================
+   ANIMATION SYSTEM
+   ================================================================ */
+
+/* --- Keyframes --- */
+@keyframes luxFadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes luxFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes luxSlideLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes luxSlideRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes luxScaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes luxRevealLine {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes luxGlowPulse {
+  0%, 100% { opacity: 0.04; }
+  50%      { opacity: 0.09; }
+}
+
+@keyframes luxCountUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes luxHeroTextReveal {
+  0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+@keyframes luxHeroSubReveal {
+  0%   { opacity: 0; transform: translateY(20px); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes luxFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes luxGrainShift {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-2%, -2%); }
+  20%  { transform: translate(1%, 3%); }
+  30%  { transform: translate(-3%, 1%); }
+  40%  { transform: translate(3%, -1%); }
+  50%  { transform: translate(-1%, 2%); }
+  60%  { transform: translate(2%, -3%); }
+  70%  { transform: translate(-2%, 1%); }
+  80%  { transform: translate(1%, -2%); }
+  90%  { transform: translate(-1%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* --- Scroll-triggered classes --- */
+.lux-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-reveal--left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-reveal--right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-reveal--scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-visible {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* Stagger children */
+.lux-stagger > * { transition-delay: calc(var(--i, 0) * 0.1s); }
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+.lux-header {
+  background: var(--black);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.lux-header__inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  height: 64px;
+}
+
+.lux-header__brand { display: flex; align-items: center; gap: 14px; color: var(--white); }
+
+.lux-header__logo {
+  width: 36px; height: 36px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+}
+
+.lux-header__logo img { width: 100%; height: 100%; object-fit: cover; }
+
+.lux-header__name {
+  font-family: var(--sans); font-weight: 700; font-size: 13px;
+  letter-spacing: 2.5px; text-transform: uppercase; color: var(--white);
+}
+
+.lux-header__nav { display: flex; align-items: center; gap: 32px; }
+
+.lux-header__link {
+  font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--white); transition: color 0.3s;
+}
+
+.lux-header__link:hover { color: var(--gold); }
+
+.lux-header__cta {
+  font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--black); background: var(--gold); padding: 10px 22px; transition: all 0.3s;
+}
+
+.lux-header__cta:hover { background: var(--gold-h); color: var(--black); }
+
+.lux-header__toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.lux-header__toggle span { display: block; width: 22px; height: 2px; background: var(--white); margin: 5px 0; transition: 0.3s; }
+
+@media (max-width: 768px) {
+  .lux-header__nav { display: none; }
+  .lux-header__toggle { display: block; }
+  .lux-header__nav.is-open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 64px; left: 0; right: 0; background: var(--black);
+    padding: 24px; gap: 20px; border-top: 1px solid rgba(255,255,255,0.06);
+  }
+}
+
+/* ================================================================
+   BUTTONS
+   ================================================================ */
+.lux-btn {
+  display: inline-block; padding: 16px 36px; font-family: var(--sans);
+  font-size: 12px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; border: none; cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative; overflow: hidden;
+  margin-top: 12px;
+}
+
+.lux-btn::after {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.lux-btn:hover::after { width: 300px; height: 300px; }
+
+.lux-btn--gold { background: var(--gold); color: var(--black) !important; }
+.lux-btn--gold:hover { background: var(--gold-h); color: var(--black) !important; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,169,98,0.35); }
+
+.lux-btn--outline { background: transparent; color: var(--white) !important; border: 1px solid rgba(255,255,255,0.25); }
+.lux-btn--outline:hover { border-color: var(--white); background: rgba(255,255,255,0.04); color: var(--white) !important; }
+
+.lux-btn--teal { background: var(--teal); color: var(--white) !important; }
+.lux-btn--teal:hover { background: #28a89f; color: var(--white) !important; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(48,190,180,0.25); }
+
+/* ================================================================
+   HERO — CINEMATIC
+   ================================================================ */
+.lux-hero {
+  background: var(--black);
+  color: var(--white);
+  padding: 120px 24px 140px;
+  position: relative;
+  overflow: hidden;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Atmospheric glow orb */
+.lux-hero::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 900px; height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,98,0.07) 0%, transparent 65%);
+  pointer-events: none;
+  animation: luxGlowPulse 6s ease-in-out infinite;
+}
+
+/* Bottom gold line */
+.lux-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,98,0.4), transparent);
+}
+
+/* Film grain overlay */
+.lux-hero__grain {
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  animation: luxGrainShift 8s steps(10) infinite;
+}
+
+/* Background hero image */
+.lux-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://mobilemechanicmusclenearme.com/hs-fs/hubfs/mmm-gallery-112525-3.jpg?width=1920&length=1920&name=mmm-gallery-112525-3.jpg') center center / cover no-repeat;
+  opacity: 0.2;
+  transition: opacity 1.5s;
+}
+
+.lux-hero__inner {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  position: relative; z-index: 2;
+}
+
+.lux-hero__label {
+  display: inline-block;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--gold);
+  animation: luxFadeIn 1s 0.2s both;
+}
+
+.lux-hero h1 {
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 78px);
+  line-height: 1.2;
+  padding-bottom: 4px;
+  margin-bottom: 30px;
+  max-width: 880px;
+  color: var(--white);
+  animation: luxHeroTextReveal 1.2s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.lux-hero h1 em { font-style: italic; color: var(--gold); }
+
+.lux-hero__sub {
+  font-size: 19px; font-weight: 300; line-height: 1.75;
+  color: var(--light); max-width: 600px; margin-bottom: 64px;
+  animation: luxHeroSubReveal 1s 1s both;
+}
+
+.lux-hero__actions {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  animation: luxFadeUp 0.8s 1.3s both;
+}
+
+/* ================================================================
+   SECTIONS
+   ================================================================ */
+.lux-sec { padding: 100px 24px; position: relative; background: var(--white); }
+.lux-sec--dark { background: var(--black); color: var(--white); }
+.lux-sec--cream { background: var(--cream); }
+.lux-sec--divider { border-bottom: 1px solid var(--light); }
+
+.lux-sec__label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+}
+
+.lux-sec__title {
+  font-weight: 900; font-size: clamp(30px, 4vw, 50px); line-height: 1.1; margin-bottom: 22px;
+  color: var(--heading);
+}
+
+.lux-sec--dark .lux-sec__title { color: var(--white); }
+
+.lux-sec__sub {
+  font-size: 17px; font-weight: 300; line-height: 1.7;
+  color: var(--mid); max-width: 560px; margin-bottom: 64px;
+}
+
+.lux-sec--dark .lux-sec__sub { color: var(--light); }
+
+/* ================================================================
+   EDITORIAL TWO-COLUMN
+   ================================================================ */
+.lux-edit {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+
+.lux-edit__hl {
+  font-weight: 900; font-size: clamp(26px, 3.4vw, 44px);
+  line-height: 1.14; position: sticky; top: 88px;
+  color: var(--heading);
+}
+
+.lux-edit__hl em { font-style: italic; color: var(--gold); }
+
+.lux-edit__body p {
+  font-size: 17px; line-height: 1.85; color: #3a3a3a; margin-bottom: 22px;
+}
+
+.lux-edit__body a { color: var(--gold); }
+
+.lux-edit__body p:first-child::first-line { font-weight: 600; color: var(--heading); }
+
+/* ================================================================
+   STATS BAR — ANIMATED COUNTERS
+   ================================================================ */
+.lux-stats {
+  background: var(--charcoal);
+  padding: 56px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.lux-stats__inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  text-align: center;
+}
+
+.lux-stats__item { padding: 12px 0; }
+
+.lux-stats__number {
+  font-family: var(--serif); font-size: 48px; font-weight: 900;
+  color: var(--gold); line-height: 1; margin-bottom: 8px;
+  display: block;
+}
+
+.lux-stats__label {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--mid);
+}
+
+/* ================================================================
+   MAKES GRID — WITH HOVER GLOW
+   ================================================================ */
+.lux-makes {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: rgba(255,255,255,0.07);
+}
+
+.lux-makes__item {
+  background: var(--black); padding: 50px 24px; text-align: center;
+  transition: all 0.4s; position: relative; overflow: hidden;
+}
+
+.lux-makes__item::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at center, rgba(201,169,98,0.08) 0%, transparent 70%);
+  opacity: 0; transition: opacity 0.5s;
+}
+
+.lux-makes__item:hover { background: var(--charcoal); }
+.lux-makes__item:hover::before { opacity: 1; }
+
+.lux-makes__name {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: var(--white); margin-bottom: 5px; position: relative;
+}
+
+.lux-makes__sub {
+  font-family: var(--sans); font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--mid); position: relative;
+}
+
+/* ================================================================
+   FULL-BLEED IMAGE BREAK
+   ================================================================ */
+.lux-imgbreak {
+  position: relative;
+  height: 50vh;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.lux-imgbreak__bg {
+  position: absolute; inset: 0;
+  /* DEPLOY NOTE: replace with HubSpot file manager URL after upload */
+  background: url('https://mobilemechanicmusclenearme.com/hs-fs/hubfs/131226894_101374148524869_1075537740084673886_n-1.jpg?width=1920&length=1920&name=131226894_101374148524869_1075537740084673886_n-1.jpg') center/cover no-repeat;
+  filter: grayscale(20%);
+  transform: scale(1.05);
+  transition: transform 8s ease-out;
+}
+
+.lux-imgbreak.lux-visible .lux-imgbreak__bg {
+  transform: scale(1);
+}
+
+.lux-imgbreak__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,10,10,0.6) 0%,
+    rgba(10,10,10,0.35) 40%,
+    rgba(10,10,10,0.85) 100%
+  );
+}
+
+.lux-imgbreak__text {
+  position: absolute;
+  bottom: 48px; left: 48px; right: 48px;
+  z-index: 2;
+}
+
+.lux-imgbreak__quote {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(22px, 3vw, 36px); font-weight: 400;
+  color: var(--white); line-height: 1.3; max-width: 700px;
+}
+
+.lux-imgbreak__attr {
+  font-family: var(--sans); font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); margin-top: 16px;
+}
+
+/* Ensure no default blue links anywhere */
+.lux-sec a, .lux-cta a, .lux-footer a { color: inherit; }
+
+/* ================================================================
+   SERVICES GRID — CARD ENTRANCE
+   ================================================================ */
+.lux-svc {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--light);
+}
+
+.lux-svc__card {
+  background: var(--white); padding: 48px 36px; transition: all 0.4s;
+  position: relative; overflow: hidden;
+}
+
+.lux-svc__card::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 3px; background: var(--gold);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-svc__card:hover::after { width: 100%; }
+.lux-svc__card:hover { background: var(--cream); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+
+.lux-svc__num {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 2px; color: var(--gold); margin-bottom: 20px;
+}
+
+.lux-svc__card h3 { font-size: 23px; font-weight: 700; margin-bottom: 13px; color: var(--heading); }
+.lux-svc__card p { font-size: 15px; line-height: 1.7; color: var(--mid); }
+
+/* ================================================================
+   PROCESS LIST
+   ================================================================ */
+.lux-proc { list-style: none; counter-reset: step; padding: 0; max-width: 780px; }
+
+.lux-proc__item {
+  counter-increment: step;
+  display: grid; grid-template-columns: 76px 1fr; gap: 28px;
+  padding: 38px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  align-items: start;
+}
+
+.lux-proc__item:last-child { border-bottom: none; }
+
+.lux-proc__item::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--serif); font-size: 36px; font-weight: 700;
+  color: var(--gold); line-height: 1;
+}
+
+.lux-proc__item h3 { font-family: var(--sans) !important; font-size: 17px; font-weight: 600; margin-bottom: 7px; color: var(--white); }
+.lux-proc__item p { font-size: 15px; line-height: 1.7; color: var(--light); }
+
+/* ================================================================
+   DIFFERENTIATORS
+   ================================================================ */
+.lux-diff { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; }
+
+.lux-diff__card {
+  padding: 44px; border: 1px solid var(--light); background: var(--white);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-diff__card:hover {
+  border-color: var(--gold); transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+}
+
+.lux-diff__card h3 { font-size: 23px; font-weight: 700; margin-bottom: 13px; color: var(--heading); }
+.lux-diff__card p { font-size: 15px; line-height: 1.7; color: #3a3a3a; }
+
+/* ================================================================
+   FAQ
+   ================================================================ */
+.lux-faq__item {
+  padding: 34px 0; border-bottom: 1px solid var(--light);
+}
+
+.lux-faq__item:first-child { border-top: 1px solid var(--light); }
+
+.lux-faq__q { font-family: var(--serif); font-size: 22px; font-weight: 700; margin-bottom: 10px; color: var(--heading); }
+.lux-faq__a { font-size: 15px; line-height: 1.8; color: #3a3a3a; max-width: 680px; }
+
+/* ================================================================
+   FINAL CTA
+   ================================================================ */
+.lux-cta {
+  background: var(--black); color: var(--white); padding: 120px 24px; text-align: center;
+  position: relative; overflow: hidden;
+}
+
+.lux-cta::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,98,0.06) 0%, transparent 65%);
+  transform: translate(-50%, -50%);
+  animation: luxGlowPulse 5s ease-in-out infinite;
+}
+
+.lux-cta__title {
+  font-weight: 900; font-size: clamp(34px, 5vw, 62px); line-height: 1.08;
+  margin-bottom: 24px; color: var(--white); position: relative;
+}
+
+.lux-cta__title em { font-style: italic; color: var(--gold); }
+
+.lux-cta__sub {
+  font-size: 17px; font-weight: 300; color: var(--light);
+  max-width: 100%; margin: 0 auto 64px; line-height: 1.7; position: relative;
+}
+
+.lux-cta__actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.lux-footer { background: var(--charcoal); padding: 60px 24px 28px; }
+
+.lux-footer__inner { max-width: 1200px; margin: 0 auto; }
+
+.lux-footer__grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px;
+}
+
+.lux-footer__brand-text {
+  font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 320px; margin-top: 12px;
+}
+
+.lux-footer h4 {
+  font-family: var(--sans) !important; font-size: 11px; font-weight: 600;
+  letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+}
+
+.lux-footer__list { list-style: none; padding: 0; margin: 0; }
+.lux-footer__list li { margin-bottom: 10px; }
+.lux-footer__list a { font-size: 14px; color: rgba(255,255,255,0.75); transition: color 0.3s; }
+.lux-footer__list a:hover { color: var(--white); }
+
+.lux-footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+}
+
+.lux-footer__copy { font-size: 13px; color: rgba(255,255,255,0.55); letter-spacing: 0.5px; }
+.lux-footer__copy a { color: var(--gold); transition: color 0.3s; }
+.lux-footer__copy a:hover { color: var(--gold-h); }
+
+
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 1024px) {
+  .lux-svc { grid-template-columns: repeat(2, 1fr); }
+  .lux-footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .lux-stats__inner { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .lux-hero { padding: 80px 24px 100px; min-height: 70vh; }
+  .lux-edit { grid-template-columns: 1fr; gap: 36px; }
+  .lux-edit__hl { position: static; }
+  .lux-makes { grid-template-columns: 1fr; }
+  .lux-makes__item { padding: 28px 24px; }
+  .lux-makes__name { font-size: 20px; }
+  .lux-svc { grid-template-columns: 1fr; }
+  .lux-diff { grid-template-columns: 1fr; }
+  .lux-proc__item { grid-template-columns: 1fr; gap: 10px; }
+  .lux-sec { padding: 64px 24px; }
+  .lux-cta { padding: 80px 24px; }
+  .lux-footer__grid { grid-template-columns: 1fr; gap: 32px; }
+  .lux-footer__bottom { flex-direction: column; text-align: center; }
+  .lux-stats__inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .lux-stats__number { font-size: 36px; }
+  .lux-imgbreak { height: 40vh; }
+  .lux-imgbreak__text { bottom: 24px; left: 24px; right: 24px; }
+}
+
+@media (max-width: 480px) {
+  .lux-makes { grid-template-columns: 1fr; }
+  .lux-diff__card { padding: 28px; }
+  .lux-stats__inner { grid-template-columns: 1fr 1fr; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .lux-reveal, .lux-reveal--left, .lux-reveal--right, .lux-reveal--scale {
+    opacity: 1; transform: none; transition: none;
+  }
+  .lux-hero h1, .lux-hero__label, .lux-hero__sub, .lux-hero__actions {
+    animation: none;
+  }
+  .lux-hero__grain { animation: none; }
+  .lux-imgbreak__bg { transition: none; }
+}
+</style>
+
+<div class="lux">
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="lux-header" role="banner">
+  <div class="lux-header__inner">
+    <a href="/" class="lux-header__brand">
+      <div class="lux-header__logo">
+        <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20260203_144742.png?width=72&height=72&name=IMG_20260203_144742.png" alt="Mobile Mechanic Muscle" width="36" height="36">
+      </div>
+      <span class="lux-header__name">Mobile Mechanic Muscle</span>
+    </a>
+
+    <button class="lux-header__toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('is-open')">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="lux-header__nav" aria-label="Main navigation">
+      <a href="/all-services" class="lux-header__link">Services</a>
+      <a href="/#about" class="lux-header__link">About</a>
+      <a href="/request-service" class="lux-header__cta">Request Service</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO — CINEMATIC
+     ============================================================ -->
+<section class="lux-hero">
+  <div class="lux-hero__grain"></div>
+  <div class="lux-hero__bg"></div>
+  <div class="lux-hero__inner">
+    <span class="lux-hero__label">Luxury · Exotic · Supercar Service</span>
+    <h1>Your Vehicle Deserves<br><em>a Specialist</em></h1>
+    <p class="lux-hero__sub">From European luxury to Italian supercars and hypercars—factory-grade diagnostics, make-specific tooling, and OEM parts brought to your driveway in Nashville. No dealership drop-off. No compromises.</p>
+    <div class="lux-hero__actions">
+      <a href="/request-service" class="lux-btn lux-btn--gold">Request Service</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<section class="lux-stats">
+  <div class="lux-stats__inner lux-reveal lux-stagger">
+    <div class="lux-stats__item" style="--i:0">
+      <span class="lux-stats__number" data-count="12">0</span>
+      <span class="lux-stats__label">Luxury Makes</span>
+    </div>
+    <div class="lux-stats__item" style="--i:1">
+      <span class="lux-stats__number" data-count="60" data-suffix="+">0</span>
+      <span class="lux-stats__label">Mile Radius</span>
+    </div>
+    <div class="lux-stats__item" style="--i:2">
+      <span class="lux-stats__number" data-count="6">0</span>
+      <span class="lux-stats__label">Days a Week</span>
+    </div>
+    <div class="lux-stats__item" style="--i:3">
+      <span class="lux-stats__number" data-count="100" data-suffix="%">0</span>
+      <span class="lux-stats__label">OEM-Spec Parts</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EDITORIAL INTRO
+     ============================================================ -->
+<section class="lux-sec lux-sec--divider">
+  <div class="lux-wrap">
+    <div class="lux-edit">
+      <h2 class="lux-edit__hl lux-reveal--left">Why Luxury, Exotic &amp; Supercars Need <em>More Than a General Shop</em></h2>
+      <div class="lux-edit__body lux-reveal--right">
+        <p>High-performance and luxury vehicles are engineered to tolerances that general shops aren't equipped to meet. Whether it's the dry-sump oiling system on a Lamborghini V10, the carbon-ceramic brakes on a Ferrari, the adaptive air suspension on a Range Rover, or the CAN-bus network in a modern AMG—these vehicles demand specialized knowledge, tooling, and fluids.</p>
+        <p>Mobile Mechanic Muscle brings that expertise directly to your location. Whether your McLaren needs a brake service in Brentwood, your Porsche is throwing a suspension fault in Belle Meade, or your Koenigsegg needs pre-event inspection, we handle it on-site with the precision you'd expect from a specialty dealership—without the markup or the hassle.</p>
+        <p>We work on the vehicles that make general shops hesitate—and the ones they flat-out refuse. That's the point.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAKES
+     ============================================================ -->
+<section class="lux-sec lux-sec--dark">
+  <div class="lux-wrap">
+    <div style="text-align:center; margin-bottom:56px;" class="lux-reveal">
+      <p class="lux-sec__label">Brands We Specialize In</p>
+      <h2 class="lux-sec__title">Built for These Badges</h2>
+    </div>
+    <div class="lux-makes lux-reveal--scale">
+      <div class="lux-makes__item"><div class="lux-makes__name">Ferrari</div><div class="lux-makes__sub">Supercar</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">Lamborghini</div><div class="lux-makes__sub">Supercar</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">McLaren</div><div class="lux-makes__sub">Hypercar</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">Porsche</div><div class="lux-makes__sub">Performance</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">Mercedes-Benz</div><div class="lux-makes__sub">AMG &amp; Luxury</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">BMW</div><div class="lux-makes__sub">M &amp; Sport Luxury</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">Bentley</div><div class="lux-makes__sub">Grand Touring</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">Maserati</div><div class="lux-makes__sub">Italian Exotic</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">Audi</div><div class="lux-makes__sub">RS &amp; Performance</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">Land Rover</div><div class="lux-makes__sub">Luxury SUV</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">Jaguar</div><div class="lux-makes__sub">British Performance</div></div>
+      <div class="lux-makes__item"><div class="lux-makes__name">Volvo</div><div class="lux-makes__sub">Scandinavian Luxury</div></div>
+    </div>
+    <p style="text-align:center; margin-top:48px; font-size:15px; color:#b0b0b0;" class="lux-reveal">
+      Don't see your make? <a href="/contact" style="color:#c9a962;">Contact us</a> — we also work with Koenigsegg, Rolls-Royce, Aston Martin, Lotus, and other exotic and hypercar platforms.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section class="lux-sec">
+  <div class="lux-wrap">
+    <div class="lux-reveal">
+      <p class="lux-sec__label">Capabilities</p>
+      <h2 class="lux-sec__title">What We Handle</h2>
+      <p class="lux-sec__sub">Every service executed with the correct tooling, fluids, and specifications for your specific vehicle.</p>
+    </div>
+
+    <div class="lux-svc lux-stagger">
+      <div class="lux-svc__card lux-reveal" style="--i:0">
+        <div class="lux-svc__num">01</div>
+        <h3>Brake Systems</h3>
+        <p>Carbon-ceramic and performance pads, rotors, brake fluid flush with manufacturer-spec DOT ratings, caliper service, and electronic parking brake resets. Experienced with Brembo, CCM, and PCCB systems.</p>
+      </div>
+      <div class="lux-svc__card lux-reveal" style="--i:1">
+        <div class="lux-svc__num">02</div>
+        <h3>Diagnostics & Electronics</h3>
+        <p>Factory-level OBD scans across every module—engine, transmission, ABS, airbag, and body control. Not just the check engine light.</p>
+      </div>
+      <div class="lux-svc__card lux-reveal" style="--i:2">
+        <div class="lux-svc__num">03</div>
+        <h3>Suspension & Air Ride</h3>
+        <p>Air spring replacement, compressor diagnostics, ride-height calibration, and adaptive damper service for Land Rover, Mercedes, BMW, Porsche, McLaren hydraulic systems, and Lamborghini magnetorheological setups.</p>
+      </div>
+      <div class="lux-svc__card lux-reveal" style="--i:3">
+        <div class="lux-svc__num">04</div>
+        <h3>Cooling, Turbo & Supercharger Systems</h3>
+        <p>Coolant flush with OEM-approved fluids, thermostat replacement, turbo boost-leak testing, supercharger service, and intercooler inspection—from twin-turbo V8s to flat-plane crank Ferrari engines.</p>
+      </div>
+      <div class="lux-svc__card lux-reveal" style="--i:4">
+        <div class="lux-svc__num">05</div>
+        <h3>Oil & Fluid Service</h3>
+        <p>Correct weight and specification oil (LL-01, 229.5, A40), transmission fluid, differential service, and power steering flush—manufacturer-approved only.</p>
+      </div>
+      <div class="lux-svc__card lux-reveal" style="--i:5">
+        <div class="lux-svc__num">06</div>
+        <h3>Pre-Purchase & Event Inspection</h3>
+        <p>Considering a used exotic or luxury vehicle? Comprehensive mechanical and electronic inspection at the seller's location before you commit. Also available: pre-track and car-show prep inspections.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FULL-BLEED IMAGE BREAK
+     ============================================================ -->
+<section class="lux-imgbreak lux-reveal--scale">
+  <div class="lux-imgbreak__bg"></div>
+  <div class="lux-imgbreak__overlay"></div>
+  <div class="lux-imgbreak__text">
+    <p class="lux-imgbreak__quote">"We work on the vehicles that make general shops hesitate."</p>
+    <p class="lux-imgbreak__attr">— Mobile Mechanic Muscle</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESS
+     ============================================================ -->
+<section class="lux-sec lux-sec--dark">
+  <div class="lux-wrap">
+    <div class="lux-reveal">
+      <p class="lux-sec__label">The Process</p>
+      <h2 class="lux-sec__title">How It Works</h2>
+      <p class="lux-sec__sub">The same professional process we follow on every vehicle—tuned for the extra requirements of high-end makes.</p>
+    </div>
+
+    <ol class="lux-proc lux-stagger">
+      <li class="lux-proc__item lux-reveal" style="--i:0"><div><h3>Submit Your Request</h3><p>Tell us your vehicle make, model, year, and the issue through our online form or by phone.</p></div></li>
+      <li class="lux-proc__item lux-reveal" style="--i:1"><div><h3>We Confirm Scope</h3><p>We verify parts availability and confirm correct tooling and fluids for your specific vehicle before scheduling.</p></div></li>
+      <li class="lux-proc__item lux-reveal" style="--i:2"><div><h3>We Come to You</h3><p>Our technician arrives at your home, office, or any location within 60+ miles of Nashville.</p></div></li>
+      <li class="lux-proc__item lux-reveal" style="--i:3"><div><h3>Inspect & Diagnose</h3><p>Factory-level diagnostics and hands-on assessment. We find the actual problem, not just the symptom.</p></div></li>
+      <li class="lux-proc__item lux-reveal" style="--i:4"><div><h3>Clear Estimate</h3><p>Written estimate before any work begins. No surprises, no scope creep.</p></div></li>
+      <li class="lux-proc__item lux-reveal" style="--i:5"><div><h3>Expert Repair</h3><p>On-site work using OEM-spec parts and fluids. Same standards as a specialty shop.</p></div></li>
+      <li class="lux-proc__item lux-reveal" style="--i:6"><div><h3>Test & Verify</h3><p>Road test, full system re-scan, and fault code clearance to confirm the repair is complete.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIFFERENTIATORS
+     ============================================================ -->
+<section class="lux-sec lux-sec--cream">
+  <div class="lux-wrap">
+    <div class="lux-reveal">
+      <p class="lux-sec__label">The Difference</p>
+      <h2 class="lux-sec__title">What Sets Us Apart</h2>
+      <p class="lux-sec__sub">The details that matter when your vehicle has more engineering per square inch than a fighter jet.</p>
+    </div>
+
+    <div class="lux-diff lux-stagger">
+      <div class="lux-diff__card lux-reveal" style="--i:0">
+        <h3>Correct Tooling</h3>
+        <p>Torx, triple-square, and specialty fasteners are standard on European and exotic vehicles. From Lamborghini center-lock wheel tools to Ferrari timing belt kits—we carry the exact hardware your vehicle requires. No improvising, no stripped bolts.</p>
+      </div>
+      <div class="lux-diff__card lux-reveal" style="--i:1">
+        <h3>Make-Specific Scan Tools</h3>
+        <p>Generic code readers miss half the story. We access the full module set on Ferrari, Lamborghini, McLaren, Porsche, BMW, Mercedes, Land Rover, Audi, and Jaguar platforms—not just the engine ECU.</p>
+      </div>
+      <div class="lux-diff__card lux-reveal" style="--i:2">
+        <h3>OEM-Spec Parts & Fluids</h3>
+        <p>Wrong coolant, wrong oil spec, or incompatible brake fluid can damage expensive components. We match every fluid and part to the manufacturer's specification. No substitutions.</p>
+      </div>
+      <div class="lux-diff__card lux-reveal" style="--i:3">
+        <h3>Complex System Experience</h3>
+        <p>Air suspensions, adaptive headlights, electronic differentials, E-Gear / DCT transmissions, and mid-engine cooling layouts require more than a repair manual. We've worked on these systems hands-on—from Huracáns to Cayennes—and know the common failure points.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICE AREA
+     ============================================================ -->
+<section class="lux-sec">
+  <div class="lux-narrow">
+    <div class="lux-reveal">
+      <p class="lux-sec__label">Coverage</p>
+      <h2 class="lux-sec__title">Serving Luxury &amp; Exotic Vehicle Owners Across Middle Tennessee</h2>
+    </div>
+    <div class="lux-edit__body lux-reveal">
+      <p>We provide mobile service for high-end vehicles within a 60+ mile radius of Nashville—Belle Meade, Green Hills, Brentwood, Franklin, Murfreesboro, Clarksville, Lebanon, Gallatin, Spring Hill, and everywhere in between.</p>
+      <p>Whether your vehicle is parked at your home, your office, or a storage facility, we come to you. Skip the dealership drop-off, the loaner car shuffle, and the markup. Specialist-level work at a fair price, right where your vehicle sits.</p>
+    </div>
+    <div style="margin-top:40px;" class="lux-reveal">
+      <a href="/contact" class="lux-btn lux-btn--teal">Request Service in Your Area</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="lux-sec lux-sec--cream">
+  <div class="lux-narrow">
+    <div class="lux-reveal">
+      <p class="lux-sec__label">Questions</p>
+      <h2 class="lux-sec__title">Frequently Asked</h2>
+    </div>
+
+    <div class="lux-faq lux-stagger">
+      <div class="lux-faq__item lux-reveal" style="--i:0">
+        <h3 class="lux-faq__q">Do you work on all luxury, exotic, and supercars?</h3>
+        <p class="lux-faq__a">We specialize in Ferrari, Lamborghini, McLaren, Porsche, Mercedes-AMG, BMW M, Bentley, Maserati, Audi RS, Land Rover, Jaguar, and Volvo. We also service Koenigsegg, Aston Martin, Rolls-Royce, Lotus, and other exotic platforms. If your vehicle isn't listed, call us—we likely have experience with it.</p>
+      </div>
+      <div class="lux-faq__item lux-reveal" style="--i:1">
+        <h3 class="lux-faq__q">Is mobile service safe for supercars and exotics?</h3>
+        <p class="lux-faq__a">Yes. We use the same factory-level diagnostic tools, OEM-specification parts, and manufacturer-approved fluids that a specialty dealership would use. Whether it's a Ferrari 488 or a Range Rover—the only difference is location. We perform the work where your vehicle is, instead of a shop bay.</p>
+      </div>
+      <div class="lux-faq__item lux-reveal" style="--i:2">
+        <h3 class="lux-faq__q">How does pricing compare to a dealership?</h3>
+        <p class="lux-faq__a">Our rates are competitive with independent European specialty shops and typically 30–50% less than dealership service departments. You also avoid towing fees and loaner car charges. Written estimate before any work begins.</p>
+      </div>
+      <div class="lux-faq__item lux-reveal" style="--i:3">
+        <h3 class="lux-faq__q">Can you handle warranty or recall work?</h3>
+        <p class="lux-faq__a">Warranty and manufacturer recall work must be performed by an authorized dealership. For out-of-warranty vehicles, we perform the same repairs at a lower cost using OEM-equivalent or genuine parts.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="lux-cta">
+  <div style="max-width:800px; margin:0 auto; text-align:center;">
+    <div class="lux-reveal">
+      <h2 class="lux-cta__title">Ready for <em>Real</em> Service?</h2>
+      <p class="lux-cta__sub">Expert mobile service for supercars, exotics, and luxury vehicles in Nashville. No dealership. No markup. Just precision work, at your location.</p>
+      <div class="lux-cta__actions">
+        <a href="/request-service" class="lux-btn lux-btn--gold">Request Service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="lux-footer">
+  <div class="lux-footer__inner">
+    <div class="lux-footer__grid">
+      <div>
+        <a href="/" class="lux-header__brand" style="margin-bottom:4px; display:inline-flex;">
+          <div class="lux-header__logo">
+            <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20260203_144742.png?width=72&height=72&name=IMG_20260203_144742.png" alt="Mobile Mechanic Muscle" width="36" height="36">
+          </div>
+          <span class="lux-header__name" style="font-size:12px;">Mobile Mechanic Muscle</span>
+        </a>
+        <p class="lux-footer__brand-text">Specialized mobile mechanic service for luxury and exotic vehicles throughout Nashville and Middle Tennessee.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="lux-footer__list">
+          <li><a href="/services/brake-repair">Brake Repair</a></li>
+          <li><a href="/services/diagnostics">Diagnostics</a></li>
+          <li><a href="/services/battery-starter">Battery & Starter</a></li>
+          <li><a href="/services/suspension">Suspension</a></li>
+          <li><a href="/all-services">All Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Areas</h4>
+        <ul class="lux-footer__list">
+          <li><a href="/locations/nashville">Nashville</a></li>
+          <li><a href="/locations/franklin">Franklin</a></li>
+          <li><a href="/locations/brentwood">Brentwood</a></li>
+          <li><a href="/locations/murfreesboro">Murfreesboro</a></li>
+          <li><a href="/locations/hendersonville">Hendersonville</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="lux-footer__list">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="https://americanfirstfinance.com/app/?dealer=32791&loc=1&src=UA" target="_blank" rel="noopener">Financing Available</a></li>
+          <li style="color:rgba(255,255,255,0.7); font-size:14px; margin-top:8px;">Mon–Sat 6AM–4PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lux-footer__bottom">
+      <span class="lux-footer__copy">&copy; 2026 Mobile Mechanic Muscle. All rights reserved.</span>
+      <span class="lux-footer__copy">Nashville & Middle Tennessee</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /.lux -->
+
+<!-- ================================================================
+     JAVASCRIPT — Scroll Reveal + Counter Animation
+     ================================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  // --- Intersection Observer: scroll-triggered reveals ---
+  var revealEls = document.querySelectorAll(
+    '.lux-reveal, .lux-reveal--left, .lux-reveal--right, .lux-reveal--scale'
+  );
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('lux-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function(el) { observer.observe(el); });
+  } else {
+    // Fallback: show everything
+    revealEls.forEach(function(el) { el.classList.add('lux-visible'); });
+  }
+
+  // --- Animated number counters ---
+  var counters = document.querySelectorAll('[data-count]');
+  var counterDone = new Set();
+
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1800;
+    var start = 0;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      // Ease out cubic
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.floor(eased * target);
+      el.textContent = current + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target + suffix;
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !counterDone.has(entry.target)) {
+          counterDone.add(entry.target);
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function(el) { counterObserver.observe(el); });
+  } else {
+    counters.forEach(function(el) {
+      var target = el.getAttribute('data-count');
+      var suffix = el.getAttribute('data-suffix') || '';
+      el.textContent = target + suffix;
+    });
+  }
+
+  // --- Parallax on image break (subtle) ---
+  var imgBreak = document.querySelector('.lux-imgbreak__bg');
+  if (imgBreak) {
+    var imgSection = imgBreak.parentElement;
+    window.addEventListener('scroll', function() {
+      var rect = imgSection.getBoundingClientRect();
+      var windowH = window.innerHeight;
+      if (rect.top < windowH && rect.bottom > 0) {
+        var scrolled = (windowH - rect.top) / (windowH + rect.height);
+        var offset = (scrolled - 0.5) * 40;
+        imgBreak.style.transform = 'scale(1.05) translateY(' + offset + 'px)';
+      }
+    }, { passive: true });
+  }
+})();
+</script>
+
+<!-- JSON-LD: Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Luxury, Exotic & Supercar Mobile Mechanic Service",
+  "provider": {
+    "@type": "AutomotiveBusiness",
+    "name": "Mobile Mechanic Muscle",
+    "url": "https://mobilemechanicmusclenearme.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "06:00",
+      "closes": "16:00"
+    }
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "36.1627",
+      "longitude": "-86.7816"
+    },
+    "geoRadius": "60 miles"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Luxury Vehicle Services",
+    "itemListElement": [
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Exotic & Luxury Vehicle Diagnostics","description":"Factory-level OBD diagnostics for Ferrari, Lamborghini, McLaren, Porsche, and European luxury vehicles"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Supercar Brake Service","description":"Carbon-ceramic, Brembo, and performance brake service for supercars and luxury vehicles"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Air Suspension & Hydraulic Service","description":"Air spring replacement, magnetorheological damper service, compressor diagnostics, and ride-height calibration"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pre-Purchase & Event Inspection","description":"Comprehensive mechanical and electronic inspection for used exotic, supercar, and luxury vehicles including pre-track prep"}}
+    ]
+  }
+}
+</script>
+
+<!-- JSON-LD: FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Do you work on all luxury, exotic, and supercars?","acceptedAnswer":{"@type":"Answer","text":"We specialize in Ferrari, Lamborghini, McLaren, Porsche, Mercedes-AMG, BMW M, Bentley, Maserati, Audi RS, Land Rover, Jaguar, and Volvo. We also service Koenigsegg, Aston Martin, Rolls-Royce, Lotus, and other exotic platforms."}},
+    {"@type":"Question","name":"Is mobile service safe for supercars and exotics?","acceptedAnswer":{"@type":"Answer","text":"Yes. We use factory-level diagnostic tools, OEM-specification parts, and manufacturer-approved fluids — the same standards as a specialty dealership. Whether it's a Ferrari 488 or a Range Rover, we bring the same precision."}},
+    {"@type":"Question","name":"How does pricing compare to a dealership?","acceptedAnswer":{"@type":"Answer","text":"Our labor rate is competitive with independent European specialty shops and typically 30-50% less than dealership service departments. We provide a written estimate before starting any work."}},
+    {"@type":"Question","name":"Can you handle warranty or recall work?","acceptedAnswer":{"@type":"Answer","text":"Warranty and recall work must be performed by an authorized dealership. For out-of-warranty vehicles, we perform the same repairs at lower cost using OEM-equivalent or genuine parts."}}
+  ]
+}
+</script>

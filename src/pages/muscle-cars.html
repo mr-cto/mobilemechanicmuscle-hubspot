@@ -1,0 +1,427 @@
+<!-- theme base CSS removed — header styles are inline, footer uses its own -->
+<style>
+/* Growth theme header settings */
+.header { background-color: rgba(255,255,255,1.0); }
+.header__top { background-color: rgba(245,245,245,1.0); }
+.header__bottom { background-color: rgba(255,255,255,1.0); }
+.header__wrapper { max-width: 1000px; }
+.header__logo-company-name { font-family: Poppins, sans-serif; font-weight: 700; color: #2B394B; font-size: 40px; text-transform: uppercase; }
+.header__menu-link { font-family: Poppins, sans-serif; font-weight: normal; font-size: 17px; text-transform: none; text-decoration: none; }
+.header__menu-item--depth-1 > .header__menu-link:not(.button) { color: #2B394B; }
+.header__menu-item--depth-1 > .header__menu-link:hover { color: #000000; }
+.header p, .header h1, .header h2, .header h3, .header h4, .header a:not(.button), .header span, .header div, .header li { color: #2B394B; }
+@media (max-width: 767px) {
+  .header__menu--mobile { background-color: rgba(255,255,255,1.0); }
+  .header__menu-item--depth-1 { border-top: 1px solid #EEEEEE; }
+}
+.header__menu-toggle svg { fill: #2B394B; }
+/* Header layout fix — logo left, nav right */
+.header__container--centered .header__wrapper--bottom { flex-wrap: nowrap !important; text-align: left !important; }
+.header__container--centered .header__logo-col { width: auto !important; margin-bottom: 0 !important; flex-shrink: 0 !important; }
+.header__container--centered .header__menu-col { width: auto !important; margin-left: auto !important; text-align: right !important; }
+.header__logo-image { max-height: 85px !important; width: auto !important; height: auto !important; object-fit: contain !important; }
+.header__bottom { padding: 0.8rem 20px !important; }
+.header__top { display: none !important; }
+@media (max-width: 767px) {
+  .header__container--centered .header__wrapper--bottom { justify-content: space-between !important; flex-wrap: wrap !important; }
+  .header__logo-image { max-height: 50px !important; }
+  .header__menu--desktop .header__menu-wrapper { flex-wrap: wrap !important; justify-content: center !important; gap: 4px !important; }
+  .header__menu-item--depth-1 { padding: 0 0.4rem !important; }
+  .header__menu-link { font-size: 12px !important; white-space: nowrap !important; }
+}
+</style>
+<style>
+/* Page-specific styles for muscle-cars */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.service-category h3 {
+  text-align: center;
+}
+
+.featured-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.featured-service {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.featured-service h4 {
+  color: #30beb4;
+  margin-bottom: 10px;
+}
+
+.featured-service a {
+  color: #2B394B;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.featured-service a:hover {
+  color: #30beb4;
+}
+
+/* White button for dark backgrounds */
+.button-light {
+  display: inline-block;
+  background: #ffffff;
+  color: #30beb4;
+  padding: 15px 35px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  margin: 10px;
+  border: 2px solid #ffffff;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.button-light:hover {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.muscle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.muscle-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-left: 4px solid #30beb4;
+}
+
+.muscle-card h4 {
+  color: #2B394B;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.muscle-card p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .services-grid,
+  .muscle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-items {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cta-button,
+  .button-light {
+    display: block;
+    margin: 15px auto;
+    max-width: 300px;
+  }
+}
+</style>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <h1>Muscle Car Mobile Mechanic — Nashville</h1>
+    <p>Mobile Mechanic Muscle specializes in American muscle car service and repair — classic and modern. From vintage big-blocks to late-model Hellcats, we bring professional muscle car expertise directly to your garage, shop, or driveway anywhere in Middle Tennessee.</p>
+    <a href="tel:+16154963900" class="cta-button">Call (615) 496-3900</a>
+    <a href="/request-service" class="button-light">Request Service</a>
+  </div>
+</section>
+
+<!-- Photo Gallery -->
+<section class="content-section content-section-alt">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 0 auto; max-width: 1000px;">
+      <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20230426_193722334~2.jpg?width=600&length=600&name=IMG_20230426_193722334~2.jpg" alt="Classic Barracuda" style="width:100%; height:250px; object-fit:cover; border-radius:8px;">
+      <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20231004_134523~3.jpg?width=600&length=600&name=IMG_20231004_134523~3.jpg" alt="Super Bee" style="width:100%; height:250px; object-fit:cover; border-radius:8px;">
+      <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/mmm-gallery-112525-2.jpg?width=600&length=600&name=mmm-gallery-112525-2.jpg" alt="Muscle car service" style="width:100%; height:250px; object-fit:cover; border-radius:8px;">
+    </div>
+  </div>
+</section>
+
+<!-- What We Service -->
+<section class="content-section">
+  <div class="container">
+    <h2 style="text-align: center;">Muscle Cars We Work On</h2>
+    <p style="text-align: center; margin-bottom: 40px;">Whether it's a numbers-matching restoration project or a daily-driven modern muscle car, we have the knowledge and tools to service it right — at your location.</p>
+
+    <div class="muscle-grid">
+      <div class="muscle-card">
+        <h4>Chevrolet / GM</h4>
+        <p>Camaro (1967–present), Corvette, Chevelle, Nova, El Camino, Monte Carlo, Impala SS, GTO, Firebird, Trans Am, and all LS/LT-powered platforms.</p>
+      </div>
+      <div class="muscle-card">
+        <h4>Ford</h4>
+        <p>Mustang (1964–present), GT350, GT500, Shelby, Boss 302, Mach 1, Torino, Fairlane, Bronco, and all Coyote/Modular/Windsor-powered vehicles.</p>
+      </div>
+      <div class="muscle-card">
+        <h4>Dodge / Mopar</h4>
+        <p>Challenger, Charger, Hellcat, Demon, Scat Pack, 'Cuda, Road Runner, Super Bee, Dart, and all HEMI/Magnum-powered platforms.</p>
+      </div>
+      <div class="muscle-card">
+        <h4>Classic & Vintage</h4>
+        <p>Pre-1980 muscle, pony cars, and hot rods. Carburetor tuning, points ignition, drum brake service, classic electrical, and mechanical fuel pump work.</p>
+      </div>
+      <div class="muscle-card">
+        <h4>Modern Performance</h4>
+        <p>2005+ Mustang GT, Camaro SS/ZL1, Challenger R/T and up, C6/C7/C8 Corvette — ECU diagnostics, coilover service, brake upgrades, and bolt-on support.</p>
+      </div>
+      <div class="muscle-card">
+        <h4>Trucks & Muscle SUVs</h4>
+        <p>Ram SRT-10, Ford Lightning, Chevy SS, GMC Syclone/Typhoon, Jeep SRT, Trackhawk, and performance truck platforms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services List -->
+<section class="content-section content-section-alt">
+  <div class="container">
+    <h2 style="text-align: center;">Muscle Car Services</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Comprehensive mobile repair and maintenance for classic and modern muscle cars:</p>
+
+    <div class="services-grid">
+      <div class="service-category">
+        <h3>Engine & Performance</h3>
+        <ul>
+          <li>V8 Engine Diagnostics & Tuning</li>
+          <li>Carburetor Rebuild & Adjustment</li>
+          <li>Fuel Injection Service</li>
+          <li>Spark Plug & Ignition Service</li>
+          <li>Timing Chain & Belt Replacement</li>
+          <li>Oil Changes (Conventional & Synthetic)</li>
+          <li>Compression & Leak-Down Testing</li>
+          <li>Performance Bolt-On Installation</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>Brakes & Suspension</h3>
+        <ul>
+          <li>Performance Brake Pad & Rotor Service</li>
+          <li>Drum-to-Disc Brake Conversion Support</li>
+          <li>Caliper Rebuild & Replacement</li>
+          <li>Coilover & Lowering Spring Installation</li>
+          <li>Shock & Strut Replacement</li>
+          <li>Sway Bar & Bushing Service</li>
+          <li>Leaf Spring & Traction Bar Work</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>Electrical & Ignition</h3>
+        <ul>
+          <li>Points-to-Electronic Ignition Conversion</li>
+          <li>Alternator & Starter Service</li>
+          <li>Wiring Harness Repair & Replacement</li>
+          <li>ECU / PCM Diagnostics (Modern Muscle)</li>
+          <li>Battery & Charging System Testing</li>
+          <li>Gauge & Lighting Troubleshooting</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>Cooling, Exhaust & Drivetrain</h3>
+        <ul>
+          <li>Radiator & Water Pump Service</li>
+          <li>Thermostat & Coolant Flush</li>
+          <li>Exhaust Header & Manifold Work</li>
+          <li>Clutch & Flywheel Service (Manual Trans)</li>
+          <li>Differential Fluid & Gear Inspection</li>
+          <li>Driveshaft & U-Joint Replacement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Mobile Service for Muscle Cars -->
+<section class="content-section">
+  <div class="container">
+    <h2 style="text-align: center;">Why Mobile Service for Your Muscle Car?</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Your muscle car deserves someone who knows these platforms — not a general shop tech guessing at a classic Holley carb or a Hellcat supercharger fault code.</p>
+
+    <div class="services-grid">
+      <div class="service-category">
+        <h3>No Towing Risk</h3>
+        <p style="text-align: center;">Classic and high-value vehicles shouldn't be dragged onto a flatbed if they don't need to be. We come to your garage and work where the car already sits.</p>
+      </div>
+      <div class="service-category">
+        <h3>Muscle Car Knowledge</h3>
+        <p style="text-align: center;">We know the difference between a 350 and a 396, between a Tremec and a Muncie. You get a mechanic who speaks your language.</p>
+      </div>
+      <div class="service-category">
+        <h3>Transparent Pricing</h3>
+        <p style="text-align: center;">Written estimates before any work starts. No shop markup surprises. You know exactly what you're paying and why.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Banner -->
+<div class="trust-banner">
+  <div class="container">
+    <h3>Why Choose Mobile Mechanic Muscle for Muscle Cars?</h3>
+    <div class="trust-items">
+      <div class="trust-item">Classic & Modern Expertise</div>
+      <div class="trust-item">1-Year Parts & Labor Warranty</div>
+      <div class="trust-item">We Come to Your Garage</div>
+      <div class="trust-item">Mon-Sat 6AM-4PM</div>
+    </div>
+  </div>
+</div>
+
+<!-- Service Area -->
+<section class="content-section">
+  <div class="container">
+    <h2 style="text-align: center;">Serving Nashville & All of Middle Tennessee</h2>
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">We provide mobile muscle car service throughout the greater Nashville area including:</p>
+
+    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 30px 0;">
+      <div>
+        <h4 style="color: #30beb4;">Major Cities</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="/locations/nashville" style="color: #2B394B; text-decoration: none;">Nashville</a></li>
+          <li><a href="/locations/franklin" style="color: #2B394B; text-decoration: none;">Franklin</a></li>
+          <li><a href="/locations/brentwood" style="color: #2B394B; text-decoration: none;">Brentwood</a></li>
+          <li><a href="/locations/murfreesboro" style="color: #2B394B; text-decoration: none;">Murfreesboro</a></li>
+          <li><a href="/locations/hendersonville" style="color: #2B394B; text-decoration: none;">Hendersonville</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color: #30beb4;">Coverage Area</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li>Davidson County</li>
+          <li>Williamson County</li>
+          <li>Rutherford County</li>
+          <li>Sumner County</li>
+          <li>Wilson County</li>
+          <li>Cheatham County</li>
+          <li>Robertson County</li>
+          <li>Gallatin</li>
+          <li>Smyrna</li>
+          <li>Spring Hill</li>
+          <li>La Vergne</li>
+          <li>& Surrounding Areas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="tel:+16154963900" class="cta-button">Call Now: (615) 496-3900</a>
+      <a href="/request-service" class="button-light">Request Service</a>
+      <p style="margin-top: 20px;"><a href="https://americanfirstfinance.com/app/?dealer=32791&loc=1&src=UA" target="_blank" rel="noopener" style="color: #30beb4; font-weight: 600; text-decoration: underline;">Financing Available — Apply with American First Finance</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="content-section content-section-alt">
+  <div class="container">
+    <h2 style="text-align: center;">Muscle Car Service FAQ</h2>
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h4 style="color: #2B394B; margin-top: 25px;">Do you work on classic muscle cars from the 60s and 70s?</h4>
+      <p>Yes. We service classic Camaros, Mustangs, Challengers, Chevelles, GTOs, 'Cudas, and other vintage American muscle. We're comfortable with carburetors, points ignition, drum brakes, and everything else that comes with these platforms.</p>
+
+      <h4 style="color: #2B394B; margin-top: 25px;">Can you work on modern Hellcats, GT500s, and ZL1s?</h4>
+      <p>Absolutely. We have factory-level diagnostic tools for late-model HEMI, Coyote, and LT-powered vehicles. Oil changes, brake service, suspension work, diagnostics, and bolt-on performance installs.</p>
+
+      <h4 style="color: #2B394B; margin-top: 25px;">Do you install aftermarket parts?</h4>
+      <p>Yes — intake manifolds, headers, exhaust, cold air intakes, coilovers, brake kits, and other bolt-on modifications. We don't do custom fabrication or engine builds, but we handle everything that bolts on.</p>
+
+      <h4 style="color: #2B394B; margin-top: 25px;">What if my muscle car doesn't run?</h4>
+      <p>That's exactly when mobile service makes the most sense. We come to wherever the car sits — your garage, storage unit, or driveway — diagnose the issue, and get it running on-site if possible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JSON-LD: Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Muscle Car Mobile Mechanic Service",
+  "provider": {
+    "@type": "AutomotiveBusiness",
+    "name": "Mobile Mechanic Muscle",
+    "url": "https://mobilemechanicmusclenearme.com",
+    "telephone": "+16154963900",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "06:00",
+      "closes": "16:00"
+    }
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "36.1627",
+      "longitude": "-86.7816"
+    },
+    "geoRadius": "60 miles"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Muscle Car Services",
+    "itemListElement": [
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"V8 Engine Diagnostics & Tuning","description":"Comprehensive diagnostics and tuning for classic and modern V8 engines including LS, LT, HEMI, Coyote, and vintage big-block platforms"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Carburetor Rebuild & Service","description":"Holley, Edelbrock, Rochester, and Carter carburetor rebuild, adjustment, and tuning for classic muscle cars"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Performance Brake Service","description":"Performance brake pad and rotor service, caliper rebuild, and drum-to-disc conversion support for muscle cars"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Ignition & Electrical Service","description":"Points-to-electronic conversion, wiring harness repair, alternator service, and ECU diagnostics for modern muscle"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Suspension & Handling","description":"Coilover installation, lowering springs, sway bars, bushings, and leaf spring service for classic and modern muscle cars"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Bolt-On Performance Installation","description":"Intake manifolds, headers, exhaust, cold air intakes, and other aftermarket bolt-on performance parts installed at your location"}}
+    ]
+  }
+}
+</script>
+
+<!-- JSON-LD: FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Do you work on classic muscle cars from the 60s and 70s?","acceptedAnswer":{"@type":"Answer","text":"Yes. We service classic Camaros, Mustangs, Challengers, Chevelles, GTOs, Cudas, and other vintage American muscle. We're comfortable with carburetors, points ignition, drum brakes, and everything else that comes with these platforms."}},
+    {"@type":"Question","name":"Can you work on modern Hellcats, GT500s, and ZL1s?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We have factory-level diagnostic tools for late-model HEMI, Coyote, and LT-powered vehicles. Oil changes, brake service, suspension work, diagnostics, and bolt-on performance installs."}},
+    {"@type":"Question","name":"Do you install aftermarket parts?","acceptedAnswer":{"@type":"Answer","text":"Yes — intake manifolds, headers, exhaust, cold air intakes, coilovers, brake kits, and other bolt-on modifications. We don't do custom fabrication or engine builds, but we handle everything that bolts on."}},
+    {"@type":"Question","name":"What if my muscle car doesn't run?","acceptedAnswer":{"@type":"Answer","text":"That's exactly when mobile service makes the most sense. We come to wherever the car sits — your garage, storage unit, or driveway — diagnose the issue, and get it running on-site if possible."}}
+  ]
+}
+</script>
