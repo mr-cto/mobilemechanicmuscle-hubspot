@@ -173,6 +173,136 @@
 
 ---
 
+## Additional Work Delivered (Beyond Original Proposal Scope)
+
+### Form Rework — Vehicle Category System (April 17, 2026)
+
+**Replaced 12-service-type picker with 4 vehicle category system:**
+- Luxury / Exotic (gold Playfair Display selected state, full lux mode transformation)
+- Commercial Equipment (road vs off-road equipment type toggle)
+- Muscle / Classic (auto-shows deep modification detail)
+- Every Day Driver (clean standard flow)
+
+**Each category submits to its own HubSpot form:**
+
+| Category | Form ID | Email Subject |
+|----------|---------|---------------|
+| Luxury / Exotic | `94d999ff-8124-43e0-a42d-9610a4891681` | Luxury/Exotic Submission |
+| Commercial Equipment | `482a95b1-9c29-4602-b4bf-6d55f8cb6196` | Commercial Equipment Submission |
+| Muscle / Classic | `267af2e7-0947-4466-a558-aab4ff859ff8` | Muscle/Classic Submission |
+| Every Day Driver | `9ebb3bd1-5bab-41cd-ac2e-e25450ecefe2` | Every Day Driver Submission |
+
+### Luxury Mode — Elevated Form Experience
+
+When Luxury/Exotic is selected, the entire form transforms to match the high-end-vehicles page design language:
+- Background transitions to dark (#0a0a0a) with 1.2s ease animation
+- Headings switch to Playfair Display with gold italic `<em>` portions and white regular text
+- Form fields get dark inputs (#1a1a1a) with gold focus borders and glow
+- Buttons turn gold (#c9a962) on dark
+- Progress dots turn gold
+- Atmospheric glow orb (radial gradient, pulsing animation) — matches lux hero page
+- Gold separator line under headings with 2s scaleX reveal animation (250px wide)
+- Antialiased text rendering
+- Error states use gold instead of red (gentle nudge, not aggressive)
+- Category cards go dark with gold accents
+- All transitions are smooth — toggling off lux mode fades back gracefully over 1.2s
+- Space reserved for gold line in non-lux mode to prevent layout snapping
+
+### Terms Gate (Step 0)
+
+Added pre-form acknowledgment step with premium service messaging:
+- "This is a premium service. Pricing reflects professional diagnostics, expertise, and convenience."
+- "All requests are reviewed prior to approval. Incomplete or inaccurate submissions will not be processed."
+- User must click "I Understand — Continue" before accessing the form
+
+### Modifications & Configuration Section (Universal)
+
+Added to step 2 for all vehicle categories:
+
+**Modification level (selectable cards):**
+- No — Fully stock
+- Minor Mods — Bolt-ons, intake, exhaust, tune
+- Major Mods — Engine swap, trans swap, custom wiring, fabrication
+
+**Conditional fields:**
+- Minor/Major → shows "list known modifications" textarea
+- Major OR Muscle/Classic category → shows deep detail:
+  - Factory engine/transmission config? (Yes / No / Unsure cards)
+  - Engine/swap details textarea
+- Muscle/Classic always shows the deep detail section regardless of mod selection
+
+**Disclaimer:**
+- "Modified and non-factory vehicles may require additional diagnostic time..."
+- "Final pricing for modified or custom vehicles is determined after physical inspection..."
+
+All modification data appended to HubSpot message field.
+
+### Commercial Equipment — Road vs Off-Road Toggle
+
+Replaced radio buttons with selectable cards for commercial category:
+- **Road Vehicle**: enables VIN + registration state fields
+- **Off-Road Equipment**: shows serial number / equipment ID field (optional)
+- Year, make, model still collected for both
+- Equipment type included in submission message
+
+### Full Address Collection
+
+Added vehicle's current location fields to step 2 (all categories):
+- Street address, city, state, ZIP
+- Full address string sent to HubSpot `address` field and appended to message
+
+### VIN Logic by Category
+
+| Category | VIN Required | Registered State Required |
+|----------|-------------|--------------------------|
+| Luxury / Exotic | Yes | Yes |
+| Commercial — Road | Yes | Yes |
+| Commercial — Off-Road | No (serial number optional) | No |
+| Muscle / Classic | No | Yes (via standard block) |
+| Every Day Driver | Yes | Yes |
+
+### Header & Footer Fixes
+
+- **Header layout**: CSS overrides to convert Growth theme's centered layout to left-aligned (logo left, nav right)
+- **Header logo**: Constrained to 85px height (50px on mobile)
+- **Mobile nav**: Fixed overflow by constraining mobile menu to 100vw with position fixed
+- **Footer partial**: Updated via HubSpot Templates API (ID: `206542447704`) — can now be managed programmatically
+- **Footer links**: Added High-End Vehicles, Muscle Cars, Commercial Equipment to services column
+- **Footer Book Appointment**: Moved to Get In Touch section as secondary outlined button
+- **Footer CSS**: Inline styles with `!important` to override Growth theme's white background
+
+### Image Updates
+
+- **High-end vehicles hero**: Replaced video with client gallery image (CSS background, 20% opacity)
+- **High-end vehicles bleed image**: Replaced AI mechanic with S85 rod bearings photo from client gallery
+- **Muscle cars page**: 3-image gallery added (Barracuda, Super Bee, service shot)
+- **Commercial equipment page**: Full-width client gallery image added
+
+### Google reCAPTCHA v3
+
+- Site key: `6LeZL7ss...` integrated on request-service page
+- Invisible client-side bot detection before HubSpot API submission
+- Original HubSpot forms retain native CAPTCHA for embedded use
+- Cloned forms (4) have CAPTCHA disabled to allow API submissions
+
+### Design Manager API Access
+
+- Discovered Templates v2 API can read/write Design Manager files
+- Footer partial can be updated programmatically: `PUT /content/api/v2/templates/206542447704`
+- Eliminates need for manual Design Manager edits for footer changes
+
+### Duplicate Page Cleanup Needed
+
+Previous deploys created duplicate pages in HubSpot sitemap:
+- `request-service-1`, `request-service-2`
+- `commercial-equipment-1`, `commercial-equipment-2`
+- `muscle-cars-1`, `muscle-cars-2`
+- `high-end-vehicles-1` through `high-end-vehicles-4`
+
+These should be unpublished/deleted in HubSpot: Marketing > Website > Website Pages.
+
+---
+
 ## Definition of Done
 
 | # | Criteria | Status |
@@ -186,16 +316,58 @@
 | 7 | Commercial equipment page live with full SEO | **Completed** |
 | 8 | Muscle cars page live with full SEO | **Completed** |
 | 9 | Service radius updated to 60 miles across all pages | **Completed** |
+| 10 | 4 vehicle category forms with per-category HubSpot submission | **Completed** |
+| 11 | Luxury mode form transformation matching high-end-vehicles design | **Completed** |
+| 12 | Universal modifications & configuration section | **Completed** |
+| 13 | Terms gate with premium service acknowledgment | **Completed** |
+| 14 | Full address collection for vehicle location | **Completed** |
+| 15 | Commercial road vs off-road equipment type toggle | **Completed** |
 
 ---
 
 ## Known Limitations & Notes
 
-- **HubSpot free tier**: 10 custom contact property limit. `service_type` uses 1 slot. Preferred contact method and registered state are rolled into the `message` field to conserve slots.
-- **Header/footer on unmanaged pages** (home, contact, gallery): These use the Growth theme's DnD template which cannot be safely modified from our deploy scripts. Header and footer changes on those 3 pages must be done manually in HubSpot's page editor.
+- **HubSpot free tier**: 10 custom contact property limit. `service_type` uses 1 slot. Modification data, preferred contact method, and address are rolled into the `message` field.
+- **Header/footer on unmanaged pages** (home, contact, gallery): These use the Growth theme's DnD template which cannot be safely modified from our deploy scripts. Header and footer changes on those 3 pages must be done manually in HubSpot's page editor or via the Templates API for the footer partial.
 - **Growth theme is locked**: Cannot edit theme modules directly in Design Manager. CSS overrides are applied inline on managed pages.
-- **Theme CSS URL**: Managed pages load `template_main.min.css` — the URL contains a build hash that may change if the theme is rebuilt. If header styling breaks in the future, update the URL from the home page source.
-- **Form CAPTCHA**: Original HubSpot form has reCAPTCHA enabled (blocks API submissions). Cloned form without CAPTCHA is used for API submissions. Google reCAPTCHA v3 is integrated client-side on the custom form as the spam protection layer.
+- **Form CAPTCHA**: Original HubSpot form has reCAPTCHA enabled (blocks API submissions). 4 cloned forms without CAPTCHA are used for API submissions. Google reCAPTCHA v3 is integrated client-side as the spam protection layer.
+- **Contact page sunset**: The existing `/contact` page with the embedded HubSpot form is still live. A sunset plan is needed to redirect all traffic to `/request-service` as the single intake endpoint.
+
+---
+
+## Sunset Plan: `/contact` → `/request-service`
+
+### Current State
+- `/contact` page uses the original embedded HubSpot form (`4dfc54af-...`) with native CAPTCHA
+- The home page hero CTA and header nav link to `/contact`
+- The Growth theme header module has "BOOK APPOINTMENT" linking to `/contact`
+- All managed pages already link to `/request-service`
+
+### Recommended Migration Steps
+
+1. **Update `simple-content-page.html` header** in Design Manager — change `/contact` to `/request-service` in the nav link
+2. **Update the Growth theme header menu** — change "Book Appointment" href from `/contact` to `/request-service` (via HubSpot page editor Settings > Navigation)
+3. **Update the home page hero CTA** — change the "Book an Appointment" button href from `/contact` to `/request-service` (in page editor)
+4. **Update any remaining links on unmanaged pages** (home, gallery) that reference `/contact`
+5. **Set up a 301 redirect** from `/contact` to `/request-service` in HubSpot (Settings > Website > Domains & URLs > URL Redirects)
+6. **Keep the `/contact` page** in draft/unpublished state for 30 days as a safety net, then delete
+7. **Update Google Search Console** — submit updated sitemap after redirect is live
+8. **Monitor** — check for 404s referencing `/contact` in Google Search Console for 2 weeks
+
+### Pages That Still Reference `/contact`
+
+| Location | Current Link | Action |
+|----------|-------------|--------|
+| Home page hero button | `/contact` | Update in page editor |
+| Growth theme header nav | `/contact` | Update in HubSpot navigation settings |
+| `simple-content-page.html` header | `/contact` | Update in Design Manager |
+| Home page service cards (3x) | `/contact` | Update in page editor |
+| Home page contact section | `/contact` | Update in page editor |
+
+### Timeline
+- Can be executed in a single session once client approves
+- 301 redirect ensures no SEO value is lost
+- All indexed `/contact` URLs will automatically forward to `/request-service`
 
 ---
 

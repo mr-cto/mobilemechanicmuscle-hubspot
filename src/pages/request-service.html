@@ -32,10 +32,10 @@
   .header__bottom { position: relative; }
 }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap">
 <style>
 /* ================================================================
-   REQUEST SERVICE — Intent Gating + Custom Form
+   REQUEST SERVICE — Vehicle Category Intake Form
    ================================================================ */
 
 .rs-wrap {
@@ -90,6 +90,20 @@
   margin-bottom: 8px;
 }
 
+.rs-step h2 em {
+  font-style: normal;
+}
+
+/* Reserve space for gold line so toggling lux doesn't snap */
+.rs-step h2::after {
+  content: '';
+  display: block;
+  width: 250px;
+  height: 1px;
+  margin: 24px auto 32px;
+  background: transparent;
+}
+
 .rs-step .rs-sub {
   text-align: center;
   color: #666;
@@ -97,95 +111,88 @@
   line-height: 1.5;
 }
 
-/* --- Option Cards (service type, location confirm) --- */
-.rs-options {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
+.rs-selective {
+  color: #2B394B;
+  font-size: 0.9rem;
+  line-height: 1.6;
   margin-bottom: 30px;
 }
 
-.rs-option {
+/* --- Vehicle Category Cards --- */
+.rs-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.rs-category {
   background: #ffffff;
   border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px 16px;
+  border-radius: 10px;
+  padding: 28px 20px;
   text-align: center;
   cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-  font-weight: 500;
-  color: #2B394B;
   user-select: none;
 }
 
-.rs-option:hover {
+.rs-category:hover {
   border-color: #30beb4;
   box-shadow: 0 2px 12px rgba(48,190,180,0.15);
 }
 
-.rs-option.selected {
+.rs-category.selected {
   border-color: #30beb4;
   background: #f0fdfb;
   box-shadow: 0 2px 12px rgba(48,190,180,0.2);
   transform: scale(1.02);
 }
 
-/* Luxury / Exotic — gold accent inspired by high-end-vehicles page */
-.rs-option--lux {
-  background: #ffffff;
-  color: #c9a962;
-  border: 2px solid #c9a962;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
+.rs-category__icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.rs-category__title {
+  font-weight: 600;
+  color: #2B394B;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  text-transform: uppercase;
   letter-spacing: 0.5px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s;
 }
 
-.rs-option--lux:hover {
-  background: #faf6eb;
-  border-color: #c9a962;
-  box-shadow: 0 4px 20px rgba(201,169,98,0.2);
-  color: #b8923e;
+.rs-category__desc {
+  font-size: 0.8rem;
+  color: #888;
+  line-height: 1.3;
 }
 
-.rs-option--lux.selected {
+/* Luxury / Exotic — same unselected state, premium selected state */
+.rs-category--lux.selected {
   background: #0a0a0a;
   border-color: #c9a962;
-  color: #f5e6b8;
   box-shadow: 0 0 0 1px #c9a962, 0 4px 24px rgba(201,169,98,0.35);
-  transform: scale(1.02);
+}
+.rs-category--lux.selected .rs-category__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #f5e6b8;
+}
+.rs-category--lux.selected .rs-category__desc { color: #777; }
+
+/* Standard categories — match font weight */
+.rs-category--commercial .rs-category__title,
+.rs-category--muscle .rs-category__title,
+.rs-category--everyday .rs-category__title {
+  font-weight: 800;
 }
 
-.rs-option--lux.selected::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #c9a962, transparent);
-}
-
-/* Other / Not Sure — outlined, muted style */
-.rs-option--other {
-  background: transparent;
-  color: #888;
-  border: 2px dashed #ccc;
-  font-style: italic;
-}
-
-.rs-option--other:hover {
-  border-color: #999;
-  color: #555;
-  background: #fafafa;
-  box-shadow: none;
-}
-
-.rs-option--other.selected {
-  border-color: #30beb4;
-  border-style: solid;
-  color: #2B394B;
-  background: #f0fdfb;
+@media (max-width: 500px) {
+  .rs-categories {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- Form Fields --- */
@@ -217,6 +224,7 @@
   transition: border-color 0.2s;
   background: #fff;
   color: #333;
+  box-sizing: border-box;
 }
 
 .rs-field input:focus,
@@ -248,7 +256,7 @@
   display: block;
 }
 
-/* --- Inline row for year / make / model --- */
+/* --- Inline rows --- */
 .rs-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -267,14 +275,6 @@
 .rs-row-2 .rs-field {
   margin-bottom: 0;
   min-width: 0;
-}
-
-.rs-row .rs-field input,
-.rs-row .rs-field select,
-.rs-row-2 .rs-field input,
-.rs-row-2 .rs-field select {
-  width: 100%;
-  box-sizing: border-box;
 }
 
 @media (max-width: 600px) {
@@ -298,23 +298,15 @@
   letter-spacing: 0.5px;
 }
 
-.rs-btn:active {
-  transform: scale(0.98);
-}
+.rs-btn:active { transform: scale(0.98); }
 
 .rs-btn--primary {
   background: #30beb4;
   color: #ffffff;
 }
 
-.rs-btn--primary:hover {
-  background: #28a89f;
-}
-
-.rs-btn--primary:disabled {
-  background: #b0b0b0;
-  cursor: not-allowed;
-}
+.rs-btn--primary:hover { background: #28a89f; }
+.rs-btn--primary:disabled { background: #b0b0b0; cursor: not-allowed; }
 
 .rs-btn--secondary {
   background: transparent;
@@ -322,9 +314,7 @@
   border: 2px solid #d4d4d4;
 }
 
-.rs-btn--secondary:hover {
-  border-color: #2B394B;
-}
+.rs-btn--secondary:hover { border-color: #2B394B; }
 
 .rs-actions {
   display: flex;
@@ -339,7 +329,7 @@
   justify-content: center;
 }
 
-/* --- Go / No-Go result --- */
+/* --- No-Go --- */
 .rs-nogo {
   background: #fef3f2;
   border: 2px solid #fca5a5;
@@ -349,51 +339,30 @@
   margin: 20px 0;
 }
 
-.rs-nogo h3 {
-  color: #dc2626;
-  margin-bottom: 10px;
-}
+.rs-nogo h3 { color: #dc2626; margin-bottom: 10px; }
+.rs-nogo p { color: #555; line-height: 1.6; }
 
-.rs-nogo p {
-  color: #555;
-  line-height: 1.6;
-}
-
-/* --- Success state --- */
+/* --- Success --- */
 .rs-success {
   text-align: center;
   padding: 40px 20px;
 }
 
-.rs-success h2 {
-  color: #30beb4;
-  margin-bottom: 12px;
-}
+.rs-success h2 { color: #30beb4; margin-bottom: 12px; }
+.rs-success p { color: #555; line-height: 1.6; max-width: 500px; margin: 0 auto; }
 
-.rs-success p {
-  color: #555;
-  line-height: 1.6;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/* --- Honeypot (hidden from real users) --- */
+/* --- Honeypot --- */
 .rs-hp {
   position: absolute;
-  left: -9999px;
-  top: -9999px;
-  opacity: 0;
-  height: 0;
-  width: 0;
-  overflow: hidden;
-  tab-index: -1;
+  left: -9999px; top: -9999px;
+  opacity: 0; height: 0; width: 0;
+  overflow: hidden; tab-index: -1;
 }
 
 /* --- Spinner --- */
 .rs-spinner {
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 18px; height: 18px;
   border: 3px solid rgba(255,255,255,0.3);
   border-top-color: #fff;
   border-radius: 50%;
@@ -402,24 +371,435 @@
   margin-right: 8px;
 }
 
-@keyframes rsSpin {
-  to { transform: rotate(360deg); }
+@keyframes rsSpin { to { transform: rotate(360deg); } }
+
+/* --- Equipment type toggle cards --- */
+.rs-equip-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.rs-equip-card {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 18px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  user-select: none;
+}
+
+.rs-equip-card:hover {
+  border-color: #30beb4;
+  box-shadow: 0 2px 10px rgba(48,190,180,0.12);
+}
+
+.rs-equip-card.selected {
+  border-color: #30beb4;
+  background: #f0fdfb;
+  box-shadow: 0 2px 12px rgba(48,190,180,0.2);
+  transform: scale(1.02);
+}
+
+.rs-equip-card__title {
+  font-weight: 700;
+  color: #2B394B;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.rs-equip-card__desc {
+  font-size: 0.8rem;
+  color: #888;
+  line-height: 1.3;
+}
+
+@media (max-width: 500px) {
+  .rs-equip-toggle { grid-template-columns: 1fr; }
+}
+
+/* Lux mode equipment cards */
+.lux-mode .rs-equip-card {
+  background: #111;
+  border-color: #2a2a2a;
+}
+
+.lux-mode .rs-equip-card__title { color: #e0e0e0; }
+.lux-mode .rs-equip-card__desc { color: #777; }
+
+.lux-mode .rs-equip-card:hover {
+  border-color: #c9a962;
+  box-shadow: 0 2px 10px rgba(201,169,98,0.15);
+}
+
+.lux-mode .rs-equip-card.selected {
+  border-color: #c9a962;
+  background: #1a1a1a;
+  box-shadow: 0 2px 12px rgba(201,169,98,0.25);
+}
+
+/* --- Modification cards --- */
+.rs-mod-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.rs-mod-card {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  user-select: none;
+}
+
+.rs-mod-card:hover {
+  border-color: #30beb4;
+  box-shadow: 0 2px 10px rgba(48,190,180,0.12);
+}
+
+.rs-mod-card.selected {
+  border-color: #30beb4;
+  background: #f0fdfb;
+  transform: scale(1.02);
+}
+
+.rs-mod-card__title {
+  font-weight: 700;
+  color: #2B394B;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.rs-mod-card__desc {
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.3;
+}
+
+.rs-mod-disclaimer {
+  font-size: 0.8rem;
+  color: #888;
+  line-height: 1.5;
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-left: 3px solid #e0e0e0;
+}
+
+/* Lux mode mod cards */
+.lux-mode .rs-mod-card {
+  background: #111;
+  border-color: #2a2a2a;
+}
+.lux-mode .rs-mod-card__title { color: #e0e0e0; }
+.lux-mode .rs-mod-card__desc { color: #777; }
+.lux-mode .rs-mod-card:hover {
+  border-color: #c9a962;
+  box-shadow: 0 2px 10px rgba(201,169,98,0.15);
+}
+.lux-mode .rs-mod-card.selected {
+  border-color: #c9a962;
+  background: #1a1a1a;
+}
+.lux-mode .rs-mod-disclaimer {
+  color: #777;
+  border-left-color: #333;
+}
+
+/* Factory config cards */
+.rs-factory-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.rs-factory-card {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  user-select: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2B394B;
+}
+
+.rs-factory-card:hover { border-color: #30beb4; }
+.rs-factory-card.selected { border-color: #30beb4; background: #f0fdfb; }
+
+.lux-mode .rs-factory-card { background: #111; border-color: #2a2a2a; color: #e0e0e0; }
+.lux-mode .rs-factory-card:hover { border-color: #c9a962; }
+.lux-mode .rs-factory-card.selected { border-color: #c9a962; background: #1a1a1a; }
+
+@media (max-width: 500px) {
+  .rs-mod-options, .rs-factory-options { grid-template-columns: 1fr; }
 }
 
 /* --- Responsive --- */
 @media (max-width: 600px) {
-  .rs-options {
-    grid-template-columns: 1fr;
-  }
+  .rs-btn { width: 100%; text-align: center; }
+  .rs-actions { flex-direction: column; }
+}
 
-  .rs-btn {
-    width: 100%;
-    text-align: center;
-  }
+/* ================================================================
+   LUXURY MODE — activated when Luxury/Exotic is selected
+   Transforms the entire form to match the high-end-vehicles page
+   ================================================================ */
+.rs-wrap {
+  transition: background 0.6s ease, color 0.6s ease;
+}
 
-  .rs-actions {
-    flex-direction: column;
-  }
+.rs-wrap.lux-mode {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.lux-mode .rs-step h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #ffffff;
+}
+
+.lux-mode .rs-step h2 em {
+  font-style: italic;
+  color: #c9a962;
+}
+
+.lux-mode .rs-step .rs-sub {
+  color: #999;
+}
+
+.lux-mode .rs-step h3 {
+  color: #c9a962 !important;
+}
+
+.lux-mode .rs-field label {
+  color: #ccc;
+}
+
+.lux-mode .rs-field input,
+.lux-mode .rs-field select,
+.lux-mode .rs-field textarea {
+  background: #1a1a1a;
+  border-color: #333;
+  color: #f0f0f0;
+}
+
+.lux-mode .rs-field input:focus,
+.lux-mode .rs-field select:focus,
+.lux-mode .rs-field textarea:focus {
+  border-color: #c9a962;
+}
+
+.lux-mode .rs-field input::placeholder,
+.lux-mode .rs-field textarea::placeholder {
+  color: #555;
+}
+
+.lux-mode .rs-field select option {
+  background: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.lux-mode .rs-field .rs-error {
+  color: #c9a962;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.lux-mode .rs-field.has-error input,
+.lux-mode .rs-field.has-error select,
+.lux-mode .rs-field.has-error textarea {
+  border-color: #c9a962;
+  box-shadow: 0 0 0 1px rgba(201,169,98,0.2);
+}
+
+.lux-mode .rs-btn--primary {
+  background: #c9a962;
+  color: #0a0a0a;
+}
+
+.lux-mode .rs-btn--primary:hover {
+  background: #dfc07a;
+}
+
+.lux-mode .rs-btn--primary:disabled {
+  background: #444;
+  color: #888;
+}
+
+.lux-mode .rs-btn--secondary {
+  color: #c9a962;
+  border-color: #444;
+}
+
+.lux-mode .rs-btn--secondary:hover {
+  border-color: #c9a962;
+}
+
+.lux-mode .rs-progress__step.active {
+  background: #c9a962;
+}
+
+.lux-mode .rs-progress__step.completed {
+  background: #8a7340;
+}
+
+.lux-mode .rs-nogo {
+  background: #1a0a0a;
+  border-color: #663333;
+}
+
+.lux-mode .rs-nogo h3 { color: #ff6b6b; }
+.lux-mode .rs-nogo p { color: #999; }
+
+.lux-mode .rs-success h2 { color: #c9a962; }
+.lux-mode .rs-success p { color: #999; }
+
+.lux-mode a {
+  color: #c9a962 !important;
+}
+
+.lux-mode a:hover {
+  color: #dfc07a !important;
+}
+
+/* Transition all elements for smooth lux toggle */
+.rs-step h2,
+.rs-step .rs-sub,
+.rs-step h3,
+.rs-field label,
+.rs-field input,
+.rs-field select,
+.rs-field textarea,
+.rs-btn--primary,
+.rs-btn--secondary,
+.rs-progress__step,
+.rs-success h2,
+.rs-success p {
+  transition: background 1.2s ease, color 1.2s ease, border-color 1.2s ease;
+}
+
+/* Lux mode background on the section */
+.content-section.lux-bg {
+  background: #0a0a0a !important;
+}
+
+.content-section {
+  transition: background 1.2s ease;
+}
+
+/* Atmospheric glow orb — matches lux-hero::before */
+.lux-mode::before {
+  content: '';
+  position: fixed;
+  top: -20%; right: -10%;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,98,0.06) 0%, transparent 65%);
+  pointer-events: none;
+  animation: luxGlowPulse 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes luxGlowPulse {
+  0%, 100% { opacity: 0.04; }
+  50%      { opacity: 0.09; }
+}
+
+/* Gold separator line under headings */
+.lux-mode .rs-step h2::after {
+  content: '';
+  display: block;
+  width: 250px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a962 30%, #dfc07a 50%, #c9a962 70%, transparent);
+  margin: 24px auto 32px;
+  opacity: 0;
+  transform: scaleX(0);
+  animation: luxLineReveal 2s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes luxLineReveal {
+  0% { opacity: 0; transform: scaleX(0); }
+  40% { opacity: 1; }
+  100% { opacity: 1; transform: scaleX(1); }
+}
+
+/* Antialiased text like the lux page */
+.lux-mode {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Subtle gold border on field focus glow */
+.lux-mode .rs-field input:focus,
+.lux-mode .rs-field select:focus,
+.lux-mode .rs-field textarea:focus {
+  box-shadow: 0 0 0 1px rgba(201,169,98,0.3);
+}
+
+/* Gold label for required asterisk */
+.lux-mode .rs-field label .required {
+  color: #c9a962;
+}
+
+/* Elevated card feel on category cards in lux mode */
+.lux-mode .rs-category {
+  background: #111;
+  border-color: #2a2a2a;
+  color: #ccc;
+}
+
+.lux-mode .rs-category__title {
+  color: #e0e0e0;
+}
+
+.lux-mode .rs-category__desc {
+  color: #777;
+}
+
+.lux-mode .rs-category:hover {
+  border-color: #444;
+  box-shadow: 0 2px 12px rgba(255,255,255,0.05);
+}
+
+.lux-mode .rs-category.selected {
+  border-color: #c9a962;
+  background: #1a1a1a;
+}
+
+/* Keep lux card its own style in lux mode */
+.lux-mode .rs-category--lux {
+  border-color: #c9a962;
+  background: #0a0a0a;
+}
+
+/* Financing link in lux mode */
+.lux-mode a[href*="americanfirstfinance"] {
+  color: #c9a962 !important;
+}
+
+/* Radio buttons in lux mode (commercial) */
+.lux-mode input[type="radio"] {
+  accent-color: #c9a962;
+}
+
+/* Step 2 section heading in lux mode */
+.lux-mode h3 {
+  font-family: 'Playfair Display', Georgia, serif !important;
 }
 </style>
 
@@ -429,29 +809,47 @@
 
     <!-- Progress Indicator -->
     <div class="rs-progress">
-      <div class="rs-progress__step active" data-step="1"></div>
+      <div class="rs-progress__step active" data-step="0"></div>
+      <div class="rs-progress__step" data-step="1"></div>
       <div class="rs-progress__step" data-step="2"></div>
       <div class="rs-progress__step" data-step="3"></div>
     </div>
 
-    <!-- ==================== STEP 1: Service Type ==================== -->
-    <div class="rs-step visible" id="rsStep1">
+    <!-- ==================== STEP 0: Terms Gate ==================== -->
+    <div class="rs-step visible" id="rsStep0">
       <h2>Book an Appointment</h2>
-      <p class="rs-sub">Select your service type below and we'll get you a quote. Takes about 60 seconds.</p>
+      <div class="rs-selective" style="text-align:left; max-width:600px; margin:0 auto 30px;">
+        <p style="margin-bottom:12px;">We service a wide range of vehicles, including luxury, performance, commercial equipment, and standard daily drivers.</p>
+        <p style="margin-bottom:12px;">While we commonly work on high-end and commercial applications, we also accept standard vehicle repairs and upgrades for clients seeking quality, professional service.</p>
+        <p style="margin-bottom:12px; font-weight:700; color:#2B394B;">This is a premium service. Pricing reflects professional diagnostics, expertise, and convenience.</p>
+        <p style="font-weight:700; color:#c0392b;">All requests are reviewed prior to approval. Incomplete or inaccurate submissions will not be processed.</p>
+      </div>
+      <div class="rs-actions rs-actions--center">
+        <button class="rs-btn rs-btn--primary" id="rsUnderstand">I Understand — Continue</button>
+      </div>
+    </div>
 
-      <div class="rs-options" id="rsServiceType">
-        <div class="rs-option" data-value="engine-mechanical">Engine &amp; Mechanical</div>
-        <div class="rs-option" data-value="brakes-suspension">Brakes &amp; Suspension</div>
-        <div class="rs-option" data-value="electrical-diagnostics">Electrical &amp; Diagnostics</div>
-        <div class="rs-option" data-value="cooling-ac">Cooling &amp; A/C</div>
-        <div class="rs-option" data-value="oil-maintenance">Oil Change &amp; Maintenance</div>
-        <div class="rs-option" data-value="pre-purchase-inspection">Pre-Purchase Inspection</div>
-        <div class="rs-option" data-value="emergency-roadside">Emergency / Roadside</div>
-        <div class="rs-option" data-value="commercial-equipment">Commercial Equipment</div>
-        <div class="rs-option" data-value="muscle-car-classic">Muscle Car / Classic</div>
-        <div class="rs-option rs-option--lux" data-value="high-end-exotic">Luxury / Exotic Vehicle</div>
-        <div class="rs-option" data-value="body-detailing">Body Work &amp; Detailing</div>
-        <div class="rs-option rs-option--other" data-value="other">Other / Not Sure</div>
+    <!-- ==================== STEP 1: Vehicle Category ==================== -->
+    <div class="rs-step" id="rsStep1">
+      <h2>Select Your <em>Vehicle Category</em></h2>
+
+      <div class="rs-categories" id="rsCategories">
+        <div class="rs-category rs-category--lux" data-value="luxury-exotic">
+          <div class="rs-category__title">Luxury / Exotic</div>
+          <div class="rs-category__desc">Ferrari, Lamborghini, Porsche, Mercedes, BMW, and other high-end vehicles</div>
+        </div>
+        <div class="rs-category rs-category--commercial" data-value="commercial-equipment">
+          <div class="rs-category__title">Commercial Equipment</div>
+          <div class="rs-category__desc">Skid steers, excavators, generators, forklifts, box trucks, and diesel equipment</div>
+        </div>
+        <div class="rs-category rs-category--muscle" data-value="muscle-classic">
+          <div class="rs-category__title">Muscle / Classic</div>
+          <div class="rs-category__desc">Classic and modern American muscle — Camaro, Mustang, Challenger, Corvette, hot rods</div>
+        </div>
+        <div class="rs-category rs-category--everyday" data-value="everyday-driver">
+          <div class="rs-category__title">Every Day Driver</div>
+          <div class="rs-category__desc">Standard vehicles — sedans, SUVs, trucks, minivans, and daily drivers</div>
+        </div>
       </div>
 
       <div class="rs-actions rs-actions--center">
@@ -461,10 +859,10 @@
 
     <!-- ==================== STEP 2: Vehicle + Location ==================== -->
     <div class="rs-step" id="rsStep2">
-      <h2>Tell us about your vehicle</h2>
+      <h2>Tell Us About <em>Your Vehicle</em></h2>
       <p class="rs-sub">We need a few details to prepare an accurate quote.</p>
 
-      <div class="rs-row">
+      <div class="rs-row" id="rsYmmRow">
         <div class="rs-field">
           <label>Year <span class="required">*</span></label>
           <input type="number" id="rsYear" placeholder="e.g. 2019" min="1920" max="2027" required>
@@ -482,13 +880,14 @@
         </div>
       </div>
 
-      <div class="rs-field">
-        <label>VIN or License Plate Number <span class="required">*</span></label>
-        <input type="text" id="rsVin" placeholder="e.g. 1HGCM82633A004352 or ABC-1234" required>
-        <div class="rs-error">VIN or license plate number is required.</div>
-      </div>
+      <!-- Vehicle Identification — standard (non-commercial) -->
+      <div id="rsVinStandard">
+        <div class="rs-field">
+          <label>VIN or License Plate Number <span class="required">*</span></label>
+          <input type="text" id="rsVin" placeholder="e.g. 1HGCM82633A004352 or ABC-1234">
+          <div class="rs-error">VIN or license plate number is required.</div>
+        </div>
 
-      <div class="rs-row-2">
         <div class="rs-field">
           <label>Vehicle Registered State <span class="required">*</span></label>
           <select id="rsState" required>
@@ -505,11 +904,129 @@
           </select>
           <div class="rs-error">Please select a state.</div>
         </div>
+      </div>
+
+      <!-- Vehicle Identification — commercial equipment -->
+      <div id="rsVinCommercial" style="display:none;">
+        <h3 style="color:#2B394B; margin-top:20px; margin-bottom:12px; font-size:1rem;">Vehicle Identification</h3>
+
+        <div class="rs-equip-toggle">
+          <div class="rs-equip-card" data-equip="road">
+            <input type="radio" name="rsEquipType" value="road" id="rsEquipRoad" style="display:none;">
+            <div class="rs-equip-card__title">Road Vehicle</div>
+            <div class="rs-equip-card__desc">Street-legal, registered for public road use</div>
+          </div>
+          <div class="rs-equip-card" data-equip="offroad">
+            <input type="radio" name="rsEquipType" value="offroad" id="rsEquipOffroad" style="display:none;">
+            <div class="rs-equip-card__title">Off-Road Equipment</div>
+            <div class="rs-equip-card__desc">Non-registered, not intended for highway use</div>
+          </div>
+        </div>
+
+        <!-- Road vehicle fields -->
+        <div id="rsCommRoadFields" style="display:none;">
+          <div class="rs-field">
+            <label>VIN or License Plate Number <span class="required">*</span></label>
+            <input type="text" id="rsCommVin" placeholder="e.g. 1HGCM82633A004352 or ABC-1234">
+            <div class="rs-error">VIN or license plate number is required.</div>
+          </div>
+          <div class="rs-field">
+            <label>State of Registration <span class="required">*</span></label>
+            <select id="rsCommRegState">
+              <option value="">Select state...</option>
+              <option value="TN">Tennessee</option>
+              <option value="AL">Alabama</option>
+              <option value="AR">Arkansas</option>
+              <option value="GA">Georgia</option>
+              <option value="KY">Kentucky</option>
+              <option value="MS">Mississippi</option>
+              <option value="NC">North Carolina</option>
+              <option value="VA">Virginia</option>
+              <option value="OTHER">Other</option>
+            </select>
+            <div class="rs-error">Please select a state.</div>
+          </div>
+        </div>
+
+        <!-- Off-road equipment fields -->
+        <div id="rsCommOffroadFields" style="display:none;">
+          <div class="rs-field">
+            <label>Serial Number / Equipment ID</label>
+            <input type="text" id="rsSerialNumber" placeholder="If available">
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color:#2B394B; margin-top:30px; margin-bottom:10px; font-size:1.1rem;">Vehicle's Current Location</h3>
+
+      <div class="rs-field">
+        <label>Street Address <span class="required">*</span></label>
+        <input type="text" id="rsStreet" placeholder="e.g. 123 Main St" required>
+        <div class="rs-error">Street address is required.</div>
+      </div>
+
+      <div class="rs-row">
         <div class="rs-field">
-          <label>Your ZIP Code <span class="required">*</span></label>
+          <label>City <span class="required">*</span></label>
+          <input type="text" id="rsCity" placeholder="e.g. Nashville" required>
+          <div class="rs-error">City is required.</div>
+        </div>
+        <div class="rs-field">
+          <label>State <span class="required">*</span></label>
+          <input type="text" id="rsLocState" placeholder="e.g. TN" maxlength="2" required>
+          <div class="rs-error">State is required.</div>
+        </div>
+        <div class="rs-field">
+          <label>ZIP Code <span class="required">*</span></label>
           <input type="text" id="rsZip" placeholder="e.g. 37201" maxlength="5" pattern="[0-9]{5}" required>
           <div class="rs-error">Please enter a valid 5-digit ZIP code.</div>
         </div>
+      </div>
+
+      <!-- Modifications & Configuration (universal) -->
+      <h3 style="color:#2B394B; margin-top:30px; margin-bottom:6px; font-size:1.1rem;">Modifications &amp; Configuration</h3>
+      <p style="color:#888; font-size:0.85rem; margin-bottom:14px;">Has the vehicle been modified from factory specifications?</p>
+
+      <div class="rs-mod-options" id="rsModOptions">
+        <div class="rs-mod-card" data-mod="stock">
+          <div class="rs-mod-card__title">No</div>
+          <div class="rs-mod-card__desc">Fully stock</div>
+        </div>
+        <div class="rs-mod-card" data-mod="minor">
+          <div class="rs-mod-card__title">Minor Mods</div>
+          <div class="rs-mod-card__desc">Bolt-ons, intake, exhaust, tune</div>
+        </div>
+        <div class="rs-mod-card" data-mod="major">
+          <div class="rs-mod-card__title">Major Mods</div>
+          <div class="rs-mod-card__desc">Engine swap, trans swap, custom wiring, fabrication</div>
+        </div>
+      </div>
+
+      <!-- Minor/Major: list mods -->
+      <div class="rs-field" id="rsModListField" style="display:none;">
+        <label>Briefly list known modifications</label>
+        <textarea id="rsModList" placeholder="e.g. cold air intake, cat-back exhaust, ECU tune, coilovers..."></textarea>
+      </div>
+
+      <!-- Deep detail: shown for major mods OR muscle/classic -->
+      <div id="rsModDeep" style="display:none;">
+        <p style="color:#888; font-size:0.85rem; margin-bottom:14px;">Is the vehicle factory engine and transmission configuration?</p>
+
+        <div class="rs-factory-options" id="rsFactoryOptions">
+          <div class="rs-factory-card" data-factory="yes">Yes</div>
+          <div class="rs-factory-card" data-factory="no">No</div>
+          <div class="rs-factory-card" data-factory="unsure">Unsure</div>
+        </div>
+
+        <div class="rs-field">
+          <label>Engine / swap details</label>
+          <textarea id="rsSwapDetails" placeholder="e.g. LS3 swap into S-chassis, T56 transmission, custom harness, standalone ECU..."></textarea>
+        </div>
+      </div>
+
+      <div class="rs-mod-disclaimer">
+        <p>Modified and non-factory vehicles may require additional diagnostic time and are subject to revised labor and parts estimates based on inspection, accessibility, and prior workmanship.</p>
+        <p style="margin-top:8px;">Final pricing for modified or custom vehicles is determined after physical inspection and cannot be guaranteed in advance.</p>
       </div>
 
       <div class="rs-field">
@@ -541,8 +1058,8 @@
 
       <!-- Go: contact form -->
       <div id="rsGo">
-        <h2>Almost done — how do we reach you?</h2>
-        <p class="rs-sub">We'll get back to you within 24 hours with a quote.</p>
+        <h2>Almost Done — <em>How Do We Reach You?</em></h2>
+        <p class="rs-sub">We'll review your request and get back to you within 24 hours.</p>
 
         <div class="rs-row-2">
           <div class="rs-field">
@@ -598,8 +1115,9 @@
     <!-- ==================== SUCCESS ==================== -->
     <div class="rs-step" id="rsSuccess">
       <div class="rs-success">
-        <h2>Request Received</h2>
-        <p>Thanks — we've got your info. A technician will review your request and get back to you within 24 hours (usually much sooner).</p>
+        <h2>Request <em>Received</em></h2>
+        <p>Thank you for your submission.</p>
+        <p style="margin-top:12px;">Our team will review your request and reach out within 24 hours to confirm whether we can take on your project.</p>
       </div>
     </div>
 
@@ -613,12 +1131,36 @@
 
   var RECAPTCHA_SITE_KEY = '6LeZL7ssAAAAAJGF5PmIgR49MmKTIsZxQFvW_R64';
 
+  // --- Form IDs per category ---
+  var FORM_IDS = {
+    'luxury-exotic':        '94d999ff-8124-43e0-a42d-9610a4891681',
+    'commercial-equipment':  '482a95b1-9c29-4602-b4bf-6d55f8cb6196',
+    'muscle-classic':        '267af2e7-0947-4466-a558-aab4ff859ff8',
+    'everyday-driver':       '9ebb3bd1-5bab-41cd-ac2e-e25450ecefe2'
+  };
+
+  var CATEGORY_LABELS = {
+    'luxury-exotic':        'Luxury/Exotic Submission',
+    'commercial-equipment':  'Commercial Equipment Submission',
+    'muscle-classic':        'Muscle/Classic Submission',
+    'everyday-driver':       'Every Day Driver Submission'
+  };
+
+  // Categories that do NOT require VIN
+  var NO_VIN_CATEGORIES = ['commercial-equipment', 'muscle-classic'];
+
+  // Categories that skip vehicle registered state only
+  var NO_VEHICLE_DETAILS = [];
+
   // --- State ---
   var state = {
     step: 1,
-    serviceType: '',
+    category: '',
     year: '', make: '', model: '', vin: '',
-    registeredState: '', zip: '', description: '',
+    registeredState: '', equipType: '', serialNumber: '',
+    modLevel: '', modList: '', factoryConfig: '', swapDetails: '',
+    street: '', city: '', locState: '', zip: '',
+    description: '',
     firstName: '', lastName: '', phone: '', email: '',
     contactMethod: 'phone',
     formStartedAt: Date.now(),
@@ -626,43 +1168,45 @@
   };
 
   // --- Elements ---
-  var steps     = [null, el('rsStep1'), el('rsStep2'), el('rsStep3')];
+  var steps     = [el('rsStep0'), el('rsStep1'), el('rsStep2'), el('rsStep3')];
   var dots      = document.querySelectorAll('.rs-progress__step');
-  var options   = document.querySelectorAll('#rsServiceType .rs-option');
+  var categories = document.querySelectorAll('#rsCategories .rs-category');
   var nextBtn1  = el('rsNext1');
   var nextBtn2  = el('rsNext2');
   var backBtn2  = el('rsBack2');
   var backBtn3  = el('rsBack3');
   var submitBtn = el('rsSubmit');
   var noGoBack  = el('rsNoGoBack');
+  var vinStandard = el('rsVinStandard');
+  var vinCommercial = el('rsVinCommercial');
 
   function el(id) { return document.getElementById(id); }
 
   // --- Nashville-area ZIP prefixes (roughly 60-mile radius) ---
-  // Covers Nashville, Franklin, Brentwood, Murfreesboro, Hendersonville,
-  // Gallatin, Smyrna, Spring Hill, La Vergne, Clarksville, Cookeville,
-  // Columbia, Dickson, Lebanon, and surrounding Middle TN
   var nashvilleZips = [
     '370','371','372','373','374','375','376','377','378','379',
     '380','381','382','383','384','385',
-    '420','421','422'  // Southern KY border towns within range
+    '420','421','422'
   ];
 
   function isInServiceArea(zip) {
     if (!zip || zip.length < 3) return false;
-    var prefix = zip.substring(0, 3);
-    return nashvilleZips.indexOf(prefix) !== -1;
+    return nashvilleZips.indexOf(zip.substring(0, 3)) !== -1;
   }
 
-  // --- Rate limiting: max 3 submissions per session ---
+  function requiresVin() {
+    return NO_VIN_CATEGORIES.indexOf(state.category) === -1;
+  }
+
+  function requiresVehicleDetails() {
+    return NO_VEHICLE_DETAILS.indexOf(state.category) === -1;
+  }
+
   var MAX_SUBMISSIONS = 3;
 
   // --- Step navigation ---
   function goToStep(n) {
-    steps.forEach(function(s, i) {
-      if (s) s.classList.remove('visible');
-    });
-    // Handle success panel separately
+    steps.forEach(function(s) { if (s) s.classList.remove('visible'); });
     el('rsSuccess').classList.remove('visible');
 
     if (n === 'success') {
@@ -680,30 +1224,128 @@
       if (i + 1 === n) d.classList.add('active');
     });
 
-    // Scroll to top of form
     el('rsForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // --- Step 1: Service type selection ---
-  options.forEach(function(opt) {
-    opt.addEventListener('click', function() {
-      options.forEach(function(o) { o.classList.remove('selected'); });
-      opt.classList.add('selected');
-      state.serviceType = opt.getAttribute('data-value');
+  // --- Step 0: Terms gate ---
+  el('rsUnderstand').addEventListener('click', function() {
+    goToStep(1);
+  });
+
+  // --- Lux mode toggle ---
+  var formWrap = el('rsForm');
+  var formSection = formWrap.closest('.content-section');
+
+  function setLuxMode(on) {
+    if (on) {
+      formWrap.classList.add('lux-mode');
+      if (formSection) formSection.classList.add('lux-bg');
+    } else {
+      formWrap.classList.remove('lux-mode');
+      if (formSection) formSection.classList.remove('lux-bg');
+    }
+  }
+
+  // --- Step 1: Vehicle category selection ---
+  categories.forEach(function(cat) {
+    cat.addEventListener('click', function() {
+      categories.forEach(function(c) { c.classList.remove('selected'); });
+      cat.classList.add('selected');
+      state.category = cat.getAttribute('data-value');
       nextBtn1.disabled = false;
+
+      // Activate lux mode when luxury is selected
+      setLuxMode(state.category === 'luxury-exotic');
     });
   });
 
   nextBtn1.addEventListener('click', function() {
-    if (!state.serviceType) return;
+    if (!state.category) return;
+
+    var isCommercial = state.category === 'commercial-equipment';
+    var showVin = requiresVin();
+
+    // Show standard VIN block or commercial equipment block
+    vinStandard.style.display = (!isCommercial && showVin) ? '' : 'none';
+    vinCommercial.style.display = isCommercial ? '' : 'none';
+
+    // For muscle/classic — hide VIN entirely (no standard, no commercial)
+    if (!isCommercial && !showVin) {
+      vinStandard.style.display = 'none';
+    }
+
+    // Reset commercial equipment cards
+    if (isCommercial) {
+      document.querySelectorAll('.rs-equip-card').forEach(function(c) { c.classList.remove('selected'); });
+      document.querySelectorAll('input[name="rsEquipType"]').forEach(function(r) { r.checked = false; });
+      el('rsCommRoadFields').style.display = 'none';
+      el('rsCommOffroadFields').style.display = 'none';
+    }
+
+    // Update step 2 title
+    el('rsStep2').querySelector('h2').innerHTML = isCommercial
+      ? 'Tell Us About <em>Your Equipment</em>'
+      : 'Tell Us About <em>Your Vehicle</em>';
+
+    // Reset mod section
+    modCards.forEach(function(c) { c.classList.remove('selected'); });
+    factoryCards.forEach(function(c) { c.classList.remove('selected'); });
+    state.modLevel = '';
+    state.factoryConfig = '';
+    el('rsModListField').style.display = 'none';
+    el('rsModList').value = '';
+    el('rsSwapDetails').value = '';
+
+    // Auto-show deep detail for muscle/classic
+    var isMuscle = state.category === 'muscle-classic';
+    el('rsModDeep').style.display = isMuscle ? '' : 'none';
+
     goToStep(2);
+  });
+
+  // Commercial equipment type toggle (card-based)
+  document.querySelectorAll('.rs-equip-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.rs-equip-card').forEach(function(c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+      var val = card.getAttribute('data-equip');
+      card.querySelector('input[type="radio"]').checked = true;
+      el('rsCommRoadFields').style.display = val === 'road' ? '' : 'none';
+      el('rsCommOffroadFields').style.display = val === 'offroad' ? '' : 'none';
+    });
+  });
+
+  // --- Modifications toggle ---
+  var modCards = document.querySelectorAll('.rs-mod-card');
+  var factoryCards = document.querySelectorAll('.rs-factory-card');
+
+  modCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      modCards.forEach(function(c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+      state.modLevel = card.getAttribute('data-mod');
+
+      // Show mod list for minor/major
+      el('rsModListField').style.display = (state.modLevel === 'minor' || state.modLevel === 'major') ? '' : 'none';
+
+      // Show deep detail for major mods OR muscle/classic category
+      var showDeep = state.modLevel === 'major' || state.category === 'muscle-classic';
+      el('rsModDeep').style.display = showDeep ? '' : 'none';
+    });
+  });
+
+  factoryCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      factoryCards.forEach(function(c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+      state.factoryConfig = card.getAttribute('data-factory');
+    });
   });
 
   // --- Step 2: Vehicle + Location ---
   backBtn2.addEventListener('click', function() { goToStep(1); });
 
   nextBtn2.addEventListener('click', function() {
-    // Validate
     var valid = true;
 
     var year = el('rsYear').value.trim();
@@ -711,45 +1353,89 @@
     var model = el('rsModel').value.trim();
     var vin = el('rsVin').value.trim();
     var regState = el('rsState').value;
+    var street = el('rsStreet').value.trim();
+    var city = el('rsCity').value.trim();
+    var locState = el('rsLocState').value.trim();
     var zip = el('rsZip').value.trim();
     var desc = el('rsDescription').value.trim();
 
     // Clear errors
     document.querySelectorAll('.rs-field').forEach(function(f) { f.classList.remove('has-error'); });
 
+    // Year/make/model always required
     if (!year || isNaN(year) || +year < 1920 || +year > 2027) {
       el('rsYear').closest('.rs-field').classList.add('has-error'); valid = false;
     }
-    if (!make) {
-      el('rsMake').closest('.rs-field').classList.add('has-error'); valid = false;
+    if (!make) { el('rsMake').closest('.rs-field').classList.add('has-error'); valid = false; }
+    if (!model) { el('rsModel').closest('.rs-field').classList.add('has-error'); valid = false; }
+
+    var isCommercial = state.category === 'commercial-equipment';
+
+    if (isCommercial) {
+      // Must select road or off-road
+      var equipType = document.querySelector('input[name="rsEquipType"]:checked');
+      if (!equipType) {
+        valid = false;
+        document.querySelectorAll('.rs-equip-card').forEach(function(c) { c.style.borderColor = '#e74c3c'; });
+      } else {
+        document.querySelectorAll('.rs-equip-card').forEach(function(c) { c.style.borderColor = ''; });
+
+        if (equipType.value === 'road') {
+          // Road vehicle: VIN + reg state required
+          var commVin = el('rsCommVin').value.trim();
+          var commRegState = el('rsCommRegState').value;
+          if (!commVin) { el('rsCommVin').closest('.rs-field').classList.add('has-error'); valid = false; }
+          if (!commRegState) { el('rsCommRegState').closest('.rs-field').classList.add('has-error'); valid = false; }
+        }
+        // Off-road: serial number is optional, no validation needed
+      }
+    } else if (requiresVin()) {
+      // Standard categories: VIN + reg state required
+      if (!vin) { el('rsVin').closest('.rs-field').classList.add('has-error'); valid = false; }
+      if (!regState) { el('rsState').closest('.rs-field').classList.add('has-error'); valid = false; }
+    } else {
+      // Muscle/classic: no VIN, but reg state still needed
+      if (!regState) { el('rsState').closest('.rs-field').classList.add('has-error'); valid = false; }
     }
-    if (!model) {
-      el('rsModel').closest('.rs-field').classList.add('has-error'); valid = false;
-    }
-    if (!vin) {
-      el('rsVin').closest('.rs-field').classList.add('has-error'); valid = false;
-    }
-    if (!regState) {
-      el('rsState').closest('.rs-field').classList.add('has-error'); valid = false;
-    }
-    if (!zip || !/^\d{5}$/.test(zip)) {
-      el('rsZip').closest('.rs-field').classList.add('has-error'); valid = false;
-    }
-    if (!desc) {
-      el('rsDescription').closest('.rs-field').classList.add('has-error'); valid = false;
-    }
+    if (!street) { el('rsStreet').closest('.rs-field').classList.add('has-error'); valid = false; }
+    if (!city) { el('rsCity').closest('.rs-field').classList.add('has-error'); valid = false; }
+    if (!locState) { el('rsLocState').closest('.rs-field').classList.add('has-error'); valid = false; }
+    if (!zip || !/^\d{5}$/.test(zip)) { el('rsZip').closest('.rs-field').classList.add('has-error'); valid = false; }
+    if (!desc) { el('rsDescription').closest('.rs-field').classList.add('has-error'); valid = false; }
 
     if (!valid) return;
 
     state.year = year;
     state.make = make;
     state.model = model;
-    state.vin = vin;
     state.registeredState = regState;
+
+    // Capture VIN/serial based on category
+    var isCommercial = state.category === 'commercial-equipment';
+    if (isCommercial) {
+      var equipType = document.querySelector('input[name="rsEquipType"]:checked');
+      state.equipType = equipType ? equipType.value : '';
+      if (state.equipType === 'road') {
+        state.vin = el('rsCommVin').value.trim();
+        state.registeredState = el('rsCommRegState').value;
+      } else {
+        state.vin = '';
+        state.serialNumber = el('rsSerialNumber').value.trim();
+      }
+    } else {
+      state.vin = vin;
+      state.equipType = '';
+      state.serialNumber = '';
+    }
+    state.street = street;
+    state.city = city;
+    state.locState = locState;
     state.zip = zip;
     state.description = desc;
+    state.modList = el('rsModList').value.trim();
+    state.swapDetails = el('rsSwapDetails').value.trim();
 
-    // --- Go / No-Go check ---
+    // Go/No-Go check
     goToStep(3);
 
     if (!isInServiceArea(zip)) {
@@ -764,10 +1450,10 @@
   // --- Step 3: No-Go back ---
   noGoBack.addEventListener('click', function() {
     goToStep(1);
-    // Reset selections
-    options.forEach(function(o) { o.classList.remove('selected'); });
-    state.serviceType = '';
+    categories.forEach(function(c) { c.classList.remove('selected'); });
+    state.category = '';
     nextBtn1.disabled = true;
+    setLuxMode(false);
   });
 
   // --- Step 3: Back ---
@@ -775,7 +1461,6 @@
 
   // --- Submit ---
   submitBtn.addEventListener('click', function() {
-    // Validate contact info
     var valid = true;
     var firstName = el('rsFirstName').value.trim();
     var lastName = el('rsLastName').value.trim();
@@ -783,36 +1468,25 @@
     var email = el('rsEmail').value.trim();
     var contactMethod = el('rsContactMethod').value;
 
-    // Clear errors in step 3
     el('rsGo').querySelectorAll('.rs-field').forEach(function(f) { f.classList.remove('has-error'); });
 
-    if (!firstName) {
-      el('rsFirstName').closest('.rs-field').classList.add('has-error'); valid = false;
-    }
-    if (!lastName) {
-      el('rsLastName').closest('.rs-field').classList.add('has-error'); valid = false;
-    }
-    if (!phone || phone.replace(/\D/g, '').length < 10) {
-      el('rsPhone').closest('.rs-field').classList.add('has-error'); valid = false;
-    }
+    if (!firstName) { el('rsFirstName').closest('.rs-field').classList.add('has-error'); valid = false; }
+    if (!lastName) { el('rsLastName').closest('.rs-field').classList.add('has-error'); valid = false; }
+    if (!phone || phone.replace(/\D/g, '').length < 10) { el('rsPhone').closest('.rs-field').classList.add('has-error'); valid = false; }
 
     if (!valid) return;
 
-    // --- Anti-abuse: honeypot ---
-    if (el('rsWebsite').value) {
-      // Bot detected — silently pretend success
-      goToStep('success');
-      return;
-    }
+    // Anti-abuse: honeypot
+    if (el('rsWebsite').value) { goToStep('success'); return; }
 
-    // --- Anti-abuse: rate limit ---
+    // Anti-abuse: rate limit
     if (state.submissionCount >= MAX_SUBMISSIONS) {
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Limit reached — call us instead';
+      submitBtn.textContent = 'Limit reached — please call us';
       return;
     }
 
-    // --- Anti-abuse: too fast (< 3 seconds from page load) ---
+    // Anti-abuse: speed check
     if (Date.now() - state.formStartedAt < 3000) {
       console.warn('Form submitted too fast — likely bot');
       goToStep('success');
@@ -825,52 +1499,87 @@
     state.email = email;
     state.contactMethod = contactMethod;
 
-    // --- Disable button + show spinner ---
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="rs-spinner"></span> Submitting...';
 
-    // --- Build HubSpot payload ---
-    // Roll registered state + contact method into message to save custom property slots
+    // Build address string
+    var fullAddress = state.street + ', ' + state.city + ', ' + state.locState + ' ' + state.zip;
+
+    // Build message
+    var categoryLabel = CATEGORY_LABELS[state.category] || state.category;
+    // Mod labels
+    var modLabels = { 'stock': 'Fully stock', 'minor': 'Minor modifications', 'major': 'Major modifications' };
+    var factoryLabels = { 'yes': 'Yes — factory config', 'no': 'No — not factory', 'unsure': 'Unsure' };
+
     var fullMessage = state.description
       + '\n\n---'
-      + '\nService Type: ' + state.serviceType
-      + '\nPreferred Contact: ' + state.contactMethod
-      + '\nZIP: ' + state.zip;
+      + '\nCategory: ' + categoryLabel
+      + '\nVehicle Location: ' + fullAddress
+      + '\nPreferred Contact: ' + state.contactMethod;
+
+    // Modifications
+    if (state.modLevel) {
+      fullMessage += '\nModifications: ' + (modLabels[state.modLevel] || state.modLevel);
+    }
+    if (state.modList) {
+      fullMessage += '\nMod List: ' + state.modList;
+    }
+    if (state.factoryConfig) {
+      fullMessage += '\nFactory Engine/Trans: ' + (factoryLabels[state.factoryConfig] || state.factoryConfig);
+    }
+    if (state.swapDetails) {
+      fullMessage += '\nSwap Details: ' + state.swapDetails;
+    }
 
     var fields = [
       { name: 'firstname',                 value: state.firstName },
       { name: 'lastname',                  value: state.lastName },
       { name: 'phone',                     value: state.phone },
       { name: 'email',                     value: state.email || '' },
-      { name: 'service_type',              value: state.serviceType },
-      { name: 'vin_license_plate_number',  value: state.vin },
-      { name: 'year',                      value: state.year },
-      { name: 'make',                      value: state.make },
-      { name: 'model',                     value: state.model },
-      { name: 'vehicle_registration_state', value: state.registeredState },
-      { name: 'state',                     value: state.registeredState },
+      { name: 'address',                   value: fullAddress },
       { name: 'message',                   value: fullMessage }
     ];
+
+    // Year/make/model always included
+    fields.push({ name: 'year', value: state.year });
+    fields.push({ name: 'make', value: state.make });
+    fields.push({ name: 'model', value: state.model });
+
+    // VIN + registration state (from standard or commercial road fields)
+    if (state.vin) {
+      fields.push({ name: 'vin_license_plate_number', value: state.vin });
+    }
+    if (state.registeredState) {
+      fields.push({ name: 'vehicle_registration_state', value: state.registeredState });
+      fields.push({ name: 'state', value: state.registeredState });
+    }
+
+    // Append serial number to message if off-road commercial
+    if (state.serialNumber) {
+      fullMessage += '\nSerial Number / Equipment ID: ' + state.serialNumber;
+    }
+    if (state.equipType) {
+      fullMessage += '\nEquipment Type: ' + (state.equipType === 'road' ? 'Street-legal road vehicle' : 'Off-road / non-registered equipment');
+    }
 
     var payload = {
       fields: fields,
       context: {
         pageUri: window.location.href,
-        pageName: 'Request Service'
+        pageName: categoryLabel
       }
     };
 
-    // --- Submit to HubSpot Forms API ---
+    // Select form based on category
     var portalId = '46603985';
-    var formId   = '94d999ff-8124-43e0-a42d-9610a4891681';
+    var formId = FORM_IDS[state.category] || FORM_IDS['everyday-driver'];
     var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formId;
 
-    // --- reCAPTCHA v3 then submit ---
+    // reCAPTCHA v3 then submit
     grecaptcha.ready(function() {
       grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_service_request' }).then(function(token) {
-        console.log('reCAPTCHA token obtained, score will be checked by Google');
-
-        console.log('Submitting to HubSpot...');
+        console.log('reCAPTCHA token obtained');
+        console.log('Submitting to:', categoryLabel, formId);
 
         fetch(url, {
           method: 'POST',
@@ -881,14 +1590,8 @@
           console.log('HubSpot response status:', res.status);
           return res.text().then(function(body) {
             console.log('HubSpot response body:', body);
-            if (res.ok) {
-              state.submissionCount++;
-              goToStep('success');
-            } else {
-              console.error('HubSpot rejected submission:', res.status, body);
-              state.submissionCount++;
-              goToStep('success');
-            }
+            state.submissionCount++;
+            goToStep('success');
           });
         })
         .catch(function(err) {
@@ -898,7 +1601,6 @@
 
       }).catch(function(err) {
         console.error('reCAPTCHA failed:', err);
-        // Still submit — don't block real users if reCAPTCHA has issues
         fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -906,9 +1608,7 @@
         }).then(function() {
           state.submissionCount++;
           goToStep('success');
-        }).catch(function() {
-          goToStep('success');
-        });
+        }).catch(function() { goToStep('success'); });
       });
     });
   });
@@ -922,7 +1622,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Request Mobile Mechanic Service — Nashville",
-  "description": "Request a quote for mobile mechanic service in Nashville and Middle Tennessee. Qualifying intake form for engine repair, brakes, diagnostics, commercial equipment, muscle cars, luxury vehicles, and more.",
+  "description": "Request a quote for mobile mechanic service in Nashville and Middle Tennessee. Luxury vehicles, commercial equipment, muscle cars, and every day drivers.",
   "url": "https://mobilemechanicmusclenearme.com/request-service",
   "provider": {
     "@type": "AutomotiveBusiness",
