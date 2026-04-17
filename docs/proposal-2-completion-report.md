@@ -3,7 +3,7 @@
 > Contractor: Dalessandro & Guarascio LLC
 > Client: Alexander Dalessandro (Mobile Mechanic Muscle)
 > Proposal Date: March 26, 2026
-> Completion Date: April 16, 2026
+> Completion Date: April 16–17, 2026
 
 ---
 
@@ -34,20 +34,22 @@
 
 | Contracted | Delivered | Status |
 |-----------|-----------|--------|
-| Standalone page at `/request-service` | Live at `/request-service` with 3-step intake flow | **Completed** |
-| Intent gating: qualifying questions before form | Step 1: Service type selection (12 categories). Step 2: Vehicle details (year, make, model, VIN, state, ZIP, description). Step 3: Contact info | **Completed** |
-| Go/No-Go camera: decision logic to filter out-of-scope requests | ZIP code validation against 60-mile Nashville radius. Out-of-area users see rejection message and cannot submit | **Completed** |
+| Standalone page at `/request-service` | Live at `/request-service` with 4-step intake flow (terms gate + 3 form steps) | **Completed** |
+| Intent gating: qualifying questions before form | Step 0: Premium service terms acknowledgment. Step 1: Vehicle category selection (4 categories). Step 2: Vehicle details + modifications + address. Step 3: Contact info | **Completed** |
+| Go/No-Go camera: decision logic to filter out-of-scope requests | ZIP code validation against 60-mile Nashville radius. Out-of-area users see rejection message and cannot submit. Terms gate filters tire-kickers before form access | **Completed** |
 | Anti-abuse rules: rate limiting, honeypot, required vehicle details | Honeypot field, 3-submission-per-session rate limit, 3-second speed check, Google reCAPTCHA v3 (invisible) | **Completed** |
-| All CTAs route here as single conversion endpoint | All service pages, location pages, all-services, and high-end-vehicles route to `/request-service` | **Completed** |
+| All CTAs route here as single conversion endpoint | All service pages, location pages, all-services, high-end-vehicles, and `/contact` (JS redirect) route to `/request-service` | **Completed** |
 
 **Form submission flow:**
-1. User selects service type (12 options including luxury/exotic with gold styling, commercial equipment, muscle car/classic)
-2. User enters vehicle details: year, make, model, VIN/license plate, registered state, ZIP code, issue description
-3. Go/No-Go check: ZIP validated against Nashville 60-mile service area
-4. If passed: user enters contact info (first name, last name, phone, email, preferred contact method)
-5. Google reCAPTCHA v3 executes invisibly
-6. Submission sent to HubSpot Forms API (cloned form without CAPTCHA blocking, ID: `94d999ff-8124-43e0-a42d-9610a4891681`)
-7. Success confirmation displayed
+1. User reads premium service terms and clicks "I Understand — Continue"
+2. User selects vehicle category (Luxury/Exotic, Commercial Equipment, Muscle/Classic, Every Day Driver)
+3. If Luxury/Exotic: entire form transforms to cinematic dark/gold design language
+4. User enters vehicle details: year, make, model, VIN (conditional), registered state, full address, modifications & configuration, issue description
+5. Go/No-Go check: ZIP validated against Nashville 60-mile service area
+6. If passed: user enters contact info (first name, last name, phone, email, preferred contact method)
+7. Google reCAPTCHA v3 executes invisibly
+8. Submission sent to category-specific HubSpot form via API
+9. Success confirmation displayed
 
 **Rejection paths (user told "we can't help"):**
 - ZIP code outside 60-mile Nashville radius → "Outside Our Service Area" message with option to go back and try a different ZIP
@@ -62,11 +64,11 @@
 **Technical implementation:** Custom HTML/CSS/JS form submitting to HubSpot Forms API v3. Not using HubSpot's embedded form widget — full control over UX, validation, and gating logic.
 
 **HubSpot integration:**
-- Cloned form (`94d999ff-...`) with CAPTCHA disabled to allow API submissions
-- Original form (`4dfc54af-...`) retained with CAPTCHA for embedded use on unmanaged pages
-- Fields mapped: `firstname`, `lastname`, `phone`, `email`, `service_type`, `vin_license_plate_number`, `year`, `make`, `model`, `vehicle_registration_state`, `state`, `message`
-- Service type, preferred contact method, and ZIP appended to `message` field to conserve HubSpot free tier property slots
-- `service_type` created as custom dropdown property with 12 values
+- 4 cloned forms (one per vehicle category) with CAPTCHA disabled to allow API submissions
+- Original form (`4dfc54af-...`) retained with CAPTCHA for legacy embedded use
+- Fields mapped: `firstname`, `lastname`, `phone`, `email`, `vin_license_plate_number`, `year`, `make`, `model`, `vehicle_registration_state`, `state`, `address`, `message`
+- Category, modifications, preferred contact method, vehicle address, and swap details appended to `message` field to conserve HubSpot free tier property slots
+- `service_type` created as custom dropdown property
 
 ### D. Email Update Across HubSpot-Driven Pages
 
@@ -140,9 +142,11 @@
 |------|--------|
 | Deploy script updated | `scripts/deploy-pages.js` now deploys all 17 pages: all-services, high-end-vehicles, request-service, commercial-equipment, muscle-cars, 7 service pages, 5 location pages |
 | Page mapping updated | `.hubspot-pages.json` includes IDs for all new pages (request-service: `211170040586`, commercial-equipment: `211170041176`, muscle-cars: `211170040588`, high-end-vehicles: `210210284161`) |
-| HubSpot form cloned | Original form (`4dfc54af-...`) retained with CAPTCHA. Clone (`94d999ff-...`) created without CAPTCHA for API submissions |
+| HubSpot forms (4 clones) | Original form retained with CAPTCHA. 4 category-specific clones without CAPTCHA for API submissions (Luxury, Commercial, Muscle, Every Day) |
 | Google reCAPTCHA v3 | Site key `6LeZL7ss...` integrated on request-service page for invisible bot detection |
-| `service_type` property | Created as dropdown in HubSpot with 12 values matching form options |
+| `service_type` property | Created as custom dropdown in HubSpot |
+| Design Manager API | Footer partial managed programmatically via Templates v2 API (`PUT /content/api/v2/templates/206542447704`) |
+| `/contact` sunset | JS redirect installed, navigation updated, managed page links replaced |
 | Service radius updated | All JSON-LD schemas updated from 25 miles to 60 miles |
 | Header CSS overrides | Inline theme settings for managed pages (logo sizing, left-aligned layout, mobile responsive) |
 | Footer partial | Synced between local repo (`src/templates/partials/footer.html`) and HubSpot Design Manager |
@@ -331,43 +335,34 @@ These should be unpublished/deleted in HubSpot: Marketing > Website > Website Pa
 - **Header/footer on unmanaged pages** (home, contact, gallery): These use the Growth theme's DnD template which cannot be safely modified from our deploy scripts. Header and footer changes on those 3 pages must be done manually in HubSpot's page editor or via the Templates API for the footer partial.
 - **Growth theme is locked**: Cannot edit theme modules directly in Design Manager. CSS overrides are applied inline on managed pages.
 - **Form CAPTCHA**: Original HubSpot form has reCAPTCHA enabled (blocks API submissions). 4 cloned forms without CAPTCHA are used for API submissions. Google reCAPTCHA v3 is integrated client-side as the spam protection layer.
-- **Contact page sunset**: The existing `/contact` page with the embedded HubSpot form is still live. A sunset plan is needed to redirect all traffic to `/request-service` as the single intake endpoint.
+- **Contact page sunset in progress**: `/contact` has a JS redirect to `/request-service`. Home page links still reference `/contact` (client action needed in page editor). Once home page is updated and `/contact` is unpublished, sunset is complete.
 
 ---
 
-## Sunset Plan: `/contact` → `/request-service`
+## Sunset: `/contact` → `/request-service`
 
-### Current State
-- `/contact` page uses the original embedded HubSpot form (`4dfc54af-...`) with native CAPTCHA
-- The home page hero CTA and header nav link to `/contact`
-- The Growth theme header module has "BOOK APPOINTMENT" linking to `/contact`
-- All managed pages already link to `/request-service`
+### Completed
 
-### Recommended Migration Steps
+| Step | Action | Status |
+|------|--------|--------|
+| 1 | All 17 managed pages route to `/request-service` | **Done** |
+| 2 | Design Manager footer updated — "Request Service" button replaces "Book Appointment" | **Done** |
+| 3 | High-end vehicles page — all `/contact` links replaced | **Done** |
+| 4 | `/contact` page — JS redirect (`window.location.replace('/request-service')`) installed | **Done** |
+| 5 | Navigation menu — updated to link to `/request-service` | **Done** |
 
-1. **Update `simple-content-page.html` header** in Design Manager — change `/contact` to `/request-service` in the nav link
-2. **Update the Growth theme header menu** — change "Book Appointment" href from `/contact` to `/request-service` (via HubSpot page editor Settings > Navigation)
-3. **Update the home page hero CTA** — change the "Book an Appointment" button href from `/contact` to `/request-service` (in page editor)
-4. **Update any remaining links on unmanaged pages** (home, gallery) that reference `/contact`
-5. **Set up a 301 redirect** from `/contact` to `/request-service` in HubSpot (Settings > Website > Domains & URLs > URL Redirects)
-6. **Keep the `/contact` page** in draft/unpublished state for 30 days as a safety net, then delete
-7. **Update Google Search Console** — submit updated sitemap after redirect is live
-8. **Monitor** — check for 404s referencing `/contact` in Google Search Console for 2 weeks
+### Remaining (Client Action Required)
 
-### Pages That Still Reference `/contact`
+| Step | Action | Status |
+|------|--------|--------|
+| 6 | Update home page hero + service card buttons from `/contact` to `/request-service` in HubSpot page editor | **Pending** |
+| 7 | Unpublish `/contact` page (keep in draft 30 days, then delete) | **Pending** |
+| 8 | Delete duplicate pages in HubSpot (request-service-1, commercial-equipment-1, etc.) | **Pending** |
+| 9 | Submit updated sitemap in Google Search Console | **Pending** |
+| 10 | Monitor for `/contact` 404s in Google Search Console for 2 weeks | **Pending** |
 
-| Location | Current Link | Action |
-|----------|-------------|--------|
-| Home page hero button | `/contact` | Update in page editor |
-| Growth theme header nav | `/contact` | Update in HubSpot navigation settings |
-| `simple-content-page.html` header | `/contact` | Update in Design Manager |
-| Home page service cards (3x) | `/contact` | Update in page editor |
-| Home page contact section | `/contact` | Update in page editor |
-
-### Timeline
-- Can be executed in a single session once client approves
-- 301 redirect ensures no SEO value is lost
-- All indexed `/contact` URLs will automatically forward to `/request-service`
+### Note
+HubSpot free tier does not support 301 URL redirects. A JavaScript redirect is in place on the `/contact` page as the workaround. This handles all existing bookmarks, Google results, and external links pointing to `/contact`.
 
 ---
 
