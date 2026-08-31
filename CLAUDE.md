@@ -1,3 +1,19 @@
+> # ⚠️ SUPERSEDED — this is not the live site
+>
+> Mobile Mechanic Muscle was ported off HubSpot to Next.js and cut over on
+> Vercel. **The live site is built from `~/Code/ideas/mobile-mechanic-muscle`**
+> (repo `mr-cto/mobile-mechanic-muscle`), serving
+> https://mobilemechanicmusclenearme.com. HubSpot has been fully removed as the
+> lead backend.
+>
+> This repo is kept for history only. Do not build, deploy, quote or preview
+> client work from here — the pages in `src/pages/` are the pre-port HubSpot CMS
+> versions and no longer match what the client sees. Client-requested changes go
+> to the Next.js repo, on a branch, previewed with a Vercel preview deployment.
+>
+> The HubSpot personal access key in `hubspot.config.yml` expired 2026-05-03 and
+> is deliberately NOT being refreshed.
+
 # Mobile Mechanic Muscle — HubSpot CMS Project
 
 ## Overview
