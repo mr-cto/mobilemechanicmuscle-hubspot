@@ -78,3 +78,6 @@ analytics-exports/
 
 # Local single-page preview scratch artifact
 preview-high-end-vehicles.html
+
+# Generated staging preview build output
+preview/
