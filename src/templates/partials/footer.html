@@ -20,6 +20,29 @@ html, body { overflow-x: hidden !important; }
   .footer .footer-grid .footer-column { flex: 1 1 100% !important; }
   .footer { padding: 40px 0 20px !important; }
 }
+/* Reviews widget — base styles (shared across all managed pages) */
+.reviews-iframe-wrapper {
+  position: relative;
+  max-width: 1157px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reviews-iframe-wrapper.reviews-visible { opacity: 1; transform: translateY(0); }
+.reviews-iframe-wrapper iframe { display: block; width: 100%; border: none; pointer-events: none; }
+.reviews-iframe-wrapper::after { content: ''; position: absolute; inset: 0; z-index: 2; cursor: default; }
+/* Footer reviews — compact strip */
+.footer-reviews { margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); }
+.footer-reviews h4 { color: #30beb4 !important; margin-bottom: 12px !important; font-size: 16px; text-align: center; }
+.footer-reviews .reviews-iframe-wrapper { max-width: 100%; box-shadow: none; border-radius: 4px; background: rgba(255,255,255,0.03); }
+@media (max-width: 768px) {
+  .reviews-iframe-wrapper iframe { height: 300px; }
+  .footer-reviews .reviews-iframe-wrapper iframe { height: 200px; }
+}
 </style>
 <footer class="footer">
   <div class="container-fluid">
@@ -68,6 +91,13 @@ html, body { overflow-x: hidden !important; }
     </div>
   </div>
 
+  <div class="footer-reviews">
+    <h4>Customer Reviews</h4>
+    <div class="reviews-iframe-wrapper" id="reviews-footer">
+      <iframe src="https://widgets.sociablekit.com/google-reviews/iframe/25631515" width="100%" height="250" loading="lazy" tabindex="-1" title="Google Reviews for Mobile Mechanic Muscle" data-service="widgets.sociablekit"></iframe>
+    </div>
+  </div>
+
   <div class="footer-bottom">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
       <p style="margin: 0;">&copy; {{ current_year }} Mobile Mechanic Muscle. All rights reserved.</p>
@@ -80,4 +110,20 @@ html, body { overflow-x: hidden !important; }
   </div>
 </div>
 </div>
+<script>
+(function() {
+  function initReviews() {
+    document.querySelectorAll('.reviews-iframe-wrapper:not([data-observed])').forEach(function(el) {
+      el.setAttribute('data-observed', '1');
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('reviews-visible'); obs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.15 });
+      obs.observe(el);
+    });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initReviews); } else { initReviews(); }
+})();
+</script>
 </footer>

@@ -15,16 +15,9 @@
   .header__menu-item--depth-1 { border-top: 1px solid #EEEEEE; }
 }
 .header__menu-toggle svg { fill: #2B394B; }
-/* Header layout fix — logo left, nav right */
-.header__container--centered .header__wrapper--bottom { flex-wrap: nowrap !important; text-align: left !important; }
-.header__container--centered .header__logo-col { width: auto !important; margin-bottom: 0 !important; flex-shrink: 0 !important; }
-.header__container--centered .header__menu-col { width: auto !important; margin-left: auto !important; text-align: right !important; }
-.header__logo-image { max-height: 85px !important; width: auto !important; height: auto !important; object-fit: contain !important; }
-.header__bottom { padding: 0.8rem 20px !important; }
-.header__top { display: none !important; }
+/* Header — let theme's default centered layout render (matches home page).
+   Mobile menu fixes still apply to prevent overflow on small viewports. */
 @media (max-width: 767px) {
-  .header__container--centered .header__wrapper--bottom { justify-content: space-between !important; }
-  .header__logo-image { max-height: 50px !important; }
   .header__menu--mobile { position: fixed !important; z-index: 99; top: auto; left: 0 !important; right: 0 !important; width: 100vw !important; max-width: 100vw !important; overflow-x: hidden !important; margin: 0 !important; padding: 0 !important; }
   .header__menu--mobile .header__menu-wrapper { display: flex !important; flex-direction: column !important; }
   .header__menu--mobile .header__menu-item { display: block !important; width: 100% !important; }
@@ -96,26 +89,34 @@
   border-color: #ffffff;
 }
 
+/* Reviews section */
+.reviews-section { padding: 80px 0; background: #fffffb; text-align: center; }
+.reviews-section h2 { font-size: 42px; margin-bottom: 8px; color: #2B394B; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.reviews-section .reviews-subtitle { font-size: 18px; color: #666; margin-bottom: 40px; }
+
 @media (max-width: 768px) {
   .hero-section h1 {
     font-size: 2rem;
   }
-  
+
   .services-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .trust-items {
     flex-direction: column;
     gap: 15px;
   }
-  
+
   .cta-button,
   .button-light {
     display: block;
     margin: 15px auto;
     max-width: 300px;
   }
+
+  .reviews-section { padding: 50px 0; }
+  .reviews-section h2 { font-size: 28px; }
 }
 </style>
 
@@ -124,8 +125,7 @@
   <div class="container">
     <h1>Complete Mobile Mechanic Services</h1>
     <p>Mobile Mechanic Muscle brings professional auto repair directly to your location in Nashville & Middle Tennessee. From routine maintenance to major repairs—if it's under the hood, we can fix it at your home, office, or anywhere your vehicle is parked.</p>
-    <a href="tel:+16154963900" class="cta-button">Call (615) 496-3900</a>
-    <a href="/request-service" class="button-light">Request Service</a>
+    <a href="/request-service" class="cta-button">Request Service</a>
   </div>
 </section>
 
@@ -133,7 +133,7 @@
 <section class="content-section">
   <div class="container">
     <h2>Our Most Popular Mobile Services</h2>
-    <p style="text-align: center; margin-bottom: 40px;">Click any service below to learn more and see detailed pricing:</p>
+    <p style="text-align: center; margin-bottom: 40px;">Click any service below to learn more:</p>
     
     <div class="featured-services">
       <div class="featured-service">
@@ -329,7 +329,7 @@
     </div>
     
     <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
-      <strong>Don't see what you need?</strong> We handle many other automotive repairs not listed here. Give us a call at <a href="tel:+16154963900" style="color: #30beb4; text-decoration: none; font-weight: 600;">(615) 496-3900</a> and we'll let you know if we can help. Chances are, we can fix it!
+      <strong>Don't see what you need?</strong> We handle many other automotive repairs not listed here. <a href="/request-service" style="color: #30beb4; text-decoration: none; font-weight: 600;">Request service</a> and tell us what's going on — chances are, we can fix it.
     </p>
   </div>
 </section>
@@ -341,11 +341,23 @@
     <div class="trust-items">
       <div class="trust-item">Experienced Technicians</div>
       <div class="trust-item">1-Year Parts & Labor Warranty</div>
+      <div class="trust-item">Insurance & Warranty Claims Accepted</div>
       <div class="trust-item">We Come to You</div>
       <div class="trust-item">Mon-Sat 6AM-4PM</div>
     </div>
   </div>
 </div>
+
+<!-- Customer Reviews -->
+<section class="reviews-section">
+  <div class="container">
+    <h2>What Our Customers Say</h2>
+    <p class="reviews-subtitle">Real reviews from real customers across Middle Tennessee</p>
+    <div class="reviews-iframe-wrapper" id="reviews-main">
+      <iframe src="https://widgets.sociablekit.com/google-reviews/iframe/25631515" width="1157" height="375" loading="lazy" tabindex="-1" title="Google Reviews for Mobile Mechanic Muscle" data-service="widgets.sociablekit"></iframe>
+    </div>
+  </div>
+</section>
 
 <!-- Service Area -->
 <section class="content-section">
@@ -385,36 +397,11 @@
     </div>
     
     <div style="text-align: center; margin-top: 40px;">
-      <a href="tel:+16154963900" class="cta-button">Call Now: (615) 496-3900</a>
-      <a href="/request-service" class="button-light">Request Service</a>
+      <a href="/request-service" class="cta-button">Request Service</a>
       <p style="margin-top: 20px;"><a href="https://americanfirstfinance.com/app/?dealer=32791&loc=1&src=UA" target="_blank" rel="noopener" style="color: #30beb4; font-weight: 600; text-decoration: underline;">Financing Available — Apply with American First Finance</a></p>
     </div>
   </div>
 </section>
-
-<!-- Contact Form Section -->
-<section class="content-section" id="contact-form">
-  <div class="container">
-    <h2 style="text-align: center;">Request Your Free Quote</h2>
-    <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">Fill out the form below and we'll get back to you within 24 hours with a detailed quote for your service needs.</p>
-    
-    <div id="hs_form_target_all_services" style="max-width: 700px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.1);"></div>
-  </div>
-</section>
-
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-<script>
-  if (window.hbspt) {
-    hbspt.forms.create({
-      region: "na1",
-      portalId: "46603985",
-      formId: "4dfc54af-6a62-4fdc-a2bf-2836626d42eb",
-      target: '#hs_form_target_all_services',
-      cssClass: 'hs-form stacked hs-custom-form',
-      inlineMessage: 'Thank you for contacting us! We will be in touch soon.'
-    });
-  }
-</script>
 
 <script type="application/ld+json">
 {
@@ -502,4 +489,27 @@
     ]
   }
 }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var logo = document.querySelector('.header__logo');
+  if (logo) { logo.style.cursor = 'pointer'; logo.addEventListener('click', function() { window.location.href = '/'; }); }
+  // Fix: parent nav items have href="" which causes page refresh on click.
+  // Instead, make the click toggle the submenu the same way the chevron button does.
+  document.querySelectorAll('.header__menu-link--toggle').forEach(function(a) {
+    if (a.dataset.navFixApplied) return; // guard against double-binding from Site Footer HTML
+    a.dataset.navFixApplied = 'true';
+    var h = a.getAttribute('href');
+    if (!h || h === '' || h === '#') {
+      a.setAttribute('role', 'button');
+      a.style.cursor = 'pointer';
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var li = a.closest('.header__menu-item--has-submenu') || a.parentElement;
+        var toggle = li && li.querySelector('.header__menu-child-toggle');
+        if (toggle) toggle.click();
+      });
+    }
+  });
+});
 </script>

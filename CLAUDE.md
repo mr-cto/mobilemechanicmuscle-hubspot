@@ -9,6 +9,36 @@ This repo manages the HubSpot CMS pages for [mobilemechanicmusclenearme.com](htt
 
 ---
 
+## Contractor Pricing & Billing (Tom's Defaults)
+
+Reference this when drafting proposals, completion reports, or invoicing docs.
+
+| Item | Value |
+|------|-------|
+| **Standard hourly rate** | $250/hour |
+| **Flat fee** | Only used for Proposal 1 (original signed contract). Default to hourly from Proposal 2 onward. |
+| **Deposit** | 40% to commence work on any proposal or package |
+| **Payment schedule — individual projects** | 40% deposit, 60% on delivery |
+| **Payment schedule — packages** | 40% deposit, 30% midpoint, 30% on delivery |
+| **Ongoing work after a project** | Pay-as-you-go (per batch). **No monthly retainers.** Quote → approve → work → invoice. |
+| **Revisions allowance** | 2 hours post-delivery included per proposal or package |
+| **Revisions beyond allowance** | Billed at $250/hour with prior client approval |
+| **Refunds** | None once work begins (consistent across all proposals) |
+| **Ownership** | Client owns all deliverables upon final payment |
+
+### Precedent from Proposal 2 (for future reference)
+- **April 18–21 post-completion revisions** (5 hrs, $1,250 value) were **waived as a one-time courtesy** on the MMM account.
+- The 2-hour revision allowance is the **standing policy going forward** — don't default to free revisions in future docs.
+
+### When drafting new proposals
+- Always list the rate explicitly: `$250/hour`
+- Always include the 2-hour revision allowance in the Terms section
+- Include the deposit structure appropriate to the work type (project vs package)
+- Show package discounts as savings off the sum of individual project prices
+- **Do NOT offer monthly retainers.** For ongoing work, offer a pay-as-you-go menu (blog batches, audit sprints, link-building sprints) that the client can trigger when they want.
+
+---
+
 ## Architecture
 
 ### Two types of pages

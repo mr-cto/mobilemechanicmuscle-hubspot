@@ -58,7 +58,7 @@ class ServiceContentGenerator {
     <div class="hero-text">
       <h1>${this.service.name} | Mobile Mechanic Muscle</h1>
       <p class="hero-subhead">Professional ${this.service.name.toLowerCase()} service in Nashville. We come to your location with all the tools and expertise needed.</p>
-      <a href="#quote-form" class="cta-button">Get Your Free Quote</a>
+      <a href="/request-service" class="cta-button">Get Your Free Quote</a>
     </div>
   </div>
 </section>`;
@@ -79,7 +79,7 @@ class ServiceContentGenerator {
 ${problemItems}
     </ul>
     
-    <a href="#quote-form" class="cta-button cta-secondary">Schedule Inspection</a>
+    <a href="/request-service" class="cta-button cta-secondary">Schedule Inspection</a>
   </div>
 </section>`;
   }
@@ -186,7 +186,7 @@ ${benefitItems}
     return `<section class="content-section">
   <div class="container">
     <h2>Serving Nashville Metro Area</h2>
-    <p style="background: #f8f9fa; padding: 20px; border-left: 4px solid #30beb4; margin-bottom: 30px;"><strong>Need a different service?</strong> ${this.service.name} is just one of many repairs we handle. From oil changes to transmission work, exhaust to electrical—if it's automotive, we do it. Call us at <a href="tel:+16154963900" style="color: #30beb4;">(615) 496-3900</a> to discuss your needs.</p>
+    <p style="background: #f8f9fa; padding: 20px; border-left: 4px solid #30beb4; margin-bottom: 30px;"><strong>Need a different service?</strong> ${this.service.name} is just one of many repairs we handle. From oil changes to transmission work, exhaust to electrical—if it's automotive, we do it. <a href="/request-service" style="color: #30beb4;">Request service</a> and tell us what you need.</p>
     <p>We provide mobile ${this.service.name.toLowerCase()} throughout Middle Tennessee including:</p>
     
     <ul class="location-list">
@@ -203,34 +203,16 @@ ${locationLinks}
   <div class="container">
     <h2>Need ${this.service.name}? We Come to You.</h2>
     <p>Schedule your mobile service today and experience the convenience of professional auto repair at your location.</p>
-    <a href="#quote-form" class="cta-button">Request Your Free Quote</a>
-    <p class="phone-cta">Or Call: <a href="tel:615-496-3900"><strong>(615) 496-3900</strong></a></p>
+    <a href="/request-service" class="cta-button">Request Service</a>
   </div>
 </section>`;
   }
 
+  // Embedded contact form removed — all service pages now route to /request-service
+  // (the single conversion endpoint per Proposal 2). The CTA section above handles
+  // the conversion path with phone + form-link buttons.
   generateContactForm() {
-    return `<section class="content-section" id="quote-form">
-  <div class="container">
-    <h2>Get Your Free Quote</h2>
-    <p>Fill out the form below and we'll get back to you quickly with an estimate.</p>
-    <div id="hs_form_target_service_form"></div>
-  </div>
-</section>
-
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-<script>
-  if (window.hbspt) {
-    hbspt.forms.create({
-      region: "na1",
-      portalId: "46603985",
-      formId: "4dfc54af-6a62-4fdc-a2bf-2836626d42eb",
-      target: '#hs_form_target_service_form',
-      cssClass: 'hs-form stacked hs-custom-form',
-      inlineMessage: 'Thank you for contacting us! We will be in touch soon.'
-    });
-  }
-</script>`;
+    return '';
   }
 
   generateSchema() {
@@ -352,6 +334,34 @@ ${sections.contactForm}
 
 <script type="application/ld+json">
 ${JSON.stringify(sections.schema, null, 2)}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Make the logo clickable (theme renders logo as <div>, not <a>)
+  var logo = document.querySelector('.header__logo');
+  if (logo && !logo.dataset.logoLinkApplied) {
+    logo.dataset.logoLinkApplied = 'true';
+    logo.style.cursor = 'pointer';
+    logo.addEventListener('click', function() { window.location.href = '/'; });
+  }
+  // Fix: parent nav items have href="" causing page refresh on click — toggle submenu instead
+  document.querySelectorAll('.header__menu-link--toggle').forEach(function(a) {
+    if (a.dataset.navFixApplied) return;
+    a.dataset.navFixApplied = 'true';
+    var h = a.getAttribute('href');
+    if (!h || h === '' || h === '#') {
+      a.setAttribute('role', 'button');
+      a.style.cursor = 'pointer';
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var li = a.closest('.header__menu-item--has-submenu') || a.parentElement;
+        var toggle = li && li.querySelector('.header__menu-child-toggle');
+        if (toggle) toggle.click();
+      });
+    }
+  });
+});
 </script>`;
   }
 }

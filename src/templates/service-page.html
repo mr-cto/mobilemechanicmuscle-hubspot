@@ -144,4 +144,27 @@
   }
 }
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var logo = document.querySelector('.header__logo');
+  if (logo) { logo.style.cursor = 'pointer'; logo.addEventListener('click', function() { window.location.href = '/'; }); }
+  // Fix: parent nav items have href="" which causes page refresh on click.
+  // Instead, make the click toggle the submenu the same way the chevron button does.
+  document.querySelectorAll('.header__menu-link--toggle').forEach(function(a) {
+    if (a.dataset.navFixApplied) return; // guard against double-binding from Site Footer HTML
+    a.dataset.navFixApplied = 'true';
+    var h = a.getAttribute('href');
+    if (!h || h === '' || h === '#') {
+      a.setAttribute('role', 'button');
+      a.style.cursor = 'pointer';
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var li = a.closest('.header__menu-item--has-submenu') || a.parentElement;
+        var toggle = li && li.querySelector('.header__menu-child-toggle');
+        if (toggle) toggle.click();
+      });
+    }
+  });
+});
+</script>
 {% endblock %}

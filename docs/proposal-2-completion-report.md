@@ -1,18 +1,29 @@
 # Mobile Mechanic Muscle — Second Proposal: Completion Report
 
-> Contractor: Dalessandro & Guarascio LLC
-> Client: Alexander Dalessandro (Mobile Mechanic Muscle)
-> Proposal Date: March 26, 2026
-> Completion Date: April 16–17, 2026
+> **Contractor:** Dalessandro & Guarascio LLC
+> **Client:** Alexander Dalessandro (Mobile Mechanic Muscle)
+> **Proposal Date:** March 26, 2026
+> **Initial Completion Date:** April 16–17, 2026
+> **Post-Completion Revisions:** April 18–21, 2026
 
 ---
 
-## Cost & Terms
+## 💰 Invoice Summary — Ready for Payment
+
+| Item | Hours | Rate | Amount |
+|------|-------|------|--------|
+| Proposal 2 — Contracted Scope (custom form) | 8 hrs | $250 | $2,000 |
+| Post-Completion Client Feedback Revisions (Apr 18–21) | 5 hrs | $250 | ~~$1,250~~ **WAIVED** |
+| **Subtotal** | 8 hrs billable | | $2,000 |
+| Less: Deposit Received | — | | ($750) |
+| **Balance Due** | | | **$1,250** |
 
 **Rate:** $250/hour
-**Scenario Selected:** With custom form (HubSpot free tier limitations) — 8 hrs / $2,000
-**Deposit Received:** $750
-**Balance Due:** $1,250
+**Payment Terms:** Due upon receipt. Previously agreed terms from original proposal (no refunds, completion criteria) apply.
+
+> **Goodwill credit — $1,250 waived.** The April 18–21 client feedback revisions (logo link, state dropdown, copy refinements, brand badges, photos, form title) were 5 hours of work delivered at no additional charge as a one-time courtesy.
+>
+> **Going forward:** Proposal 3 will include a standing **2-hour revision allowance** per proposal. Work beyond that allowance will be billed at the standard $250/hour rate.
 
 ---
 
@@ -307,6 +318,52 @@ These should be unpublished/deleted in HubSpot: Marketing > Website > Website Pa
 
 ---
 
+## Post-Completion Client Feedback Revisions (April 18–21, 2026)
+
+After initial completion, the client provided feedback via email. The following refinements were executed, tested, and deployed:
+
+### Client Feedback Items Addressed
+
+| # | Client Request | Resolution | Status |
+|---|---------------|------------|--------|
+| 1 | Logo in header should link to home page (like the luxury page) | Added click handler script to all managed page types (the Growth theme renders logo as `<div>`, not `<a>` — `href` alone was insufficient) | **Completed** |
+| 2 | Vehicle registered state dropdown needs all 50 states (plate lookups require any state) | Expanded both state dropdowns (`#rsState` and `#rsCommRegState`) to all 50 states + D.C., alphabetized | **Completed** |
+| 3 | "Sounds budget-oriented" — soften cost-focused framing | Rewrote "Transparent Pricing" card on muscle-cars (now "We Work With Your Insurance & Warranty"); rewrote "Zero Transport Costs" section on commercial-equipment; removed "see detailed pricing" from all-services intro | **Completed** |
+| 4 | Explicitly mention warranty work (Silver Rock) and insurance claims | Added Silver Rock + insurance claim language to muscle-cars Why-Mobile-Service section; added "Insurance & Warranty Claims Accepted" badge to all-services trust bar; added "Warranty & Insurance Work Accepted" badge to commercial-equipment trust bar | **Completed** |
+| 5 | Don't imply vehicles need a shop visit | Revised commercial-equipment hero/intro copy to reinforce full on-site service; revised muscle-cars copy to remove "shop tech" comparison framing | **Completed** |
+| 6 | Add brand + performance division badges to high-end vehicles page (BMW + ///M, Mercedes + AMG, Audi + RS) | Added `.lux-makes__perf` CSS class (gold, 17px, letter-spaced); added performance marks to BMW (`///M`), Mercedes-Benz (`AMG`), Audi (`RS`), and Porsche (`GT & Turbo`) cards | **Completed** |
+| 7 | Form title "Book an Appointment" → "Request Service" | Title updated on request-service page step 0 | **Completed** |
+| 8 | Client photos (Suburban, service van, forklift) added to site | Downloaded from client Drive, uploaded to HubSpot File Manager at `/mmm-client-photos/`; Suburban wired into muscle-cars gallery; forklift wired into commercial-equipment (HEIC → JPG conversion); van hosted and ready for placement | **Completed** |
+
+### Infrastructure Added
+
+| Item | Detail |
+|------|--------|
+| `/mmm-client-photos/` folder in HubSpot File Manager | Created via `hs filemanager` CLI; houses Suburban, forklift (JPEG), and service van client imagery |
+| Logo click handler pattern | Standardized across all 6 managed page types (4 pages + 2 templates) |
+| 3 clean deploys | All 17 pages re-published without errors across the 4-day revision period |
+
+### Hours Breakdown
+
+| Activity | Hours |
+|----------|-------|
+| Review 5 client feedback emails + analyze attached screenshots from Drive | 0.5 |
+| Logo home-link implementation + debug (DIV vs `<a>` behavior) across 6 files | 0.75 |
+| State dropdown expansion (both form instances) | 0.25 |
+| Copy audit + revisions across 3 pages (all-services, muscle-cars, commercial-equipment) | 1.0 |
+| Brand + performance badge CSS/HTML on high-end-vehicles | 0.5 |
+| Client photo downloads, HubSpot CLI uploads, HEIC → JPEG conversion, HTML wiring | 1.0 |
+| Form title change + validation | 0.15 |
+| Testing + 3 full site redeploys | 0.35 |
+| Client communication + documentation | 0.5 |
+| **Total** | **5.0 hrs** |
+
+At $250/hour: $1,250 → **Waived as one-time courtesy ($0 invoiced)**
+
+> Future proposals will include a 2-hour revision allowance. Work beyond that allowance will be billed at the standard $250/hour rate.
+
+---
+
 ## Definition of Done
 
 | # | Criteria | Status |
@@ -366,4 +423,6 @@ HubSpot free tier does not support 301 URL redirects. A JavaScript redirect is i
 
 ---
 
-*Second proposal: Completed. Balance due: $1,250.*
+*Second proposal: Completed with post-completion client feedback revisions delivered.*
+*Balance Due: **$1,250** (contracted scope only — April 18–21 revisions waived as a one-time courtesy).*
+*Future proposals include a 2-hour revision allowance; work beyond that is billed at standard rate.*

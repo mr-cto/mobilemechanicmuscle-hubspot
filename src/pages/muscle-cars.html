@@ -15,16 +15,9 @@
   .header__menu-item--depth-1 { border-top: 1px solid #EEEEEE; }
 }
 .header__menu-toggle svg { fill: #2B394B; }
-/* Header layout fix — logo left, nav right */
-.header__container--centered .header__wrapper--bottom { flex-wrap: nowrap !important; text-align: left !important; }
-.header__container--centered .header__logo-col { width: auto !important; margin-bottom: 0 !important; flex-shrink: 0 !important; }
-.header__container--centered .header__menu-col { width: auto !important; margin-left: auto !important; text-align: right !important; }
-.header__logo-image { max-height: 85px !important; width: auto !important; height: auto !important; object-fit: contain !important; }
-.header__bottom { padding: 0.8rem 20px !important; }
-.header__top { display: none !important; }
+/* Header — let theme's default centered layout render (matches home page).
+   Mobile menu fixes still apply to prevent overflow on small viewports. */
 @media (max-width: 767px) {
-  .header__container--centered .header__wrapper--bottom { justify-content: space-between !important; }
-  .header__logo-image { max-height: 50px !important; }
   .header__menu--mobile { position: fixed !important; z-index: 99; top: auto; left: 0 !important; right: 0 !important; width: 100vw !important; max-width: 100vw !important; overflow-x: hidden !important; margin: 0 !important; padding: 0 !important; }
   .header__menu--mobile .header__menu-wrapper { display: flex !important; flex-direction: column !important; }
   .header__menu--mobile .header__menu-item { display: block !important; width: 100% !important; }
@@ -152,19 +145,19 @@
   <div class="container">
     <h1>Muscle Car Mobile Mechanic — Nashville</h1>
     <p>Mobile Mechanic Muscle specializes in American muscle car service and repair — classic and modern. From vintage big-blocks to late-model Hellcats, we bring professional muscle car expertise directly to your garage, shop, or driveway anywhere in Middle Tennessee.</p>
-    <a href="tel:+16154963900" class="cta-button">Call (615) 496-3900</a>
-    <a href="/request-service" class="button-light">Request Service</a>
+    <a href="/request-service" class="cta-button">Request Service</a>
   </div>
 </section>
 
-<!-- Photo Gallery -->
+<!-- Photo Gallery — single-tile full-width stacked -->
 <section class="content-section content-section-alt">
-  <div class="container">
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 0 auto; max-width: 1000px;">
-      <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20230426_193722334~2.jpg?width=600&length=600&name=IMG_20230426_193722334~2.jpg" alt="Classic Barracuda" style="width:100%; height:250px; object-fit:cover; border-radius:8px;">
-      <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20231004_134523~3.jpg?width=600&length=600&name=IMG_20231004_134523~3.jpg" alt="Super Bee" style="width:100%; height:250px; object-fit:cover; border-radius:8px;">
-      <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/mmm-gallery-112525-2.jpg?width=600&length=600&name=mmm-gallery-112525-2.jpg" alt="Muscle car service" style="width:100%; height:250px; object-fit:cover; border-radius:8px;">
-    </div>
+  <div class="container" style="display: flex; flex-direction: column; gap: 24px;">
+    <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20230426_193722334~2.jpg?width=1600&name=IMG_20230426_193722334~2.jpg" alt="Classic Barracuda" style="width:100%; height:auto; max-height:560px; object-fit:cover; border-radius:8px; display:block;">
+    <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/IMG_20231004_134523~3.jpg?width=1600&name=IMG_20231004_134523~3.jpg" alt="Super Bee" style="width:100%; height:auto; max-height:560px; object-fit:cover; border-radius:8px; display:block;">
+    <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/mmm-gallery-112525-2.jpg?width=1600&name=mmm-gallery-112525-2.jpg" alt="Muscle car service" style="width:100%; height:auto; max-height:560px; object-fit:cover; border-radius:8px; display:block;">
+    <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/mmm-client-photos/suburban-muscle.webp" alt="Classic Chevy Suburban" style="width:100%; height:auto; max-height:560px; object-fit:cover; border-radius:8px; display:block;">
+    <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/mmm-client-photos/classic-chevy-pickup.jpg" alt="Custom square-body Chevy pickup" style="width:100%; height:auto; max-height:560px; object-fit:cover; border-radius:8px; display:block;">
+    <img src="https://mobilemechanicmusclenearme.com/hs-fs/hubfs/mmm-client-photos/vw-mk1-cabrio.jpg" alt="Classic VW Mk1 Cabriolet" style="width:100%; height:auto; max-height:560px; object-fit:cover; border-radius:8px; display:block;">
   </div>
 </section>
 
@@ -268,7 +261,7 @@
 <section class="content-section">
   <div class="container">
     <h2 style="text-align: center;">Why Mobile Service for Your Muscle Car?</h2>
-    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Your muscle car deserves someone who knows these platforms — not a general shop tech guessing at a classic Holley carb or a Hellcat supercharger fault code.</p>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Your muscle car deserves someone who knows these platforms — a specialist who understands a classic Holley carb or a Hellcat supercharger fault code, not someone learning on your dime.</p>
 
     <div class="services-grid">
       <div class="service-category">
@@ -280,8 +273,8 @@
         <p style="text-align: center;">We know the difference between a 350 and a 396, between a Tremec and a Muncie. You get a mechanic who speaks your language.</p>
       </div>
       <div class="service-category">
-        <h3>Transparent Pricing</h3>
-        <p style="text-align: center;">Written estimates before any work starts. No shop markup surprises. You know exactly what you're paying and why.</p>
+        <h3>We Work With Your Insurance & Warranty</h3>
+        <p style="text-align: center;">We handle warranty work including Silver Rock and other coverage programs, and work with insurance claims. Mobile service, full documentation.</p>
       </div>
     </div>
   </div>
@@ -338,8 +331,7 @@
     </div>
 
     <div style="text-align: center; margin-top: 40px;">
-      <a href="tel:+16154963900" class="cta-button">Call Now: (615) 496-3900</a>
-      <a href="/request-service" class="button-light">Request Service</a>
+      <a href="/request-service" class="cta-button">Request Service</a>
       <p style="margin-top: 20px;"><a href="https://americanfirstfinance.com/app/?dealer=32791&loc=1&src=UA" target="_blank" rel="noopener" style="color: #30beb4; font-weight: 600; text-decoration: underline;">Financing Available — Apply with American First Finance</a></p>
     </div>
   </div>
@@ -412,6 +404,30 @@
     ]
   }
 }
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var logo = document.querySelector('.header__logo');
+  if (logo) { logo.style.cursor = 'pointer'; logo.addEventListener('click', function() { window.location.href = '/'; }); }
+  // Fix: parent nav items have href="" which causes page refresh on click.
+  // Instead, make the click toggle the submenu the same way the chevron button does.
+  document.querySelectorAll('.header__menu-link--toggle').forEach(function(a) {
+    if (a.dataset.navFixApplied) return; // guard against double-binding from Site Footer HTML
+    a.dataset.navFixApplied = 'true';
+    var h = a.getAttribute('href');
+    if (!h || h === '' || h === '#') {
+      a.setAttribute('role', 'button');
+      a.style.cursor = 'pointer';
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var li = a.closest('.header__menu-item--has-submenu') || a.parentElement;
+        var toggle = li && li.querySelector('.header__menu-child-toggle');
+        if (toggle) toggle.click();
+      });
+    }
+  });
+});
 </script>
 
 <!-- JSON-LD: FAQ Schema -->

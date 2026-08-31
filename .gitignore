@@ -71,3 +71,10 @@ analytics-exports/
 
 # PDF proposal (keep in repo for reference)
 !MMM-D_G.pdf
+.tmp-photos/
+
+# Local Claude Code settings (machine-specific)
+.claude/settings.local.json
+
+# Local single-page preview scratch artifact
+preview-high-end-vehicles.html

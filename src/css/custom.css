@@ -15,6 +15,129 @@
     "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+/* ============================================================
+   Centered header fix for managed pages.
+   module_website-header.min.css sets display:flex on .header__menu-wrapper
+   and display:block on .header__logo-image, which prevents the parent's
+   text-align:center from centering them. Home page has additional CSS
+   from template_main.min.css that overrides this; managed pages don't
+   load that file, so we replicate the centering behavior here.
+   ============================================================ */
+.header__container--centered .header__menu-wrapper {
+  justify-content: center;
+}
+.header__container--centered .header__logo-image {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   Growth Theme — header settings replication for managed pages.
+   Managed pages don't emit HubSpot's theme-generated inline <style>
+   blocks for the menu submenu, so we replicate them here.
+   Source: HubSpot-rendered CSS on the home page (unmanaged).
+   ============================================================ */
+
+/* Menu items — top level links */
+.header__menu-link {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 17px;
+  text-transform: none;
+}
+
+.header__menu-item--depth-1 > .header__menu-link:not(.button) { color: #2B394B; }
+.header__menu-item--depth-1 > .header__menu-link:hover,
+.header__menu-item--depth-1 > .header__menu-link:focus { color: #000000; }
+.header__menu-item--depth-1 > .header__menu-link:active { color: #505050; }
+.header__menu-item--depth-1 > .header__menu-link--active-link:not(.button) { color: #000000; }
+.header__menu-item--depth-1 .header__menu-child-toggle svg { fill: #2B394B; }
+
+/* Submenu dropdowns — white background, dark text (the main fix) */
+.header__menu-submenu {
+  background-color: #ffffff;
+  border-color: #EEEEEE;
+}
+.header__menu-submenu .header__menu-link:not(.button) { color: #2B394B; }
+.header__menu-submenu .header__menu-item {
+  background-color: #ffffff;
+}
+.header__menu-submenu .header__menu-item:hover,
+.header__menu-submenu .header__menu-item:focus {
+  background-color: #f5f8fa;
+}
+.header__menu-submenu .header__menu-link:hover,
+.header__menu-submenu .header__menu-link:focus {
+  color: #000000;
+  background-color: #f5f8fa;
+}
+.header__menu-submenu .header__menu-link:active {
+  background-color: #f5f8fa;
+}
+
+/* ============================================================
+   Button reset (replaces .no-button from template_main.min.css)
+   Fixes header dropdown chevron buttons rendering as default
+   browser gray boxes.
+   ============================================================ */
+.no-button,
+.no-button:hover,
+.no-button:focus,
+.no-button:active {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  text-transform: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Header dropdown chevron toggle — ensure no browser default styling */
+.header__menu-child-toggle,
+.header__menu-child-toggle:hover,
+.header__menu-child-toggle:focus,
+.header__menu-child-toggle:active {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.header__menu-child-toggle svg {
+  fill: currentColor;
+}
+
+/* ============================================================
+   Hamburger (mobile menu toggle) — proper tap target.
+   Without this, the SVG icon is only 30x30 with zero padding,
+   so clicks on the edges miss the button entirely. iOS HIG
+   recommends 44x44 minimum for reliable touch.
+   ============================================================ */
+.header__menu-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px !important;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.header__menu-toggle--show {
+  display: flex !important;
+}
+.header__menu-toggle svg {
+  flex-shrink: 0;
+  pointer-events: none; /* clicks on the SVG still count as clicks on the button */
+}
+
 /* Utility Classes */
 .show-for-sr {
   position: absolute !important;
