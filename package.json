@@ -8,9 +8,7 @@
     "deploy": "node scripts/deploy-pages.js",
     "clean": "node scripts/clean-duplicates.js",
     "status": "node scripts/status.js",
-    "full-deploy": "npm run sync && npm run deploy",
-    "preview:build": "node scripts/build-preview.js",
-    "preview:deploy": "npm run preview:build && vercel deploy --prod --yes --cwd preview --token=$VERCEL_TOKEN"
+    "full-deploy": "npm run sync && npm run deploy"
   },
   "keywords": [
     "hubspot",
